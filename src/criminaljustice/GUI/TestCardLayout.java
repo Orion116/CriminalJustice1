@@ -2082,7 +2082,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                         System.out.println(header.trim() + " # " + (temp + 1));
                         Heading.add(header.trim() + " # " + (temp + 1));
                     }
-                    else if (!Heading.get(temp - 1).contains(header))
+                    else if (!Heading.get(temp - 1).contains(header) || !Heading.get(temp - 1).contains(header + " # 1"))
                     {
                         Heading.add(header.trim() + " # 1");
                     }
@@ -2361,8 +2361,12 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
     private void addActionPerformed(ActionEvent evt)//GEN-FIRST:event_addActionPerformed
     {//GEN-HEADEREND:event_addActionPerformed
-
-        // TODO add your handling code here:
+        int option = 2;
+        option = JOptionPane.showConfirmDialog(null, "Adding another complainant will clear the current one.\n" +
+                                                     "You can edit the previous complainant after the document is outputed", 
+                                                     "Select an Option...",
+                                                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        // TODO add your handling code here: 
     }//GEN-LAST:event_addActionPerformed
 
     private void checkState( JTextField txtTemp )

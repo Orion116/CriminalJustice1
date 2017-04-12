@@ -2086,7 +2086,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                         Heading.add(header.trim() + " # 1");
                     }
 
-
                     BoxID.add(box);
                     Pos.add(pos);
                     Name.add((first.getText() + " " + mid.getText().toUpperCase() + ". " + last.getText()).trim());
@@ -2102,14 +2101,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                     System.out.println("Element: " + element);
 
                     element += 1;
-                }
-                else
-                {
-                    formValidation.setTextField(birth, false);
-                    String input = "";
-
-                    input = JOptionPane.showInputDialog(null, "Invalid Information Entered !\n" + header + " needs a last name.");
-                    birth.setText(input);
                 }
             }
             else

@@ -275,12 +275,13 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         txtOEmail = new JTextField();
         agencyCB = new JComboBox<String>();
         pane2 = new JPanel();
+        dateVenueScroll = new JScrollPane();
+        jTextArea2 = new JTextArea();
         informationScroll = new JScrollPane();
         txtAreaInfo = new JTextArea();
         pane3 = new JPanel();
-        venueScrollPane = new JScrollPane();
-        venuePane = new JTextPane();
-        pane4 = new JPanel();
+        jScrollPane2 = new JScrollPane();
+        jTextArea1 = new JTextArea();
 
         FormListener formListener = new FormListener();
 
@@ -1346,6 +1347,16 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         pane2.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, new Color(0, 0, 0)));
 
+        dateVenueScroll.setHorizontalScrollBar(null);
+        dateVenueScroll.setRequestFocusEnabled(false);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jTextArea2.setWrapStyleWord(true);
+        jTextArea2.setAutoscrolls(false);
+        dateVenueScroll.setViewportView(jTextArea2);
+
         txtAreaInfo.setColumns(20);
         txtAreaInfo.setLineWrap(true);
         txtAreaInfo.setRows(5);
@@ -1358,12 +1369,18 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         pane2Layout.setHorizontalGroup(pane2Layout.createParallelGroup(GroupLayout.LEADING)
             .add(pane2Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(informationScroll, GroupLayout.DEFAULT_SIZE, 826, Short.MAX_VALUE)
+                .add(pane2Layout.createParallelGroup(GroupLayout.LEADING)
+                    .add(informationScroll, GroupLayout.DEFAULT_SIZE, 826, Short.MAX_VALUE)
+                    .add(pane2Layout.createSequentialGroup()
+                        .add(dateVenueScroll, GroupLayout.PREFERRED_SIZE, 354, GroupLayout.PREFERRED_SIZE)
+                        .add(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pane2Layout.setVerticalGroup(pane2Layout.createParallelGroup(GroupLayout.LEADING)
             .add(GroupLayout.TRAILING, pane2Layout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
+                .addContainerGap()
+                .add(dateVenueScroll, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(informationScroll, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1372,42 +1389,26 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         pane3.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, new Color(0, 0, 0)));
 
-        venueScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), bundle.getString("TestCardLayout.venueScrollPane.border.title"))); // NOI18N
-        venueScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        venueScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-        venuePane.setBorder(new MatteBorder(null));
-        venueScrollPane.setViewportView(venuePane);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
 
         GroupLayout pane3Layout = new GroupLayout(pane3);
         pane3.setLayout(pane3Layout);
         pane3Layout.setHorizontalGroup(pane3Layout.createParallelGroup(GroupLayout.LEADING)
             .add(pane3Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(venueScrollPane)
-                .addContainerGap())
+                .add(114, 114, 114)
+                .add(jScrollPane2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(573, Short.MAX_VALUE))
         );
         pane3Layout.setVerticalGroup(pane3Layout.createParallelGroup(GroupLayout.LEADING)
-            .add(pane3Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(venueScrollPane, GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                .addContainerGap())
+            .add(GroupLayout.TRAILING, pane3Layout.createSequentialGroup()
+                .addContainerGap(92, Short.MAX_VALUE)
+                .add(jScrollPane2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .add(81, 81, 81))
         );
 
         mainPanel.add(pane3, "card3");
-
-        pane4.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, new Color(0, 0, 0)));
-
-        GroupLayout pane4Layout = new GroupLayout(pane4);
-        pane4.setLayout(pane4Layout);
-        pane4Layout.setHorizontalGroup(pane4Layout.createParallelGroup(GroupLayout.LEADING)
-            .add(0, 850, Short.MAX_VALUE)
-        );
-        pane4Layout.setVerticalGroup(pane4Layout.createParallelGroup(GroupLayout.LEADING)
-            .add(0, 251, Short.MAX_VALUE)
-        );
-
-        mainPanel.add(pane4, "card3");
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2418,33 +2419,33 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        }
-        catch (ClassNotFoundException ex)
-        {
-            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
-            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+//        try
+//        {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+//            {
+//                if ("Nimbus".equals(info.getName()))
+//                {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        }
+//        catch (ClassNotFoundException ex)
+//        {
+//            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        catch (InstantiationException ex)
+//        {
+//            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        catch (IllegalAccessException ex)
+//        {
+//            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        catch (javax.swing.UnsupportedLookAndFeelException ex)
+//        {
+//            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
         //</editor-fold>
 
         try
@@ -2489,6 +2490,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JPanel centered4;
     private JPanel complainantPane;
     private JFormattedTextField complaintNum;
+    private JScrollPane dateVenueScroll;
     private JComboBox genderBox;
     private JComboBox genderBox1;
     private JComboBox genderBox2;
@@ -2498,6 +2500,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JLabel jLabel2;
     private JLabel jLabel3;
     private JLabel jLabel4;
+    private JScrollPane jScrollPane1;
+    private JScrollPane jScrollPane2;
+    private JTextArea jTextArea1;
+    private JTextArea jTextArea2;
     private JFormattedTextField jftCFname;
     private JFormattedTextField jftOFname;
     private JFormattedTextField jftSFname;
@@ -2570,7 +2576,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JPanel pane1;
     private JPanel pane2;
     private JPanel pane3;
-    private JPanel pane4;
     private JPanel suspectPane;
     private JTextArea txtAreaInfo;
     private JTextField txtCAddress;
@@ -2621,8 +2626,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JTextField txtWPhone;
     private JTextField txtWState;
     private JTextField txtWZipcode;
-    private JTextPane venuePane;
-    private JScrollPane venueScrollPane;
     private JPanel victimPane;
     private JPanel witnessPane;
     // End of variables declaration//GEN-END:variables

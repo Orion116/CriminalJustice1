@@ -2056,9 +2056,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                             JTextField phone, JTextField race,
                             String gender, JTextField email)
     {
-        boxNum = boxNum + 1;
-        postion = postion - 1905;
-        
         System.out.println("Heading: " + header + " Box: " + box + " Postion: " + pos);
         
         if (!first.getText().equals(""))
@@ -2069,6 +2066,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                 formValidation.setTextField(last, true);
                 if (checkDate(birth))
                 {   
+                    // set position and box number
+                    boxNum = boxNum + 1;
+                    postion = postion - 1905;
+        
                     int temp = element;
 
                     if (element == 0)
@@ -2368,9 +2369,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         if (option == 0)
         {
 //txtCCity.getText() + ", " + txtCState.getText() + " " + txtCZipcode.getText();
-            clearTextBoxes(jftCFname, jtfCLname, 
-                               txtCMInitial, txtCDOB, txtCAddress, txtCCity, txtCPhone, txtCState, txtCZipcode,
-                               txtRace,txtCEmail);
+            clearTextBoxes(jftCFname, jtfCLname, txtCMInitial, 
+                           txtCDOB, txtCAddress, txtCCity, 
+                           txtCPhone, txtCState, txtCZipcode,
+                           txtRace,txtCEmail);
         }
             
         
@@ -2700,6 +2702,4 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JPanel victimPane;
     private JPanel witnessPane;
     // End of variables declaration//GEN-END:variables
-
-   
 }

@@ -7,6 +7,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.time.*;
+import java.time.format.*;
+import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE;
+import static java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
 /**
  *
@@ -649,12 +653,19 @@ public class DocxWriter
 	
     public static void createDOCXArchive() throws IOException
     {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss");
+
+        String formatDateTime = now.format(formatter);
+        
+        // now = LocalDateTime.parse(date, formatter);
+       
         String OS;
         OS = System.getProperty("os.name");
         if (OS.startsWith("Windows"))
         {
             String oog;
-            Process cmdProc = Runtime.getRuntime().exec("7z a -tzip -r ./report.docx ./report/*");
+            Process cmdProc = Runtime.getRuntime().exec("7z a -tzip -r ./report-" + formatDateTime + ".docx ./report/*");
             BufferedReader stdoutReader = new BufferedReader(new InputStreamReader(cmdProc.getInputStream()));
             while ((oog = stdoutReader.readLine()) != null) 
             {

@@ -2352,6 +2352,13 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private void addActionPerformed(ActionEvent evt)//GEN-FIRST:event_addActionPerformed
     {//GEN-HEADEREND:event_addActionPerformed
         int option = 2;
+        
+        int titleNum = jtbBasic.getSelectedIndex();
+        
+        String city = "";  
+        String gender = "";
+        String heading = jtbBasic.getTitleAt(titleNum);
+        
         option = JOptionPane.showConfirmDialog(null, "Adding another complainant will clear the current one.\n" +
                                                      "You can edit the previous complainant after the document is outputed", 
                                                      "Select an Option...",
@@ -2364,6 +2371,13 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                            txtCDOB, txtCAddress, txtCCity, 
                            txtCPhone, txtCState, txtCZipcode,
                            txtRace,txtCEmail);
+            
+            city = txtCCity.getText() + ", " + txtCState.getText() + " " + txtCZipcode.getText();
+                    gender = (String) genderBox.getItemAt(genderBox.getSelectedIndex());
+
+            getContent(heading, boxNum, postion, jftCFname, jtfCLname, 
+                       txtCMInitial, txtCDOB, txtCAddress, city, txtCPhone,
+                       txtRace, gender, txtCEmail);
         }
             
         

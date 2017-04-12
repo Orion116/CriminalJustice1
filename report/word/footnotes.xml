@@ -3,7 +3,7 @@
     <w:footnote w:type="separator" w:id="-1">
         <w:p w:rsidR="00762E72" w:rsidRDefault="00762E72" w:rsidP="00EA7867">
             <w:pPr>
-                <w:spacing w:after="0pt" w:line="12pt" w:lineRule="auto"/>
+                <w:spacing w:line="12pt" w:lineRule="auto"/>
             </w:pPr>
             <w:r>
                 <w:separator/>
@@ -13,7 +13,7 @@
     <w:footnote w:type="continuationSeparator" w:id="0">
         <w:p w:rsidR="00762E72" w:rsidRDefault="00762E72" w:rsidP="00EA7867">
             <w:pPr>
-                <w:spacing w:after="0pt" w:line="12pt" w:lineRule="auto"/>
+                <w:spacing w:line="12pt" w:lineRule="auto"/>
             </w:pPr>
             <w:r>
                 <w:continuationSeparator/>

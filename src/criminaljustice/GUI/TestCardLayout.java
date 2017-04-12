@@ -1956,11 +1956,31 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         input = JOptionPane.showConfirmDialog(null, "Do you want to Quit?", "Select an Option...",
                         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        String date = now.format(formatter);
+        String year = date.split("-")[1]; 
+        String month = date.split("-")[0];
+        String day = date.split("-")[2];
+        
+        if (day.length() != 2)
+        {
+            day = "0" + day;
+        }  
+        if (month.length() != 2)
+        {
+            month = "0" + month;
+        }
+        
+        date =  month+ "/" + day + "/" + year;
+        
         if (input == 0)
         {
             try
             {
                 printer();
+                DocxWriter.sectionDivider(txtOficerInCharge.getText(), date);
                 DocxWriter.writeContentFileEnd();
                 DocxWriter.createDOCXArchive();
             }

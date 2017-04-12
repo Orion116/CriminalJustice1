@@ -2370,7 +2370,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             clearTextBoxes(jftCFname, jtfCLname, txtCMInitial, 
                            txtCDOB, txtCAddress, txtCCity, 
                            txtCPhone, txtCState, txtCZipcode,
-                           txtRace,txtCEmail);
+                           txtRace,txtCEmail, genderBox);
             
             city = txtCCity.getText() + ", " + txtCState.getText() + " " + txtCZipcode.getText();
                     gender = (String) genderBox.getItemAt(genderBox.getSelectedIndex());
@@ -2379,7 +2379,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                        txtCMInitial, txtCDOB, txtCAddress, city, txtCPhone,
                        txtRace, gender, txtCEmail);
         }
-            
+           
         
         // TODO add your handling code here: 
     }//GEN-LAST:event_addActionPerformed
@@ -2387,7 +2387,8 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private void clearTextBoxes(JFormattedTextField fname, JFormattedTextField lname, 
                                 JTextField mid, JTextField birth, JTextField street, 
                                 JTextField city, JTextField phone, JTextField state, 
-                                JTextField zip, JTextField race, JTextField email)
+                                JTextField zip, JTextField race, JTextField email,
+                                JComboBox gender)
     {
         fname.setText("");
         lname.setText("");
@@ -2400,6 +2401,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         zip.setText("");
         race.setText("");
         email.setText(""); 
+        gender.setSelectedIndex(0);
     }
     private void checkState( JTextField txtTemp )
     {

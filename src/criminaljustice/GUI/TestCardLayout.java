@@ -276,9 +276,11 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         agencyCB = new JComboBox<String>();
         pane2 = new JPanel();
         dateVenueScroll = new JScrollPane();
-        jTextArea2 = new JTextArea();
+        txtAreaDateVenue = new JTextArea();
         informationScroll = new JScrollPane();
         txtAreaInfo = new JTextArea();
+        lblDateVenue = new JLabel();
+        lblBackground = new JLabel();
         pane3 = new JPanel();
         jScrollPane2 = new JScrollPane();
         jTextArea1 = new JTextArea();
@@ -323,7 +325,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         buttonPanel.setLayout(buttonPanelLayout);
         buttonPanelLayout.setHorizontalGroup(buttonPanelLayout.createParallelGroup(GroupLayout.LEADING)
             .add(GroupLayout.TRAILING, buttonPanelLayout.createSequentialGroup()
-                .addContainerGap(122, Short.MAX_VALUE)
+                .addContainerGap(134, Short.MAX_VALUE)
                 .add(btnBack, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
                 .add(btnDone, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
@@ -331,7 +333,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                 .add(btnSave, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
                 .add(46, 46, 46)
                 .add(btnNext, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         buttonPanelLayout.linkSize(new Component[] {btnBack, btnDone, btnNext}, GroupLayout.HORIZONTAL);
@@ -1347,15 +1349,17 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         pane2.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, new Color(0, 0, 0)));
 
+        dateVenueScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        dateVenueScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         dateVenueScroll.setHorizontalScrollBar(null);
         dateVenueScroll.setRequestFocusEnabled(false);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
-        jTextArea2.setWrapStyleWord(true);
-        jTextArea2.setAutoscrolls(false);
-        dateVenueScroll.setViewportView(jTextArea2);
+        txtAreaDateVenue.setColumns(20);
+        txtAreaDateVenue.setLineWrap(true);
+        txtAreaDateVenue.setRows(5);
+        txtAreaDateVenue.setWrapStyleWord(true);
+        txtAreaDateVenue.setAutoscrolls(false);
+        dateVenueScroll.setViewportView(txtAreaDateVenue);
 
         txtAreaInfo.setColumns(20);
         txtAreaInfo.setLineWrap(true);
@@ -1363,6 +1367,12 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         txtAreaInfo.setTabSize(4);
         txtAreaInfo.setWrapStyleWord(true);
         informationScroll.setViewportView(txtAreaInfo);
+
+        lblDateVenue.setFont(new Font("Dialog", 0, 14)); // NOI18N
+        lblDateVenue.setText(bundle.getString("TestCardLayout.lblDateVenue.text")); // NOI18N
+
+        lblBackground.setFont(new Font("Dialog", 0, 14)); // NOI18N
+        lblBackground.setText(bundle.getString("TestCardLayout.lblBackground.text")); // NOI18N
 
         GroupLayout pane2Layout = new GroupLayout(pane2);
         pane2.setLayout(pane2Layout);
@@ -1372,14 +1382,21 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                 .add(pane2Layout.createParallelGroup(GroupLayout.LEADING)
                     .add(informationScroll, GroupLayout.DEFAULT_SIZE, 826, Short.MAX_VALUE)
                     .add(pane2Layout.createSequentialGroup()
+                        .add(lblDateVenue)
+                        .addPreferredGap(LayoutStyle.RELATED)
                         .add(dateVenueScroll, GroupLayout.PREFERRED_SIZE, 354, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.RELATED)
+                        .add(lblBackground)
                         .add(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pane2Layout.setVerticalGroup(pane2Layout.createParallelGroup(GroupLayout.LEADING)
             .add(GroupLayout.TRAILING, pane2Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(dateVenueScroll, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
+                .add(pane2Layout.createParallelGroup(GroupLayout.LEADING)
+                    .add(dateVenueScroll, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
+                    .add(lblDateVenue)
+                    .add(GroupLayout.TRAILING, lblBackground))
                 .addPreferredGap(LayoutStyle.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(informationScroll, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1415,10 +1432,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.LEADING)
             .add(mainPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .add(layout.createParallelGroup(GroupLayout.LEADING)
-                .add(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .add(buttonPanel, GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .add(buttonPanel, GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
@@ -2050,47 +2064,70 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         System.out.println("Heading: " + header + " Box: " + box + " Postion: " + pos);
         
         if (!first.getText().equals(""))
-        {   
+        {
             formValidation.setTextField(first, true);
-            int temp = element;
-
-            if (element == 0)
+            if (!last.getText().equals(""))
             {
-                Heading.add(header.trim() + " # 1");
-            }
-            else if (element != 0 && Heading.get(temp - 1).contains(header))
-            {
-                System.out.println(header.trim() + " # " + (temp + 1));
-                Heading.add(header.trim() + " # " + (temp + 1));
-            }
-            else if (!Heading.get(temp - 1).contains(header))
-            {
-                Heading.add(header.trim() + " # 1");
-            }
+                formValidation.setTextField(last, true);
+                if (checkDate(birth))
+                {   
+                    int temp = element;
+
+                    if (element == 0)
+                    {
+                        Heading.add(header.trim() + " # 1");
+                    }
+                    else if (element != 0 && Heading.get(temp - 1).contains(header))
+                    {
+                        System.out.println(header.trim() + " # " + (temp + 1));
+                        Heading.add(header.trim() + " # " + (temp + 1));
+                    }
+                    else if (!Heading.get(temp - 1).contains(header))
+                    {
+                        Heading.add(header.trim() + " # 1");
+                    }
 
 
-            BoxID.add(box);
-            Pos.add(pos);
-            Name.add((first.getText() + " " + mid.getText().toUpperCase() + ". " + last.getText()).trim());
-            DOB.add(birth.getText().trim());
-            Age.add(calcBday(birth.getText(), birth));
-            Street.add(street.getText().trim());
-            Phone.add(formatPhone(phone.getText().trim()));
-            CityZip.add(cityzip.trim());
-            Race.add(race.getText().trim());
-            Gender.add(gender.trim());
-            Email.add(email.getText().trim());
-            System.out.println(Heading.size());
-            System.out.println("Element: " + element);
-            
-            element += 1;
+                    BoxID.add(box);
+                    Pos.add(pos);
+                    Name.add((first.getText() + " " + mid.getText().toUpperCase() + ". " + last.getText()).trim());
+                    DOB.add(birth.getText().trim());
+                    Age.add(calcBday(birth.getText(), birth));
+                    Street.add(street.getText().trim());
+                    Phone.add(formatPhone(phone.getText().trim()));
+                    CityZip.add(cityzip.trim());
+                    Race.add(race.getText().trim());
+                    Gender.add(gender.trim());
+                    Email.add(email.getText().trim());
+                    System.out.println(Heading.size());
+                    System.out.println("Element: " + element);
+
+                    element += 1;
+                }
+                else
+                {
+                    formValidation.setTextField(birth, false);
+                    String input = "";
+
+                    input = JOptionPane.showInputDialog(null, "Invalid Information Entered !\n" + header + " needs a last name.");
+                    birth.setText(input);
+                }
+            }
+            else
+            {
+                formValidation.setTextField(last, false);
+                String input = "";
+
+                input = JOptionPane.showInputDialog(null, "Invalid Information Entered !\n" + header + " needs a last name.");
+                last.setText(input);
+            }
         }
         else
         {
             formValidation.setTextField(first, false);
             String input = "";
                         
-            input = JOptionPane.showInputDialog(null, "Invalid Information Entered !\n" + header + " needs a name.");
+            input = JOptionPane.showInputDialog(null, "Invalid Information Entered !\n" + header + " needs a first name.");
             first.setText(input);
         }
     }
@@ -2108,7 +2145,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     
     private int calcBday(String date, JTextField tempBox)
     {
-        checkDate(tempBox);
 //        String[] tempDate = date.split("/");
         
         String day = date.split("/")[1]; 
@@ -2347,7 +2383,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         }
     }
 
-    private void checkDate( JTextField txtDate )
+    private boolean checkDate( JTextField txtDate )
     {
         // validate state
         String date = txtDate.getText();
@@ -2358,7 +2394,9 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         {
             // should call print to file
             System.out.println("pass");
-            formValidation.setTextField(txtDate, true);           
+            formValidation.setTextField(txtDate, true); 
+            
+            return true;
         }
         else
         {
@@ -2368,6 +2406,8 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             txtDate.setText(input);
 
             formValidation.setTextField(txtDate, false);
+            
+            return false;
         }
     }
 
@@ -2419,33 +2459,33 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-//        try
-//        {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-//            {
-//                if ("Nimbus".equals(info.getName()))
-//                {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        }
-//        catch (ClassNotFoundException ex)
-//        {
-//            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        catch (InstantiationException ex)
-//        {
-//            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        catch (IllegalAccessException ex)
-//        {
-//            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        catch (javax.swing.UnsupportedLookAndFeelException ex)
-//        {
-//            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("SystemLookAndFeel".equals(info.getName()))
+                {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        }
+        catch (ClassNotFoundException ex)
+        {
+            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        catch (InstantiationException ex)
+        {
+            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        catch (IllegalAccessException ex)
+        {
+            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
+            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
         //</editor-fold>
 
         try
@@ -2503,7 +2543,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JScrollPane jScrollPane1;
     private JScrollPane jScrollPane2;
     private JTextArea jTextArea1;
-    private JTextArea jTextArea2;
     private JFormattedTextField jftCFname;
     private JFormattedTextField jftOFname;
     private JFormattedTextField jftSFname;
@@ -2515,6 +2554,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JFormattedTextField jtfSLname;
     private JFormattedTextField jtfVLname;
     private JFormattedTextField jtfWLname;
+    private JLabel lblBackground;
     private JLabel lblCAddress1;
     private JLabel lblCCity1;
     private JLabel lblCDOB1;
@@ -2528,6 +2568,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JLabel lblCodes;
     private JLabel lblComplaint;
     private JLabel lblDate;
+    private JLabel lblDateVenue;
     private JLabel lblOfficerInCharge;
     private JLabel lblSecondaryOfficer;
     private JLabel lblSup;
@@ -2577,6 +2618,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JPanel pane2;
     private JPanel pane3;
     private JPanel suspectPane;
+    private JTextArea txtAreaDateVenue;
     private JTextArea txtAreaInfo;
     private JTextField txtCAddress;
     private JTextField txtCCity;

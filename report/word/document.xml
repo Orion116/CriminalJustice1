@@ -158,7 +158,7 @@
                                                         <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
                                                     </w:rPr>
                                                     <w:tab/>
-                                                    <w:t xml:space="preserve">                      0900-1: Murder                                    </w:t>
+                                                    <w:t xml:space="preserve">                      0900-2: Negligent Homicide                        </w:t>
                                                 </w:r>
                                             </w:p>
                                             <w:p w:rsidR="006D52A4" w:rsidRDefault="006D52A4" w:rsidP="00E0355A">
@@ -259,19 +259,3 @@
                 </w:drawing>
             </w:r>
         </w:p>
-        <w:p w:rsidR="00F560FD" w:rsidRPr="00A665B3" w:rsidRDefault="00F560FD" w:rsidP="00A665B3">
-            <w:pPr>
-                <w:rPr>
-                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                </w:rPr>
-            </w:pPr>
-        </w:p>
-        <w:sectPr w:rsidR="00F560FD" w:rsidRPr="00A665B3" w:rsidSect="00EA7867">
-            <w:headerReference w:type="default" r:id="rId7"/>
-            <w:pgSz w:w="612pt" w:h="792pt"/>
-            <w:pgMar w:top="72pt" w:right="72pt" w:bottom="72pt" w:left="72pt" w:header="36pt" w:footer="36pt" w:gutter="0pt"/>
-            <w:cols w:space="36pt"/>
-            <w:docGrid w:linePitch="360"/>
-        </w:sectPr>
-    </w:body>
-</w:document>

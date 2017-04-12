@@ -553,11 +553,6 @@ public class DocxWriter
                     "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
                     "                                                    </w:rPr>\n" +
                     "                                                    <w:tab/>\n" +
-                    "                                                </w:r>\n" +
-                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
-                    "                                                    <w:rPr>\n" +
-                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
-                    "                                                    </w:rPr>\n" +
                     "                                                    <w:t>Sex:</w:t>\n" +
                     "                                                </w:r>\n" +
                     "                                                <w:r>\n" +

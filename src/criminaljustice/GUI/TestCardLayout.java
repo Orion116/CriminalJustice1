@@ -107,7 +107,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     
     private int savePressed = 1;
     private final long offSet = 965835;
-    private int boxNum = 1;
+    private int boxNum = 2;
     private int postion = 327025;
     private int element = 0;
 
@@ -2043,6 +2043,9 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                             JTextField phone, JTextField race,
                             String gender, JTextField email)
     {
+        boxNum = boxNum + 1;
+        postion = postion - 1905;
+        
         System.out.println("Heading: " + header + " Box: " + box + " Postion: " + pos);
         
         if (!first.getText().equals(""))
@@ -2080,8 +2083,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             System.out.println("Element: " + element);
             
             element += 1;
-            boxNum = boxNum + 1;
-            postion = postion - 1905;
         }
         else
         {

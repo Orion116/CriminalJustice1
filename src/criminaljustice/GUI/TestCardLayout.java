@@ -2000,8 +2000,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
                 if (heading.equalsIgnoreCase("Complainant"))
                 {
-                    
-                    
                     city = txtCCity.getText() + ", " + txtCState.getText() + " " + txtCZipcode.getText();
                     gender = (String) genderBox.getItemAt(genderBox.getSelectedIndex());
 
@@ -2366,9 +2364,36 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                                                      "You can edit the previous complainant after the document is outputed", 
                                                      "Select an Option...",
                                                      JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if (option == 0)
+        {
+//txtCCity.getText() + ", " + txtCState.getText() + " " + txtCZipcode.getText();
+            clearTextBoxes(jftCFname, jtfCLname, 
+                               txtCMInitial, txtCDOB, txtCAddress, txtCCity, txtCPhone, txtCState, txtCZipcode,
+                               txtRace,txtCEmail);
+        }
+            
+        
         // TODO add your handling code here: 
     }//GEN-LAST:event_addActionPerformed
 
+    private void clearTextBoxes(JFormattedTextField fname, JFormattedTextField lname, 
+                                JTextField mid, JTextField birth, JTextField street, 
+                                JTextField city, JTextField phone, JTextField state, 
+                                JTextField zip, JTextField race, JTextField email)
+    {
+        fname.setText("");
+        lname.setText("");
+        mid.setText("");
+        birth.setText("");
+        street.setText("");
+        city.setText("");
+        phone.setText("");
+        state.setText("");
+        zip.setText("");
+        race.setText("");
+        email.setText(""); 
+    }
     private void checkState( JTextField txtTemp )
     {
         // validate state
@@ -2675,4 +2700,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JPanel victimPane;
     private JPanel witnessPane;
     // End of variables declaration//GEN-END:variables
+
+   
 }

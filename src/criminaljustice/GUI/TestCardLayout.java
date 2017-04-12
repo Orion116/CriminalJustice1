@@ -253,6 +253,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         txtRace3 = new JTextField();
         genderBox3 = new JComboBox();
         otherPane = new JPanel();
+        jPanel1 = new JPanel();
         jftOFname = new JFormattedTextField();
         lblVLname5 = new JLabel();
         jtfOLname = new JFormattedTextField();
@@ -1248,82 +1249,82 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         agencyCB.setModel(new DefaultComboBoxModel<>(agencies));
 
-        GroupLayout otherPaneLayout = new GroupLayout(otherPane);
-        otherPane.setLayout(otherPaneLayout);
-        otherPaneLayout.setHorizontalGroup(otherPaneLayout.createParallelGroup(GroupLayout.LEADING)
-            .add(otherPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(otherPaneLayout.createParallelGroup(GroupLayout.LEADING)
+        GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
+            .add(jPanel1Layout.createSequentialGroup()
+                .add(49, 49, 49)
+                .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
                     .add(agencyCB, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-                    .add(otherPaneLayout.createSequentialGroup()
-                        .add(otherPaneLayout.createParallelGroup(GroupLayout.LEADING)
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
                             .add(lblVFname4)
                             .add(GroupLayout.TRAILING, lblVPhone4)
                             .add(GroupLayout.TRAILING, lblVZipcode4))
                         .addPreferredGap(LayoutStyle.RELATED)
-                        .add(otherPaneLayout.createParallelGroup(GroupLayout.LEADING)
-                            .add(otherPaneLayout.createSequentialGroup()
-                                .add(otherPaneLayout.createParallelGroup(GroupLayout.LEADING, false)
+                        .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING, false)
                                     .add(jftOFname, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
                                     .add(txtOPhone, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(LayoutStyle.UNRELATED)
-                                .add(otherPaneLayout.createParallelGroup(GroupLayout.LEADING)
+                                .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
                                     .add(lblVLname5)
                                     .add(lblVAddress4))
                                 .add(8, 8, 8)
-                                .add(otherPaneLayout.createParallelGroup(GroupLayout.LEADING, false)
+                                .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING, false)
                                     .add(jtfOLname)
                                     .add(txtOAddress, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(LayoutStyle.UNRELATED)
-                                .add(otherPaneLayout.createParallelGroup(GroupLayout.LEADING, false)
-                                    .add(otherPaneLayout.createSequentialGroup()
+                                .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING, false)
+                                    .add(jPanel1Layout.createSequentialGroup()
                                         .add(lblVMInitial5)
                                         .addPreferredGap(LayoutStyle.RELATED)
                                         .add(txtOMInitial, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
-                                    .add(otherPaneLayout.createSequentialGroup()
+                                    .add(jPanel1Layout.createSequentialGroup()
                                         .add(lblVCity4)
                                         .addPreferredGap(LayoutStyle.UNRELATED)
                                         .add(txtOCity, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE)))
-                                .add(otherPaneLayout.createParallelGroup(GroupLayout.LEADING)
-                                    .add(otherPaneLayout.createSequentialGroup()
+                                .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
+                                    .add(jPanel1Layout.createSequentialGroup()
                                         .addPreferredGap(LayoutStyle.UNRELATED)
                                         .add(lblVDOB5)
                                         .add(18, 18, 18)
                                         .add(txtODOB, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
-                                    .add(GroupLayout.TRAILING, otherPaneLayout.createSequentialGroup()
+                                    .add(GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .add(4, 4, 4)
                                         .add(lblVState4)
                                         .addPreferredGap(LayoutStyle.RELATED)
                                         .add(txtOState, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))))
-                            .add(otherPaneLayout.createSequentialGroup()
+                            .add(jPanel1Layout.createSequentialGroup()
                                 .add(txtOZipcode, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.RELATED)
                                 .add(lblVEmail4)
                                 .addPreferredGap(LayoutStyle.UNRELATED)
                                 .add(txtOEmail, GroupLayout.PREFERRED_SIZE, 165, GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .add(49, 49, 49))
         );
-        otherPaneLayout.setVerticalGroup(otherPaneLayout.createParallelGroup(GroupLayout.LEADING)
-            .add(otherPaneLayout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
+            .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(agencyCB, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(LayoutStyle.RELATED)
-                .add(otherPaneLayout.createParallelGroup(GroupLayout.LEADING)
-                    .add(otherPaneLayout.createParallelGroup(GroupLayout.BASELINE)
+                .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
+                    .add(jPanel1Layout.createParallelGroup(GroupLayout.BASELINE)
                         .add(txtODOB, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .add(lblVDOB5))
-                    .add(otherPaneLayout.createParallelGroup(GroupLayout.BASELINE)
+                    .add(jPanel1Layout.createParallelGroup(GroupLayout.BASELINE)
                         .add(txtOMInitial, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .add(lblVMInitial5))
-                    .add(otherPaneLayout.createParallelGroup(GroupLayout.BASELINE)
+                    .add(jPanel1Layout.createParallelGroup(GroupLayout.BASELINE)
                         .add(lblVFname4)
                         .add(jftOFname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .add(lblVLname5)
                         .add(jtfOLname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(LayoutStyle.UNRELATED)
-                .add(otherPaneLayout.createParallelGroup(GroupLayout.LEADING)
+                .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
                     .add(txtOPhone, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .add(otherPaneLayout.createParallelGroup(GroupLayout.BASELINE)
+                    .add(jPanel1Layout.createParallelGroup(GroupLayout.BASELINE)
                         .add(lblVAddress4)
                         .add(txtOAddress, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .add(lblVCity4)
@@ -1332,12 +1333,27 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                         .add(txtOState, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .add(lblVPhone4)))
                 .addPreferredGap(LayoutStyle.UNRELATED)
-                .add(otherPaneLayout.createParallelGroup(GroupLayout.BASELINE)
+                .add(jPanel1Layout.createParallelGroup(GroupLayout.BASELINE)
                     .add(lblVZipcode4)
                     .add(txtOZipcode, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .add(lblVEmail4)
                     .add(txtOEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        GroupLayout otherPaneLayout = new GroupLayout(otherPane);
+        otherPane.setLayout(otherPaneLayout);
+        otherPaneLayout.setHorizontalGroup(otherPaneLayout.createParallelGroup(GroupLayout.LEADING)
+            .add(otherPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .add(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        otherPaneLayout.setVerticalGroup(otherPaneLayout.createParallelGroup(GroupLayout.LEADING)
+            .add(otherPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .add(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jtbBasic.addTab(bundle.getString("TestCardLayout.otherPane.TabConstraints.tabTitle"), otherPane); // NOI18N
@@ -2134,8 +2150,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     
     private int calcBday(String date, JTextField tempBox)
     {
-//        String[] tempDate = date.split("/");
-        
         String day = date.split("/")[1]; 
         String month = date.split("/")[0];
         String year = date.split("/")[2];
@@ -2577,6 +2591,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JLabel jLabel2;
     private JLabel jLabel3;
     private JLabel jLabel4;
+    private JPanel jPanel1;
     private JScrollPane jScrollPane2;
     private JTextArea jTextArea1;
     private JFormattedTextField jftCFname;

@@ -1960,9 +1960,12 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         String date = now.format(formatter);
-        String year = date.split("-")[1]; 
-        String month = date.split("-")[0];
+        String month = date.split("-")[1]; 
+        String year = date.split("-")[0];
         String day = date.split("-")[2];
+        String first = "";
+        String last = "";
+        String name = "";
         
         if (day.length() != 2)
         {
@@ -1973,14 +1976,29 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             month = "0" + month;
         }
         
-        date =  month+ "/" + day + "/" + year;
+        date =  month + "/" + day + "/" + year;
+        
+        if (!txtOficerInCharge.getText().trim().equals("") && txtOficerInCharge.getText().trim().contains(" "))
+        {
+            first = txtOficerInCharge.getText().split(" ")[0];
+            System.out.println(first);
+            last = txtOficerInCharge.getText().split(" ")[1];
+            name = last + ", " + first;
+        }
+        else
+        {
+            name = "Doe" + ", " + "John";
+            System.out.println("Yes. No. Maybe.");
+        }
+        
+        
         
         if (input == 0)
         {
             try
             {
                 printer();
-                DocxWriter.sectionDivider(txtOficerInCharge.getText(), date);
+                DocxWriter.sectionDivider(name, date);
                 DocxWriter.writeContentFileEnd();
                 DocxWriter.createDOCXArchive();
             }

@@ -3,17 +3,19 @@
     <w:body>
         <w:p w:rsidR="00A665B3" w:rsidRDefault="006D52A4" w:rsidP="00E0355A">
             <w:pPr>
-                <w:spacing w:after="0pt" w:line="12pt" w:lineRule="auto"/>
+                <w:spacing w:line="12pt" w:lineRule="auto"/>
                 <w:rPr>
                     <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
                 </w:rPr>
             </w:pPr>
+            <w:bookmarkStart w:id="0" w:name="_Hlk479779473"/>
+            <w:bookmarkEnd w:id="0"/>
             <w:r>
                 <w:rPr>
                     <w:noProof/>
                 </w:rPr>
                 <w:drawing>
-                    <wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251659264" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1" wp14:anchorId="3642ACBE" wp14:editId="36E9C8F2">
+                    <wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251656192" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1" wp14:anchorId="3642ACBE" wp14:editId="36E9C8F2">
                         <wp:simplePos x="0" y="0"/>
                         <wp:positionH relativeFrom="margin">
                             <wp:align>right</wp:align>
@@ -49,7 +51,6 @@
                                         <wne:txbxContent>
                                             <w:p w:rsidR="006D52A4" w:rsidRDefault="006D52A4" w:rsidP="00E0355A">
                                                 <w:pPr>
-                                                    <w:spacing w:after="0pt"/>
                                                     <w:rPr>
                                                         <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
                                                     </w:rPr>
@@ -76,7 +77,6 @@
                                             </w:p>
                                             <w:p w:rsidR="006D52A4" w:rsidRDefault="006D52A4" w:rsidP="00E0355A">
                                                 <w:pPr>
-                                                    <w:spacing w:after="0pt"/>
                                                     <w:rPr>
                                                         <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
                                                     </w:rPr>
@@ -128,7 +128,6 @@
                                             </w:p>
                                             <w:p w:rsidR="006D52A4" w:rsidRDefault="006D52A4" w:rsidP="00E0355A">
                                                 <w:pPr>
-                                                    <w:spacing w:after="0pt"/>
                                                     <w:rPr>
                                                         <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
                                                     </w:rPr>
@@ -163,7 +162,7 @@
                                             </w:p>
                                             <w:p w:rsidR="006D52A4" w:rsidRDefault="006D52A4" w:rsidP="00E0355A">
                                                 <w:pPr>
-                                                    <w:spacing w:after="0pt" w:line="12pt" w:lineRule="auto"/>
+                                                    <w:spacing w:line="12pt" w:lineRule="auto"/>
                                                     <w:rPr>
                                                         <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
                                                     </w:rPr>
@@ -184,7 +183,7 @@
                                             </w:p>
                                             <w:p w:rsidR="006D52A4" w:rsidRDefault="006D52A4" w:rsidP="00E0355A">
                                                 <w:pPr>
-                                                    <w:spacing w:after="0pt" w:line="12pt" w:lineRule="auto"/>
+                                                    <w:spacing w:line="12pt" w:lineRule="auto"/>
                                                     <w:rPr>
                                                         <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
                                                     </w:rPr>
@@ -205,7 +204,7 @@
                                             </w:p>
                                             <w:p w:rsidR="006D52A4" w:rsidRDefault="006D52A4" w:rsidP="00E0355A">
                                                 <w:pPr>
-                                                    <w:spacing w:after="0pt" w:line="12pt" w:lineRule="auto"/>
+                                                    <w:spacing w:line="12pt" w:lineRule="auto"/>
                                                     <w:rPr>
                                                         <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
                                                     </w:rPr>
@@ -226,7 +225,7 @@
                                             </w:p>
                                             <w:p w:rsidR="006D52A4" w:rsidRPr="00522587" w:rsidRDefault="006D52A4" w:rsidP="00522587">
                                                 <w:pPr>
-                                                    <w:spacing w:after="0pt" w:line="12pt" w:lineRule="auto"/>
+                                                    <w:spacing w:line="12pt" w:lineRule="auto"/>
                                                     <w:rPr>
                                                         <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
                                                     </w:rPr>
@@ -259,598 +258,215 @@
                 </w:drawing>
             </w:r>
         </w:p>
-        <w:p w:rsidR="00406F2F" w:rsidRDefault="00B64FA0" w:rsidP="00406F2F">
+        <w:p w:rsidR="00F560FD" w:rsidRDefault="0030196B" w:rsidP="00A665B3">
             <w:pPr>
-                <w:spacing w:after="0pt"/>
                 <w:rPr>
                     <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                    <w:b/>
                 </w:rPr>
             </w:pPr>
             <w:r>
                 <w:rPr>
-                    <w:noProof/>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
                 </w:rPr>
-                <w:drawing>
-                    <wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251661312" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1" wp14:anchorId="5E9309CB" wp14:editId="49EB9453">
-                        <wp:simplePos x="0" y="0"/>
-                        <wp:positionH relativeFrom="margin">
-                            <wp:align>right</wp:align>
-                        </wp:positionH>
-                        <wp:positionV relativeFrom="paragraph">
-                            <wp:posOffset>327025</wp:posOffset>
-                        </wp:positionV>
-                        <wp:extent cx="5925820" cy="965835"/>
-                        <wp:effectExtent l="0" t="0" r="17780" b="17145"/>
-                        <wp:wrapSquare wrapText="bothSides"/>
-                        <wp:docPr id="2" name="Text Box 2"/>
-                        <wp:cNvGraphicFramePr/>
-                        <a:graphic xmlns:a="http://purl.oclc.org/ooxml/drawingml/main">
-                            <a:graphicData uri="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
-                                <wp:wsp>
-                                    <wp:cNvSpPr txBox="1"/>
-                                    <wp:spPr>
-                                        <a:xfrm>
-                                            <a:off x="0" y="0"/>
-                                            <a:ext cx="5925820" cy="965835"/>
-                                        </a:xfrm>
-                                        <a:prstGeom prst="rect">
-                                            <a:avLst/>
-                                        </a:prstGeom>
-                                        <a:noFill/>
-                                        <a:ln w="6350">
-                                            <a:solidFill>
-                                                <a:prstClr val="black"/>
-                                            </a:solidFill>
-                                        </a:ln>
-                                    </wp:spPr>
-                                    <wp:txbx>
-                                        <wne:txbxContent>
-                                            <w:p w:rsidR="00406F2F" w:rsidRPr="00B64FA0" w:rsidRDefault="00406F2F" w:rsidP="00406F2F">
-                                                <w:pPr>
-                                                    <w:spacing w:after="0pt"/>
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                </w:pPr>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:t xml:space="preserve">Name: </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t>                                      josh . wiley      </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                    <w:t xml:space="preserve">DOB: </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t> 1/18/2000      </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                    <w:t xml:space="preserve">Age: </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t> 17</w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                </w:r>
-                                            </w:p>
-                                            <w:p w:rsidR="00406F2F" w:rsidRPr="00B64FA0" w:rsidRDefault="00406F2F" w:rsidP="00406F2F">
-                                                <w:pPr>
-                                                    <w:spacing w:after="0pt"/>
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                </w:pPr>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t xml:space="preserve">                              </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                    <w:t>Phone: </w:t>
-                                                </w:r>
-                                                <w:r>
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:t xml:space="preserve"> </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t>(999) 999-9999</w:t>
-                                                </w:r>
-                                            </w:p>
-                                            <w:p w:rsidR="00406F2F" w:rsidRPr="00B64FA0" w:rsidRDefault="00406F2F" w:rsidP="00406F2F">
-                                                <w:pPr>
-                                                    <w:spacing w:after="0pt"/>
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                </w:pPr>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t>                                                 ,</w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                    <w:t xml:space="preserve">    </w:t>
-                                                </w:r>
-                                            </w:p>
-                                            <w:p w:rsidR="00406F2F" w:rsidRPr="00B64FA0" w:rsidRDefault="004C3EAD" w:rsidP="00406F2F">
-                                                <w:pPr>
-                                                    <w:spacing w:after="0pt" w:line="12pt" w:lineRule="auto"/>
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                </w:pPr>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:t xml:space="preserve">Race: </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t></w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                    <w:t>Sex:</w:t>
-                                                </w:r>
-                                                <w:r>
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:t xml:space="preserve"> </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t>Select Gender</w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                    <w:t xml:space="preserve">Email: </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t>                              </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:t xml:space="preserve">                                                                         </w:t>
-                                                </w:r>
-                                            </w:p>
-                                        </wne:txbxContent>
-                                    </wp:txbx>
-                                    <wp:bodyPr rot="0" spcFirstLastPara="0" vertOverflow="overflow" horzOverflow="overflow" vert="horz" wrap="square" lIns="91440" tIns="45720" rIns="91440" bIns="45720" numCol="1" spcCol="0" rtlCol="0" fromWordArt="0" anchor="t" anchorCtr="0" forceAA="0" compatLnSpc="1">
-                                        <a:prstTxWarp prst="textNoShape">
-                                            <a:avLst/>
-                                        </a:prstTxWarp>
-                                        <a:noAutofit/>
-                                    </wp:bodyPr>
-                                </wp:wsp>
-                            </a:graphicData>
-                        </a:graphic>
-                        <wp14:sizeRelH relativeFrom="margin">
-                            <wp14:pctWidth>0%</wp14:pctWidth>
-                        </wp14:sizeRelH>
-                        <wp14:sizeRelV relativeFrom="margin">
-                            <wp14:pctHeight>0%</wp14:pctHeight>
-                        </wp14:sizeRelV>
-                    </wp:anchor>
-                </w:drawing>
+                <w:t>_____________________________________________________________________________________</w:t>
+            </w:r>
+        </w:p>
+        <w:p w:rsidR="0030196B" w:rsidRDefault="009F1C92" w:rsidP="00A665B3">
+            <w:pPr>
+                <w:pBdr>
+                    <w:bottom w:val="single" w:sz="6" w:space="1" w:color="auto"/>
+                </w:pBdr>
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                    <w:sz w:val="20"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="009F1C92">
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                    <w:sz w:val="20"/>
+                </w:rPr>
+                <w:t>Reporting Officer:</w:t>
             </w:r>
             <w:r>
                 <w:rPr>
                     <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                    <w:b/>
+                    <w:sz w:val="20"/>
                 </w:rPr>
-                <w:t>               Complainant # 1</w:t>
-            </w:r>
-        </w:p>
-        <w:p w:rsidR="00F560FD" w:rsidRPr="00A665B3" w:rsidRDefault="00F560FD" w:rsidP="00A665B3">
-            <w:pPr>
-                <w:rPr>
-                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                </w:rPr>
-            </w:pPr>
-        </w:p>
-        <w:p w:rsidR="00406F2F" w:rsidRDefault="00B64FA0" w:rsidP="00406F2F">
-            <w:pPr>
-                <w:spacing w:after="0pt"/>
-                <w:rPr>
-                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                    <w:b/>
-                </w:rPr>
-            </w:pPr>
-            <w:r>
-                <w:rPr>
-                    <w:noProof/>
-                </w:rPr>
-                <w:drawing>
-                    <wp:anchor distT="0" distB="0" distL="114300" distR="114300" simplePos="0" relativeHeight="251661312" behindDoc="0" locked="0" layoutInCell="1" allowOverlap="1" wp14:anchorId="5E9309CB" wp14:editId="49EB9453">
-                        <wp:simplePos x="0" y="0"/>
-                        <wp:positionH relativeFrom="margin">
-                            <wp:align>right</wp:align>
-                        </wp:positionH>
-                        <wp:positionV relativeFrom="paragraph">
-                            <wp:posOffset>325120</wp:posOffset>
-                        </wp:positionV>
-                        <wp:extent cx="5925820" cy="965835"/>
-                        <wp:effectExtent l="0" t="0" r="17780" b="17145"/>
-                        <wp:wrapSquare wrapText="bothSides"/>
-                        <wp:docPr id="3" name="Text Box 3"/>
-                        <wp:cNvGraphicFramePr/>
-                        <a:graphic xmlns:a="http://purl.oclc.org/ooxml/drawingml/main">
-                            <a:graphicData uri="http://schemas.microsoft.com/office/word/2010/wordprocessingShape">
-                                <wp:wsp>
-                                    <wp:cNvSpPr txBox="1"/>
-                                    <wp:spPr>
-                                        <a:xfrm>
-                                            <a:off x="0" y="0"/>
-                                            <a:ext cx="5925820" cy="965835"/>
-                                        </a:xfrm>
-                                        <a:prstGeom prst="rect">
-                                            <a:avLst/>
-                                        </a:prstGeom>
-                                        <a:noFill/>
-                                        <a:ln w="6350">
-                                            <a:solidFill>
-                                                <a:prstClr val="black"/>
-                                            </a:solidFill>
-                                        </a:ln>
-                                    </wp:spPr>
-                                    <wp:txbx>
-                                        <wne:txbxContent>
-                                            <w:p w:rsidR="00406F2F" w:rsidRPr="00B64FA0" w:rsidRDefault="00406F2F" w:rsidP="00406F2F">
-                                                <w:pPr>
-                                                    <w:spacing w:after="0pt"/>
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                </w:pPr>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:t xml:space="preserve">Name: </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t>                                      josh . wiley      </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                    <w:t xml:space="preserve">DOB: </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t> 1/18/2000      </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                    <w:t xml:space="preserve">Age: </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t> 17</w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                </w:r>
-                                            </w:p>
-                                            <w:p w:rsidR="00406F2F" w:rsidRPr="00B64FA0" w:rsidRDefault="00406F2F" w:rsidP="00406F2F">
-                                                <w:pPr>
-                                                    <w:spacing w:after="0pt"/>
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                </w:pPr>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t xml:space="preserve">                              </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                    <w:t>Phone: </w:t>
-                                                </w:r>
-                                                <w:r>
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:t xml:space="preserve"> </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t>(999) 999-9999</w:t>
-                                                </w:r>
-                                            </w:p>
-                                            <w:p w:rsidR="00406F2F" w:rsidRPr="00B64FA0" w:rsidRDefault="00406F2F" w:rsidP="00406F2F">
-                                                <w:pPr>
-                                                    <w:spacing w:after="0pt"/>
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                </w:pPr>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t>                                                 ,</w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                    <w:t xml:space="preserve">    </w:t>
-                                                </w:r>
-                                            </w:p>
-                                            <w:p w:rsidR="00406F2F" w:rsidRPr="00B64FA0" w:rsidRDefault="004C3EAD" w:rsidP="00406F2F">
-                                                <w:pPr>
-                                                    <w:spacing w:after="0pt" w:line="12pt" w:lineRule="auto"/>
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                </w:pPr>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:t xml:space="preserve">Race: </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t></w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                    <w:t>Sex:</w:t>
-                                                </w:r>
-                                                <w:r>
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:t xml:space="preserve"> </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t>Select Gender</w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:tab/>
-                                                    <w:t xml:space="preserve">Email: </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                        <w:b/>
-                                                    </w:rPr>
-                                                    <w:t>                              </w:t>
-                                                </w:r>
-                                                <w:r w:rsidRPr="00B64FA0">
-                                                    <w:rPr>
-                                                        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                                                    </w:rPr>
-                                                    <w:t xml:space="preserve">                                                                         </w:t>
-                                                </w:r>
-                                            </w:p>
-                                        </wne:txbxContent>
-                                    </wp:txbx>
-                                    <wp:bodyPr rot="0" spcFirstLastPara="0" vertOverflow="overflow" horzOverflow="overflow" vert="horz" wrap="square" lIns="91440" tIns="45720" rIns="91440" bIns="45720" numCol="1" spcCol="0" rtlCol="0" fromWordArt="0" anchor="t" anchorCtr="0" forceAA="0" compatLnSpc="1">
-                                        <a:prstTxWarp prst="textNoShape">
-                                            <a:avLst/>
-                                        </a:prstTxWarp>
-                                        <a:noAutofit/>
-                                    </wp:bodyPr>
-                                </wp:wsp>
-                            </a:graphicData>
-                        </a:graphic>
-                        <wp14:sizeRelH relativeFrom="margin">
-                            <wp14:pctWidth>0%</wp14:pctWidth>
-                        </wp14:sizeRelH>
-                        <wp14:sizeRelV relativeFrom="margin">
-                            <wp14:pctHeight>0%</wp14:pctHeight>
-                        </wp14:sizeRelV>
-                    </wp:anchor>
-                </w:drawing>
+                <w:t xml:space="preserve"> Wiley, Joshua</w:t>
             </w:r>
             <w:r>
                 <w:rPr>
                     <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-                    <w:b/>
+                    <w:sz w:val="20"/>
                 </w:rPr>
-                <w:t>               Complainant # 2</w:t>
+                <w:tab/>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                    <w:sz w:val="20"/>
+                </w:rPr>
+                <w:tab/>
+                <w:t xml:space="preserve">          </w:t>
+            </w:r>
+            <w:r w:rsidR="003217D6">
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                    <w:sz w:val="20"/>
+                </w:rPr>
+                <w:tab/>
+            </w:r>
+            <w:r w:rsidR="003217D6">
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                    <w:sz w:val="20"/>
+                </w:rPr>
+                <w:tab/>
+            </w:r>
+            <w:r w:rsidR="003217D6">
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                    <w:sz w:val="20"/>
+                </w:rPr>
+                <w:tab/>
+            </w:r>
+            <w:r w:rsidR="003217D6">
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                    <w:sz w:val="20"/>
+                </w:rPr>
+                <w:tab/>
+            </w:r>
+            <w:r w:rsidR="003217D6">
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                    <w:sz w:val="20"/>
+                </w:rPr>
+                <w:tab/>
+            </w:r>
+            <w:r w:rsidR="003217D6">
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                    <w:sz w:val="20"/>
+                </w:rPr>
+                <w:tab/>
+                <w:t xml:space="preserve">          </w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                    <w:sz w:val="20"/>
+                </w:rPr>
+                <w:t>01/01/2017</w:t>
             </w:r>
         </w:p>
-        <w:p w:rsidR="00F560FD" w:rsidRPr="00A665B3" w:rsidRDefault="00F560FD" w:rsidP="00A665B3">
+        <w:p w:rsidR="00D9192E" w:rsidRPr="00D9192E" w:rsidRDefault="00D9192E" w:rsidP="00DA3660">
             <w:pPr>
+                <w:tabs>
+                    <w:tab w:val="start" w:pos="-36pt"/>
+                    <w:tab w:val="start" w:pos="0pt"/>
+                    <w:tab w:val="start" w:pos="36pt"/>
+                </w:tabs>
+                <w:suppressAutoHyphens/>
+                <w:ind w:end="-71.55pt"/>
                 <w:rPr>
-                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>
+                    <w:b/>
+                    <w:szCs w:val="24"/>
+                    <w:u w:val="single"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00D9192E">
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>
+                    <w:b/>
+                    <w:szCs w:val="24"/>
+                    <w:u w:val="single"/>
+                </w:rPr>
+                <w:t>OFFICER SIGANTURE   _________________</w:t>
+            </w:r>
+            <w:r w:rsidR="00DA3660">
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>
+                    <w:b/>
+                    <w:szCs w:val="24"/>
+                    <w:u w:val="single"/>
+                </w:rPr>
+                <w:t xml:space="preserve">__________________________ DATE </w:t>
+            </w:r>
+            <w:r w:rsidRPr="00D9192E">
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>
+                    <w:b/>
+                    <w:szCs w:val="24"/>
+                    <w:u w:val="single"/>
+                </w:rPr>
+                <w:t>_____________</w:t>
+            </w:r>
+        </w:p>
+        <w:p w:rsidR="00D9192E" w:rsidRPr="00D9192E" w:rsidRDefault="00D9192E" w:rsidP="00461B02">
+            <w:pPr>
+                <w:tabs>
+                    <w:tab w:val="start" w:pos="-36pt"/>
+                    <w:tab w:val="start" w:pos="0pt"/>
+                    <w:tab w:val="start" w:pos="15.05pt"/>
+                    <w:tab w:val="start" w:pos="36pt"/>
+                </w:tabs>
+                <w:suppressAutoHyphens/>
+                <w:ind w:start="15.05pt" w:end="15.05pt" w:hanging="15.05pt"/>
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>
+                    <w:b/>
+                    <w:szCs w:val="24"/>
+                    <w:u w:val="single"/>
                 </w:rPr>
             </w:pPr>
         </w:p>
-        <w:p w:rsidR="00F560FD" w:rsidRPr="00A665B3" w:rsidRDefault="00F560FD" w:rsidP="00A665B3">
+        <w:p w:rsidR="00D9192E" w:rsidRPr="00D9192E" w:rsidRDefault="00D9192E" w:rsidP="00DA3660">
             <w:pPr>
+                <w:tabs>
+                    <w:tab w:val="start" w:pos="-36pt"/>
+                    <w:tab w:val="start" w:pos="0pt"/>
+                    <w:tab w:val="start" w:pos="36pt"/>
+                </w:tabs>
+                <w:suppressAutoHyphens/>
+                <w:ind w:end="-72pt"/>
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>
+                    <w:b/>
+                    <w:szCs w:val="24"/>
+                    <w:u w:val="single"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="00D9192E">
+                <w:rPr>
+                    <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>
+                    <w:b/>
+                    <w:szCs w:val="24"/>
+                    <w:u w:val="single"/>
+                </w:rPr>
+                <w:t>SUPERVISOR SIGNATURE _________________________________________DATE _____________</w:t>
+            </w:r>
+        </w:p>
+        <w:p w:rsidR="00835BFA" w:rsidRPr="00D9192E" w:rsidRDefault="00835BFA" w:rsidP="00461B02">
+            <w:pPr>
+                <w:spacing w:line="12pt" w:lineRule="auto"/>
                 <w:rPr>
                     <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
+                    <w:sz w:val="20"/>
                 </w:rPr>
             </w:pPr>
         </w:p>
-        <w:sectPr w:rsidR="00F560FD" w:rsidRPr="00A665B3" w:rsidSect="00EA7867">
+        <w:sectPr w:rsidR="00835BFA" w:rsidRPr="00D9192E" w:rsidSect="00DA3F6A">
             <w:headerReference w:type="default" r:id="rId7"/>
+            <w:footerReference w:type="default" r:id="rId8"/>
+            <w:headerReference w:type="first" r:id="rId9"/>
+            <w:footerReference w:type="first" r:id="rId10"/>
             <w:pgSz w:w="612pt" w:h="792pt"/>
             <w:pgMar w:top="72pt" w:right="72pt" w:bottom="72pt" w:left="72pt" w:header="36pt" w:footer="36pt" w:gutter="0pt"/>
             <w:cols w:space="36pt"/>
+            <w:titlePg/>
             <w:docGrid w:linePitch="360"/>
         </w:sectPr>
     </w:body>

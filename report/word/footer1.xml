@@ -8,7 +8,6 @@
                 <w:docPartUnique/>
             </w:docPartObj>
         </w:sdtPr>
-        <w:sdtEndPr/>
         <w:sdtContent>
             <w:sdt>
                 <w:sdtPr>
@@ -18,7 +17,6 @@
                         <w:docPartUnique/>
                     </w:docPartObj>
                 </w:sdtPr>
-                <w:sdtEndPr/>
                 <w:sdtContent>
                     <w:p w:rsidR="001342A2" w:rsidRPr="001342A2" w:rsidRDefault="001342A2" w:rsidP="001342A2">
                         <w:pPr>
@@ -52,7 +50,7 @@
                             </w:rPr>
                             <w:fldChar w:fldCharType="separate"/>
                         </w:r>
-                        <w:r w:rsidR="00D73CEA">
+                        <w:r w:rsidR="00D26F80">
                             <w:rPr>
                                 <w:b/>
                                 <w:bCs/>
@@ -97,7 +95,7 @@
                             </w:rPr>
                             <w:fldChar w:fldCharType="separate"/>
                         </w:r>
-                        <w:r w:rsidR="00D73CEA">
+                        <w:r w:rsidR="00D26F80">
                             <w:rPr>
                                 <w:b/>
                                 <w:bCs/>

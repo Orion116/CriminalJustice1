@@ -48,18 +48,19 @@ import org.netbeans.lib.awtextra.*;
  */
 public class TestCardLayout extends javax.swing.JFrame //implements ActionListener
 {
-    ArrayList<String> Heading = new ArrayList<>();;
-    ArrayList<Integer> BoxID = new ArrayList<>();;
-    ArrayList<Integer> Pos = new ArrayList<>();;
-    ArrayList<String> Name = new ArrayList<>();;
-    ArrayList<String> DOB = new ArrayList<>();;
-    ArrayList<Integer> Age = new ArrayList<>();;
-    ArrayList<String> Street = new ArrayList<>();;
-    ArrayList<String> CityZip = new ArrayList<>();;
-    ArrayList<String> Phone = new ArrayList<>();;
-    ArrayList<String> Race = new ArrayList<>();;
-    ArrayList<String> Gender = new ArrayList<>();;
-    ArrayList<String> Email = new ArrayList<>();;
+    ArrayList<String> Heading = new ArrayList<>();
+    ArrayList<Integer> BoxID = new ArrayList<>();
+    ArrayList<Integer> Pos = new ArrayList<>();
+    ArrayList<String> Name = new ArrayList<>();
+    ArrayList<String> DOB = new ArrayList<>();
+    ArrayList<Integer> Age = new ArrayList<>();
+    ArrayList<String> Street = new ArrayList<>();
+    ArrayList<String> CityZip = new ArrayList<>();
+    ArrayList<String> Phone = new ArrayList<>();
+    ArrayList<String> Race = new ArrayList<>();
+    ArrayList<String> Gender = new ArrayList<>();
+    ArrayList<String> Email = new ArrayList<>();
+    ArrayList<String> Agent = new ArrayList<>();
     
     String[] crimeCodes = new String[]
     {
@@ -202,6 +203,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         genderBox1 = new JComboBox();
         jLabel2 = new JLabel();
         txtRace1 = new JTextField();
+        add1 = new JButton();
         witnessPane = new JPanel();
         centered3 = new JPanel();
         jftWFname = new JFormattedTextField();
@@ -227,6 +229,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         jLabel3 = new JLabel();
         txtRace2 = new JTextField();
         genderBox2 = new JComboBox();
+        add2 = new JButton();
         suspectPane = new JPanel();
         centered4 = new JPanel();
         jftSFname = new JFormattedTextField();
@@ -252,6 +255,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         jLabel4 = new JLabel();
         txtRace3 = new JTextField();
         genderBox3 = new JComboBox();
+        add3 = new JButton();
         otherPane = new JPanel();
         jPanel1 = new JPanel();
         jftOFname = new JFormattedTextField();
@@ -275,6 +279,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         lblVEmail4 = new JLabel();
         txtOEmail = new JTextField();
         agencyCB = new JComboBox<String>();
+        add4 = new JButton();
         pane2 = new JPanel();
         dateVenueScroll = new JScrollPane();
         txtAreaDateVenue = new JTextArea();
@@ -711,6 +716,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         txtRace1.setText(bundle.getString("TestCardLayout.txtRace1.text")); // NOI18N
         txtRace1.addActionListener(formListener);
 
+        add1.setText(bundle.getString("TestCardLayout.add1.text")); // NOI18N
+        add1.setHorizontalTextPosition(SwingConstants.CENTER);
+        add1.addActionListener(formListener);
+
         GroupLayout centered2Layout = new GroupLayout(centered2);
         centered2.setLayout(centered2Layout);
         centered2Layout.setHorizontalGroup(centered2Layout.createParallelGroup(GroupLayout.LEADING)
@@ -748,7 +757,9 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                                 .add(18, 18, 18)
                                 .add(lblVDOB1)))
                         .add(18, 18, 18)
-                        .add(txtVDOB, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+                        .add(centered2Layout.createParallelGroup(GroupLayout.TRAILING)
+                            .add(txtVDOB, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+                            .add(add1, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
                         .add(0, 0, Short.MAX_VALUE))
                     .add(centered2Layout.createSequentialGroup()
                         .add(27, 27, 27)
@@ -815,7 +826,9 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                     .add(centered2Layout.createSequentialGroup()
                         .add(3, 3, 3)
                         .add(txtRace1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                    .add(genderBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .add(centered2Layout.createParallelGroup(GroupLayout.BASELINE)
+                        .add(genderBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .add(add1))
                     .add(centered2Layout.createSequentialGroup()
                         .add(5, 5, 5)
                         .add(lblVZipcode)))
@@ -893,6 +906,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         genderBox2.setModel(new DefaultComboBoxModel(genders));
 
+        add2.setText(bundle.getString("TestCardLayout.add2.text")); // NOI18N
+        add2.setHorizontalTextPosition(SwingConstants.CENTER);
+        add2.addActionListener(formListener);
+
         GroupLayout centered3Layout = new GroupLayout(centered3);
         centered3.setLayout(centered3Layout);
         centered3Layout.setHorizontalGroup(centered3Layout.createParallelGroup(GroupLayout.LEADING)
@@ -909,9 +926,9 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                         .add(txtWEmail, GroupLayout.PREFERRED_SIZE, 165, GroupLayout.PREFERRED_SIZE)
                         .add(12, 12, 12)
                         .add(jLabel3)
-                        .add(12, 12, 12)
+                        .addPreferredGap(LayoutStyle.RELATED)
                         .add(txtRace2, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.UNRELATED)
+                        .add(12, 12, 12)
                         .add(genderBox2, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE))
                     .add(centered3Layout.createSequentialGroup()
                         .add(lblVPhone1)
@@ -941,13 +958,16 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                         .add(lblVDOB2)))
                 .add(centered3Layout.createParallelGroup(GroupLayout.LEADING)
                     .add(centered3Layout.createSequentialGroup()
-                        .add(18, 18, 18)
-                        .add(txtWDOB, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
-                    .add(centered3Layout.createSequentialGroup()
                         .add(23, 23, 23)
                         .add(lblVState1)
                         .add(12, 12, 12)
-                        .add(txtWState, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)))
+                        .add(txtWState, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+                    .add(centered3Layout.createSequentialGroup()
+                        .add(18, 18, 18)
+                        .add(txtWDOB, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
+                    .add(GroupLayout.TRAILING, centered3Layout.createSequentialGroup()
+                        .addPreferredGap(LayoutStyle.RELATED)
+                        .add(add2, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         centered3Layout.setVerticalGroup(centered3Layout.createParallelGroup(GroupLayout.LEADING)
@@ -983,22 +1003,24 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                         .add(17, 17, 17)
                         .add(lblVZipcode1))
                     .add(centered3Layout.createSequentialGroup()
-                        .add(16, 16, 16)
+                        .add(15, 15, 15)
                         .add(txtWZipcode, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                     .add(centered3Layout.createSequentialGroup()
                         .add(17, 17, 17)
                         .add(lblVEmail1))
                     .add(centered3Layout.createSequentialGroup()
-                        .add(18, 18, 18)
+                        .add(15, 15, 15)
                         .add(txtWEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                     .add(centered3Layout.createSequentialGroup()
-                        .add(17, 17, 17)
-                        .add(jLabel3))
-                    .add(centered3Layout.createSequentialGroup()
-                        .add(17, 17, 17)
+                        .add(15, 15, 15)
                         .add(centered3Layout.createParallelGroup(GroupLayout.BASELINE)
-                            .add(txtRace2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .add(genderBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+                            .add(jLabel3)
+                            .add(txtRace2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                    .add(centered3Layout.createSequentialGroup()
+                        .add(12, 12, 12)
+                        .add(centered3Layout.createParallelGroup(GroupLayout.BASELINE)
+                            .add(genderBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .add(add2))))
                 .addContainerGap())
         );
 
@@ -1014,7 +1036,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             .add(witnessPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(centered3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         jtbBasic.addTab(bundle.getString("TestCardLayout.witnessPane.TabConstraints.tabTitle"), witnessPane); // NOI18N
@@ -1073,6 +1095,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         genderBox3.setModel(new DefaultComboBoxModel(genders));
 
+        add3.setText(bundle.getString("TestCardLayout.add3.text")); // NOI18N
+        add3.setHorizontalTextPosition(SwingConstants.CENTER);
+        add3.addActionListener(formListener);
+
         GroupLayout centered4Layout = new GroupLayout(centered4);
         centered4.setLayout(centered4Layout);
         centered4Layout.setHorizontalGroup(centered4Layout.createParallelGroup(GroupLayout.LEADING)
@@ -1120,14 +1146,19 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                                 .add(lblVAddress2)
                                 .add(17, 17, 17)
                                 .add(txtSAddress, GroupLayout.PREFERRED_SIZE, 214, GroupLayout.PREFERRED_SIZE)
-                                .add(12, 12, 12)
+                                .addPreferredGap(LayoutStyle.RELATED)
                                 .add(lblVCity2)
                                 .add(18, 18, 18)
                                 .add(txtSCity, GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)))
-                        .add(23, 23, 23)
-                        .add(lblVState2)
-                        .add(12, 12, 12)
-                        .add(txtSState, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)))
+                        .add(centered4Layout.createParallelGroup(GroupLayout.LEADING)
+                            .add(centered4Layout.createSequentialGroup()
+                                .add(23, 23, 23)
+                                .add(lblVState2)
+                                .add(12, 12, 12)
+                                .add(txtSState, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+                            .add(centered4Layout.createSequentialGroup()
+                                .add(18, 18, 18)
+                                .add(add3, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         centered4Layout.setVerticalGroup(centered4Layout.createParallelGroup(GroupLayout.LEADING)
@@ -1178,8 +1209,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                     .add(centered4Layout.createSequentialGroup()
                         .add(3, 3, 3)
                         .add(txtRace3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                    .add(genderBox3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                .add(12, 12, 12))
+                    .add(centered4Layout.createParallelGroup(GroupLayout.BASELINE)
+                        .add(genderBox3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .add(add3)))
+                .add(11, 11, 11))
         );
 
         GroupLayout suspectPaneLayout = new GroupLayout(suspectPane);
@@ -1249,13 +1282,20 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         agencyCB.setModel(new DefaultComboBoxModel<>(agencies));
 
+        add4.setText(bundle.getString("TestCardLayout.add4.text")); // NOI18N
+        add4.setHorizontalTextPosition(SwingConstants.CENTER);
+        add4.addActionListener(formListener);
+
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
-                .add(49, 49, 49)
+                .add(15, 15, 15)
                 .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
-                    .add(agencyCB, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(agencyCB, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                        .add(18, 18, 18)
+                        .add(add4, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
                             .add(lblVFname4)
@@ -1273,18 +1313,18 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                                     .add(lblVAddress4))
                                 .add(8, 8, 8)
                                 .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING, false)
-                                    .add(jtfOLname)
-                                    .add(txtOAddress, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(LayoutStyle.UNRELATED)
-                                .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING, false)
                                     .add(jPanel1Layout.createSequentialGroup()
+                                        .add(jtfOLname, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(LayoutStyle.RELATED, 77, Short.MAX_VALUE)
                                         .add(lblVMInitial5)
                                         .addPreferredGap(LayoutStyle.RELATED)
                                         .add(txtOMInitial, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
                                     .add(jPanel1Layout.createSequentialGroup()
+                                        .add(txtOAddress)
+                                        .addPreferredGap(LayoutStyle.UNRELATED)
                                         .add(lblVCity4)
                                         .addPreferredGap(LayoutStyle.UNRELATED)
-                                        .add(txtOCity, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE)))
+                                        .add(txtOCity, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)))
                                 .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
                                     .add(jPanel1Layout.createSequentialGroup()
                                         .addPreferredGap(LayoutStyle.UNRELATED)
@@ -1307,15 +1347,17 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(agencyCB, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .add(jPanel1Layout.createParallelGroup(GroupLayout.BASELINE)
+                    .add(agencyCB, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .add(add4))
                 .addPreferredGap(LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
                     .add(jPanel1Layout.createParallelGroup(GroupLayout.BASELINE)
                         .add(txtODOB, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .add(lblVDOB5))
-                    .add(jPanel1Layout.createParallelGroup(GroupLayout.BASELINE)
-                        .add(txtOMInitial, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .add(lblVMInitial5))
+                        .add(lblVDOB5)
+                        .add(jPanel1Layout.createParallelGroup(GroupLayout.BASELINE)
+                            .add(txtOMInitial, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .add(lblVMInitial5)))
                     .add(jPanel1Layout.createParallelGroup(GroupLayout.BASELINE)
                         .add(lblVFname4)
                         .add(jftOFname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -1346,7 +1388,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         otherPaneLayout.setHorizontalGroup(otherPaneLayout.createParallelGroup(GroupLayout.LEADING)
             .add(otherPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(jPanel1, GroupLayout.PREFERRED_SIZE, 807, Short.MAX_VALUE)
                 .addContainerGap())
         );
         otherPaneLayout.setVerticalGroup(otherPaneLayout.createParallelGroup(GroupLayout.LEADING)
@@ -1364,8 +1406,8 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         pane2.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, new Color(0, 0, 0)));
 
-        dateVenueScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         dateVenueScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        dateVenueScroll.setAutoscrolls(true);
         dateVenueScroll.setHorizontalScrollBar(null);
         dateVenueScroll.setRequestFocusEnabled(false);
 
@@ -1498,6 +1540,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             {
                 TestCardLayout.this.txtRace1ActionPerformed(evt);
             }
+            else if (evt.getSource() == add1)
+            {
+                TestCardLayout.this.add1ActionPerformed(evt);
+            }
             else if (evt.getSource() == txtRace2)
             {
                 TestCardLayout.this.txtRace2ActionPerformed(evt);
@@ -1505,6 +1551,18 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             else if (evt.getSource() == txtRace3)
             {
                 TestCardLayout.this.txtRace3ActionPerformed(evt);
+            }
+            else if (evt.getSource() == add2)
+            {
+                TestCardLayout.this.add2ActionPerformed(evt);
+            }
+            else if (evt.getSource() == add3)
+            {
+                TestCardLayout.this.add3ActionPerformed(evt);
+            }
+            else if (evt.getSource() == add4)
+            {
+                TestCardLayout.this.add4ActionPerformed(evt);
             }
         }
 
@@ -2077,7 +2135,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                 }
                 else if (heading.equalsIgnoreCase("suspect"))
                 {
-                    city = txtCCity.getText() + ", " + txtCState.getText() + " " + txtCZipcode.getText();
+                    city = txtSCity.getText() + ", " + txtCState.getText() + " " + txtCZipcode.getText();
                     gender = (String) genderBox.getItemAt(genderBox3.getSelectedIndex());
 
                     getContent(heading, boxNum, postion, jftSFname, jtfSLname, 
@@ -2086,10 +2144,11 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                 }
                 else if (heading.equalsIgnoreCase("other"))
                 {
-                    city = txtCCity.getText() + ", " + txtCState.getText() + " " + txtCZipcode.getText();
+                    String agent = agencyCB.getItemAt(agencyCB.getSelectedIndex()).trim();
+                    city = txtOCity.getText() + ", " + txtOState.getText() + " " + txtOZipcode.getText();
 //                    gender = (String) genderBox.getItemAt(genderBox.getSelectedIndex());
 
-                    getContent(heading, boxNum, postion, jftOFname, jtfOLname, 
+                    getContent(agent, boxNum, postion, jftOFname, jtfOLname, 
                                txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
                                null, null, txtOEmail);
                 }
@@ -2408,13 +2467,12 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         String heading = jtbBasic.getTitleAt(titleNum);
         
         option = JOptionPane.showConfirmDialog(null, "Adding another complainant will clear the current one.\n" +
-                                                     "You can edit the previous complainant after the document is outputed", 
+                                                     "You can edit the previous " + heading + " after the document is outputed", 
                                                      "Select an Option...",
                                                      JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         
         if (option == 0)
         {
-//txtCCity.getText() + ", " + txtCState.getText() + " " + txtCZipcode.getText();
             clearTextBoxes(jftCFname, jtfCLname, txtCMInitial, 
                            txtCDOB, txtCAddress, txtCCity, 
                            txtCPhone, txtCState, txtCZipcode,
@@ -2427,16 +2485,138 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                        txtCMInitial, txtCDOB, txtCAddress, city, txtCPhone,
                        txtRace, gender, txtCEmail);
         }
-           
-        
-        // TODO add your handling code here: 
     }//GEN-LAST:event_addActionPerformed
+
+    private void add1ActionPerformed(ActionEvent evt)//GEN-FIRST:event_add1ActionPerformed
+    {//GEN-HEADEREND:event_add1ActionPerformed
+        int option = 2;
+        
+        int titleNum = jtbBasic.getSelectedIndex();
+        
+        String city = "";  
+        String gender = "";
+        String heading = jtbBasic.getTitleAt(titleNum);
+        
+        option = JOptionPane.showConfirmDialog(null, "Adding another complainant will clear the current one.\n" +
+                                                     "You can edit the previous " + heading + " after the document is outputed", 
+                                                     "Add another  " + heading,
+                                                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if (option == 0)
+        {
+            clearTextBoxes(jftVFname, jtfVLname, txtVMInitial, 
+                           txtVDOB, txtVAddress, txtVCity, 
+                           txtVPhone, txtVState, txtVZipcode,
+                           txtRace1,txtVEmail, genderBox1);
+            
+            city = txtVCity.getText() + ", " + txtVState.getText() + " " + txtVZipcode.getText();
+            gender = (String) genderBox1.getItemAt(genderBox1.getSelectedIndex());
+
+            getContent(heading, boxNum, postion, jftVFname, jtfVLname, 
+                       txtVMInitial, txtVDOB, txtVAddress, city, txtVPhone,
+                       txtRace1, gender, txtVEmail);
+        }
+    }//GEN-LAST:event_add1ActionPerformed
+
+    private void add2ActionPerformed(ActionEvent evt)//GEN-FIRST:event_add2ActionPerformed
+    {//GEN-HEADEREND:event_add2ActionPerformed
+        int option = 2;
+        
+        int titleNum = jtbBasic.getSelectedIndex();
+        
+        String city = "";  
+        String gender = "";
+        String heading = jtbBasic.getTitleAt(titleNum);
+        
+        option = JOptionPane.showConfirmDialog(null, "Adding another complainant will clear the current one.\n" +
+                                                     "You can edit the previous " + heading + " after the document is outputed", 
+                                                     "Add another  " + heading,
+                                                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if (option == 0)
+        {
+            clearTextBoxes(jftWFname, jtfWLname, txtWMInitial, 
+                           txtWDOB, txtWAddress, txtWCity, 
+                           txtWPhone, txtWState, txtWZipcode,
+                           txtRace2,txtWEmail, genderBox2);
+            
+            city = txtWCity.getText() + ", " + txtWState.getText() + " " + txtWZipcode.getText();
+            gender = (String) genderBox2.getItemAt(genderBox2.getSelectedIndex());
+
+            getContent(heading, boxNum, postion, jftWFname, jtfWLname, 
+                       txtWMInitial, txtWDOB, txtWAddress, city, txtWPhone,
+                       txtRace2, gender, txtWEmail);
+        }
+    }//GEN-LAST:event_add2ActionPerformed
+
+    private void add3ActionPerformed(ActionEvent evt)//GEN-FIRST:event_add3ActionPerformed
+    {//GEN-HEADEREND:event_add3ActionPerformed
+        int option = 2;
+        
+        int titleNum = jtbBasic.getSelectedIndex();
+        
+        String city = "";  
+        String gender = "";
+        String heading = jtbBasic.getTitleAt(titleNum);
+        
+        option = JOptionPane.showConfirmDialog(null, "Adding another complainant will clear the current one.\n" +
+                                                     "You can edit the previous " + heading + " after the document is outputed", 
+                                                     "Add another  " + heading,
+                                                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if (option == 0)
+        {
+            clearTextBoxes(jftSFname, jtfSLname, txtSMInitial, 
+                           txtSDOB, txtSAddress, txtSCity, 
+                           txtSPhone, txtSState, txtSZipcode,
+                           txtRace3,txtSEmail, agencyCB);
+            
+            city = txtSCity.getText() + ", " + txtSState.getText() + " " + txtSZipcode.getText();
+            gender = (String) genderBox3.getItemAt(genderBox3.getSelectedIndex());
+
+            getContent(heading, boxNum, postion, jftSFname, jtfSLname, 
+                       txtSMInitial, txtSDOB, txtSAddress, city, txtSPhone,
+                       txtRace3, gender, txtSEmail);
+        }        
+    }//GEN-LAST:event_add3ActionPerformed
+
+    private void add4ActionPerformed(ActionEvent evt)//GEN-FIRST:event_add4ActionPerformed
+    {//GEN-HEADEREND:event_add4ActionPerformed
+        int option = 2;
+        
+        int titleNum = jtbBasic.getSelectedIndex();
+        
+        String city = "";  
+        String heading = jtbBasic.getTitleAt(titleNum);
+        
+        option = JOptionPane.showConfirmDialog(null, "Adding another complainant will clear the current one.\n" +
+                                                     "You can edit the previous " + heading + " after the document is outputed", 
+                                                     "Add another  " + heading,
+                                                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if (option == 0)
+        {
+            clearTextBoxes(jftOFname, jtfOLname, txtOMInitial, 
+                           txtODOB, txtOAddress, txtOCity, 
+                           txtOPhone, txtOState, txtOZipcode,
+                           null,txtOEmail, agencyCB);
+         
+            String agent = agencyCB.getItemAt(agencyCB.getSelectedIndex()).trim();
+            city = txtOCity.getText() + ", " + txtOState.getText() + " " + txtOZipcode.getText();
+    //                    gender = (String) genderBox.getItemAt(genderBox.getSelectedIndex());
+
+            getContent(agent, boxNum, postion, jftOFname, jtfOLname, 
+                       txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
+                       null, null, txtOEmail);
+            // TODO add your handling code here:
+        }
+    }//GEN-LAST:event_add4ActionPerformed
 
     private void clearTextBoxes(JFormattedTextField fname, JFormattedTextField lname, 
                                 JTextField mid, JTextField birth, JTextField street, 
                                 JTextField city, JTextField phone, JTextField state, 
                                 JTextField zip, JTextField race, JTextField email,
-                                JComboBox gender)
+                                JComboBox cb)
     {
         fname.setText("");
         lname.setText("");
@@ -2444,12 +2624,12 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         birth.setText("");
         street.setText("");
         city.setText("");
-        phone.setText("");
+        phone.setText("999-999-9999");
         state.setText("");
         zip.setText("");
         race.setText("");
         email.setText(""); 
-        gender.setSelectedIndex(0);
+        cb.setSelectedIndex(0);
     }
     private void checkState( JTextField txtTemp )
     {
@@ -2605,6 +2785,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JComboBox<String> FileCode;
     private JButton add;
+    private JButton add1;
+    private JButton add2;
+    private JButton add3;
+    private JButton add4;
     private JComboBox<String> agencyCB;
     private JPanel basicsPanel;
     private JButton btnBack;

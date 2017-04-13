@@ -1988,11 +1988,8 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         else
         {
             name = "Doe" + ", " + "John";
-            System.out.println("Yes. No. Maybe.");
         }
-        
-        
-        
+
         if (input == 0)
         {
             try

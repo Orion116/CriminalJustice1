@@ -106,9 +106,9 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     };
     
     private int savePressed = 1;
-    private final long offSet = 965835;
-    private int boxNum = 2;
-    private int postion = 327025;
+    private final long offSet = 965835; // 1129665 - 965835
+    private int boxNum = 2; 
+    private int postion = 327025;  // 327025  327025
     private int element = 0;
 
     /**
@@ -2564,6 +2564,8 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             DocxWriter.writeMETAFile();
             DocxWriter.writeSettingsFile();
             DocxWriter.writeStylesFile();
+            DocxWriter.writeHeader1File();
+            DocxWriter.writeHeader2File();
             DocxWriter.writeContentFileStart();
             // TODO add your handling code here:
         }

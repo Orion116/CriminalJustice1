@@ -2015,13 +2015,11 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                 DocxWriter.writeInformation("DATE AND VENUE");
                 
                 
-                for (String heading : Heading)
+                for (int e = 0; e < element; e++)
                 {
-                    for (String inputName : Name)
-                    {
-                        DocxWriter.writeHeadings(heading, inputName);
-                    }
+                    DocxWriter.writeHeadings(Heading.get(e), Name.get(e));
                 }
+                
                 DocxWriter.writeContentFileEnd();
                 DocxWriter.createDOCXArchive();
             }
@@ -2699,65 +2697,80 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
      */
     public static void main( String args[] )
     {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        // test for 7z
         try
         {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            /* Set the Nimbus look and feel */
+            //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+            /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+            * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+            */
+            try
             {
-                if ("SystemLookAndFeel".equals(info.getName()))
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
                 {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+                    if ("SystemLookAndFeel".equals(info.getName()))
+                    {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
                 }
             }
+            catch (ClassNotFoundException ex)
+            {
+                java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+            catch (InstantiationException ex)
+            {
+                java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+            catch (IllegalAccessException ex)
+            {
+                java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+            catch (javax.swing.UnsupportedLookAndFeelException ex)
+            {
+                java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+            //</editor-fold>
+            
+  
+            DocxWriter.checkFor7z();
+            try
+            {
+                DocxWriter.writeMETAFile();
+                DocxWriter.writeSettingsFile();
+                DocxWriter.writeStylesFile();
+                DocxWriter.writeHeader1File();
+                DocxWriter.writeHeader2File();
+                DocxWriter.writeContentFileStart();
+                // TODO add your handling code here:
+            }
+            catch (FileNotFoundException ex)
+            {
+                Logger.getLogger(TestCardLayout.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            
+            /* Create and display the form */
+            java.awt.EventQueue.invokeLater(new Runnable()
+            {
+                public void run()
+                {
+                    System.out.println("test");
+                    new TestCardLayout().setVisible(true);
+                }
+            });
+            System.out.println("test");
+            
         }
-        catch (ClassNotFoundException ex)
+        catch (IOException ex)
         {
-            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
-            java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            JOptionPane.showConfirmDialog(null, "Copy the 7z.exe from the 7z folder and place it where the MCOLES program is.",
+                                "Error 7z not installed!",
+                                JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
         }
         //</editor-fold>
-
-        try
-        {
-            DocxWriter.writeMETAFile();
-            DocxWriter.writeSettingsFile();
-            DocxWriter.writeStylesFile();
-            DocxWriter.writeHeader1File();
-            DocxWriter.writeHeader2File();
-            DocxWriter.writeContentFileStart();
-            // TODO add your handling code here:
-        }
-        catch (FileNotFoundException ex)
-        {
-            Logger.getLogger(TestCardLayout.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
-                System.out.println("test");
-                new TestCardLayout().setVisible(true);
-            }
-        });
-        System.out.println("test");
 
     }
 

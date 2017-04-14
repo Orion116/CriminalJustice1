@@ -132,7 +132,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         helpDialog = new JDialog();
         helpPane = new JPanel();
-        scrollHelpPane = new JScrollPane();
         txtHelpArea = new JTextArea();
         buttonPanel = new JPanel();
         btnDone = new JButton();
@@ -305,8 +304,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         helpDialog.setMinimumSize(new Dimension(600, 300));
         helpDialog.setPreferredSize(new Dimension(600, 300));
 
-        scrollHelpPane.setBorder(null);
-
         txtHelpArea.setEditable(false);
         txtHelpArea.setBackground(pane1.getBackground());
         txtHelpArea.setColumns(20);
@@ -315,18 +312,20 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         txtHelpArea.setRows(5);
         txtHelpArea.setText(bundle.getString("TestCardLayout.txtHelpArea.text")); // NOI18N
         txtHelpArea.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
-        scrollHelpPane.setViewportView(txtHelpArea);
 
         GroupLayout helpPaneLayout = new GroupLayout(helpPane);
         helpPane.setLayout(helpPaneLayout);
         helpPaneLayout.setHorizontalGroup(helpPaneLayout.createParallelGroup(GroupLayout.LEADING)
             .add(helpPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(scrollHelpPane, GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
-                .addContainerGap())
+                .add(0, 12, Short.MAX_VALUE)
+                .add(txtHelpArea, GroupLayout.PREFERRED_SIZE, 830, GroupLayout.PREFERRED_SIZE)
+                .add(0, 12, Short.MAX_VALUE))
         );
         helpPaneLayout.setVerticalGroup(helpPaneLayout.createParallelGroup(GroupLayout.LEADING)
-            .add(GroupLayout.TRAILING, scrollHelpPane, GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+            .add(helpPaneLayout.createSequentialGroup()
+                .add(0, 0, Short.MAX_VALUE)
+                .add(txtHelpArea, GroupLayout.PREFERRED_SIZE, 243, GroupLayout.PREFERRED_SIZE)
+                .add(0, 0, Short.MAX_VALUE))
         );
 
         GroupLayout helpDialogLayout = new GroupLayout(helpDialog.getContentPane());
@@ -2985,7 +2984,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JPanel pane1;
     private JPanel pane2;
     private JPanel pane3;
-    private JScrollPane scrollHelpPane;
     private JPanel suspectPane;
     private JTextArea txtAreaDateVenue;
     private JTextArea txtAreaInfo;

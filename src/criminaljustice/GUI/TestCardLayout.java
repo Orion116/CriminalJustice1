@@ -130,6 +130,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private void initComponents()
     {
 
+        helpDialog = new JDialog();
+        helpPane = new JPanel();
+        scrollHelpPane = new JScrollPane();
+        txtHelpArea = new JTextArea();
         buttonPanel = new JPanel();
         btnDone = new JButton();
         btnSave = new JButton();
@@ -288,11 +292,63 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         pane3 = new JPanel();
         jScrollPane2 = new JScrollPane();
         jTextArea1 = new JTextArea();
+        MenuBar = new JMenuBar();
+        helpMenu = new JMenu();
+        help = new JMenuItem();
+        aboutMenu = new JMenu();
 
         FormListener formListener = new FormListener();
 
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         ResourceBundle bundle = ResourceBundle.getBundle("criminaljustice/GUI/Bundle"); // NOI18N
+        helpDialog.setTitle(bundle.getString("TestCardLayout.helpDialog.title")); // NOI18N
+        helpDialog.setLocation(new Point(260, 70));
+        helpDialog.setMinimumSize(new Dimension(600, 300));
+        helpDialog.setPreferredSize(new Dimension(600, 300));
+
+        scrollHelpPane.setBorder(null);
+
+        txtHelpArea.setEditable(false);
+        txtHelpArea.setBackground(pane1.getBackground());
+        txtHelpArea.setColumns(20);
+        txtHelpArea.setFont(new Font("Dialog", 0, 14)); // NOI18N
+        txtHelpArea.setForeground(pane1.getForeground());
+        txtHelpArea.setRows(5);
+        txtHelpArea.setText(bundle.getString("TestCardLayout.txtHelpArea.text")); // NOI18N
+        txtHelpArea.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        scrollHelpPane.setViewportView(txtHelpArea);
+
+        GroupLayout helpPaneLayout = new GroupLayout(helpPane);
+        helpPane.setLayout(helpPaneLayout);
+        helpPaneLayout.setHorizontalGroup(helpPaneLayout.createParallelGroup(GroupLayout.LEADING)
+            .add(helpPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .add(scrollHelpPane, GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        helpPaneLayout.setVerticalGroup(helpPaneLayout.createParallelGroup(GroupLayout.LEADING)
+            .add(GroupLayout.TRAILING, scrollHelpPane, GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+        );
+
+        GroupLayout helpDialogLayout = new GroupLayout(helpDialog.getContentPane());
+        helpDialog.getContentPane().setLayout(helpDialogLayout);
+        helpDialogLayout.setHorizontalGroup(helpDialogLayout.createParallelGroup(GroupLayout.LEADING)
+            .add(0, 854, Short.MAX_VALUE)
+            .add(helpDialogLayout.createParallelGroup(GroupLayout.LEADING)
+                .add(helpDialogLayout.createSequentialGroup()
+                    .add(0, 0, Short.MAX_VALUE)
+                    .add(helpPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .add(0, 0, Short.MAX_VALUE)))
+        );
+        helpDialogLayout.setVerticalGroup(helpDialogLayout.createParallelGroup(GroupLayout.LEADING)
+            .add(0, 300, Short.MAX_VALUE)
+            .add(helpDialogLayout.createParallelGroup(GroupLayout.LEADING)
+                .add(helpDialogLayout.createSequentialGroup()
+                    .add(0, 29, Short.MAX_VALUE)
+                    .add(helpPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .add(0, 28, Short.MAX_VALUE)))
+        );
+
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle(bundle.getString("TestCardLayout.title")); // NOI18N
         setLocation(new Point(260, 70));
         setMinimumSize(new Dimension(854, 375));
@@ -412,7 +468,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                         .add(lblSecondaryOfficer)
                         .add(18, 18, 18)
                         .add(txtSecOfficer, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         basicsPanelLayout.setVerticalGroup(basicsPanelLayout.createParallelGroup(GroupLayout.LEADING)
             .add(basicsPanelLayout.createSequentialGroup()
@@ -434,7 +490,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                 .add(basicsPanelLayout.createParallelGroup(GroupLayout.BASELINE)
                     .add(lblSup)
                     .add(txtSupervisor, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jtbBasic.addTab(bundle.getString("TestCardLayout.basicsPanel.TabConstraints.tabTitle"), basicsPanel); // NOI18N
@@ -626,13 +682,13 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             .add(complainantPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(centered1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         complainantPaneLayout.setVerticalGroup(complainantPaneLayout.createParallelGroup(GroupLayout.LEADING)
             .add(complainantPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(centered1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jtbBasic.addTab(bundle.getString("TestCardLayout.complainantPane.TabConstraints.tabTitle"), complainantPane); // NOI18N
@@ -945,7 +1001,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                     .add(GroupLayout.TRAILING, centered3Layout.createSequentialGroup()
                         .addPreferredGap(LayoutStyle.RELATED)
                         .add(add2, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         centered3Layout.setVerticalGroup(centered3Layout.createParallelGroup(GroupLayout.LEADING)
             .add(centered3Layout.createSequentialGroup()
@@ -1013,7 +1069,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             .add(witnessPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(centered3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jtbBasic.addTab(bundle.getString("TestCardLayout.witnessPane.TabConstraints.tabTitle"), witnessPane); // NOI18N
@@ -1136,7 +1192,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                             .add(centered4Layout.createSequentialGroup()
                                 .add(18, 18, 18)
                                 .add(add3, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         centered4Layout.setVerticalGroup(centered4Layout.createParallelGroup(GroupLayout.LEADING)
             .add(centered4Layout.createSequentialGroup()
@@ -1204,7 +1260,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             .add(suspectPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(centered4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jtbBasic.addTab(bundle.getString("TestCardLayout.suspectPane.TabConstraints.tabTitle"), suspectPane); // NOI18N
@@ -1372,7 +1428,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             .add(otherPaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jtbBasic.addTab(bundle.getString("TestCardLayout.otherPane.TabConstraints.tabTitle"), otherPane); // NOI18N
@@ -1462,6 +1518,20 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         mainPanel.add(pane3, "card3");
 
+        helpMenu.setText(bundle.getString("TestCardLayout.helpMenu.text")); // NOI18N
+        helpMenu.addActionListener(formListener);
+
+        help.setText(bundle.getString("TestCardLayout.help.text")); // NOI18N
+        help.addActionListener(formListener);
+        helpMenu.add(help);
+
+        MenuBar.add(helpMenu);
+
+        aboutMenu.setText(bundle.getString("TestCardLayout.aboutMenu.text")); // NOI18N
+        MenuBar.add(aboutMenu);
+
+        setJMenuBar(MenuBar);
+
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.LEADING)
@@ -1472,10 +1542,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .add(mainPanel, GroupLayout.PREFERRED_SIZE, 255, GroupLayout.PREFERRED_SIZE)
-                .add(0, 120, Short.MAX_VALUE))
+                .add(0, 99, Short.MAX_VALUE))
             .add(layout.createParallelGroup(GroupLayout.LEADING)
                 .add(GroupLayout.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(270, Short.MAX_VALUE)
+                    .addContainerGap(249, Short.MAX_VALUE)
                     .add(buttonPanel, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
                     .add(19, 19, 19)))
         );
@@ -1533,6 +1603,14 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             else if (evt.getSource() == add4)
             {
                 TestCardLayout.this.add4ActionPerformed(evt);
+            }
+            else if (evt.getSource() == helpMenu)
+            {
+                TestCardLayout.this.helpMenuActionPerformed(evt);
+            }
+            else if (evt.getSource() == help)
+            {
+                TestCardLayout.this.helpActionPerformed(evt);
             }
         }
 
@@ -2585,6 +2663,23 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         }
     }//GEN-LAST:event_add4ActionPerformed
 
+    private void helpMenuActionPerformed(ActionEvent evt)//GEN-FIRST:event_helpMenuActionPerformed
+    {//GEN-HEADEREND:event_helpMenuActionPerformed
+         CardLayout card = (CardLayout) mainPanel.getLayout();
+         card.show(mainPanel, "card5");
+         System.out.println("here");
+// TODO add your handling code here:
+    }//GEN-LAST:event_helpMenuActionPerformed
+
+    private void helpActionPerformed(ActionEvent evt)//GEN-FIRST:event_helpActionPerformed
+    {//GEN-HEADEREND:event_helpActionPerformed
+//        CardLayout card = (CardLayout) mainPanel.getLayout();
+//        card.show(mainPanel, "card5");
+//        System.out.println("here");
+        helpDialog.setSize(542, 234);
+        helpDialog.setVisible(true);
+    }//GEN-LAST:event_helpActionPerformed
+
     private void clearTextBoxes(JFormattedTextField fname, JFormattedTextField lname, 
                                 JTextField mid, JTextField birth, JTextField street, 
                                 JTextField city, JTextField phone, JTextField state, 
@@ -2781,6 +2876,8 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JComboBox<String> FileCode;
+    private JMenuBar MenuBar;
+    private JMenu aboutMenu;
     private JButton add;
     private JButton add1;
     private JButton add2;
@@ -2802,6 +2899,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JComboBox genderBox1;
     private JComboBox genderBox2;
     private JComboBox genderBox3;
+    private JMenuItem help;
+    private JDialog helpDialog;
+    private JMenu helpMenu;
+    private JPanel helpPane;
     private JScrollPane informationScroll;
     private JLabel jLabel1;
     private JLabel jLabel2;
@@ -2884,6 +2985,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JPanel pane1;
     private JPanel pane2;
     private JPanel pane3;
+    private JScrollPane scrollHelpPane;
     private JPanel suspectPane;
     private JTextArea txtAreaDateVenue;
     private JTextArea txtAreaInfo;
@@ -2896,6 +2998,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JTextField txtCState;
     private JTextField txtCZipcode;
     private JTextField txtDateOfOffense;
+    private JTextArea txtHelpArea;
     private JTextField txtOAddress;
     private JTextField txtOCity;
     private JTextField txtODOB;

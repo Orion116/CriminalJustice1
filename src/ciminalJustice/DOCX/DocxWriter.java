@@ -867,14 +867,19 @@ public class DocxWriter
                     "        </w:p>\n", ReportingOfficer, dateOfReport);
     }
     
-    public static void writeInformation(String heading, long postion, int boxNum, int offSet,
-                                 String name, String dob, int age, String add1, 
-                                 String phone, String add2, String race, String gender, String email)
+    public static void writeInformation(String heading)
     {
         System.out.println("In Body");
-       input.printf("        <w:p w:rsidR=\"00D9192E\" w:rsidRPr=\"00D9192E\" w:rsidRDefault=\"00D9192E\" w:rsidP=\"00BB0992\">\n" +
+       input.printf("        <w:p w:rsidR=\"00D9192E\" w:rsidRPr=\"00D9192E\" w:rsidRDefault=\"00D9192E\" w:rsidP=\"00D9192E\">\n" +
                     "            <w:pPr>\n" +
+                    "                <w:tabs>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"-36pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"0pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"15.05pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"36pt\"/>\n" +
+                    "                </w:tabs>\n" +
                     "                <w:suppressAutoHyphens/>\n" +
+                    "                <w:ind w:start=\"15.05pt\" w:end=\"15.05pt\" w:hanging=\"15.05pt\"/>\n" +
                     "                <w:rPr>\n" +
                     "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\"/>\n" +
                     "                    <w:b/>\n" +
@@ -889,21 +894,140 @@ public class DocxWriter
                     "                    <w:szCs w:val=\"24\"/>\n" +
                     "                    <w:u w:val=\"single\"/>\n" +
                     "                </w:rPr>\n" +
-                    "                <w:t>INFORMATION</w:t>\n" +
+                    "                <w:t>%s</w:t>\n" +
                     "            </w:r>\n" +
                     "        </w:p>\n" +
-                    "        <w:p w:rsidR=\"007136F6\" w:rsidRDefault=\"007136F6\" w:rsidP=\"00BB0992\">\n" +
+                    "        <w:p w:rsidR=\"00461B02\" w:rsidRPr=\"00D9192E\" w:rsidRDefault=\"00D9192E\" w:rsidP=\"00BE7629\">\n" +
                     "            <w:pPr>\n" +
+                    "                <w:tabs>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"-36pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"0pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"15.05pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"36pt\"/>\n" +
+                    "                </w:tabs>\n" +
                     "                <w:suppressAutoHyphens/>\n" +
+                    "                <w:ind w:start=\"15.05pt\" w:end=\"15.05pt\" w:hanging=\"15.05pt\"/>\n"   +
                     "                <w:rPr>\n" +
                     "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\"/>\n" +
                     "                    <w:szCs w:val=\"24\"/>\n" +
                     "                </w:rPr>\n" +
                     "            </w:pPr>\n" +
-                    "            <w:bookmarkStart w:id=\"1\" w:name=\"_Hlk479780898\"/>\n" +
+                    "            <w:r>\n" +
+                    "                <w:rPr>\n" +
+                    "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\"/>\n" +
+                    "                    <w:szCs w:val=\"24\"/>\n" +
+                    "                </w:rPr>\n" +
+                    "                <w:t>Type here</w:t>\n" +
+                    "            </w:r>\n" +
                     "        </w:p>\n" +
-                    "        <w:p w:rsidR=\"00461B02\" w:rsidRPr=\"00D9192E\" w:rsidRDefault=\"00D9192E\" w:rsidP=\"00BB0992\">\n" +
+                    "        <w:p w:rsidR=\"00461B02\" w:rsidRDefault=\"00461B02\" w:rsidP=\"00461B02\">\n" +
                     "            <w:pPr>\n" +
+                    "                <w:tabs>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"-36pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"0pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"15.05pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"36pt\"/>\n" +
+                    "                </w:tabs>\n" +
+                    "                <w:suppressAutoHyphens/>\n" +
+                    "                <w:ind w:start=\"15.05pt\" w:end=\"15.05pt\" w:hanging=\"15.05pt\"/>\n" +
+                    "                <w:rPr>\n" +
+                    "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\"/>\n" +
+                    "                    <w:szCs w:val=\"24\"/>\n" +
+                    "                </w:rPr>\n" +
+                    "            </w:pPr>\n" +
+                    "        </w:p>\n" +
+                    "        <w:p w:rsidR=\"00D26F80\" w:rsidRDefault=\"00D26F80\" w:rsidP=\"00461B02\">\n" +
+                    "            <w:pPr>\n" +
+                    "                <w:tabs>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"-36pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"0pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"15.05pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"36pt\"/>\n" +
+                    "                </w:tabs>\n" +
+                    "                <w:suppressAutoHyphens/>\n" +
+                    "                <w:ind w:start=\"15.05pt\" w:end=\"15.05pt\" w:hanging=\"15.05pt\"/>\n" +
+                    "                <w:rPr>\n" +
+                    "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\"/>\n" +
+                    "                    <w:b/>\n" +
+                    "                    <w:szCs w:val=\"24\"/>\n" +
+                    "                    <w:u w:val=\"single\"/>\n" +
+                    "                </w:rPr>\n" +
+                    "            </w:pPr>\n" +
+                    "        </w:p>\n", heading);
+    }
+    
+    public static void writeHeadings(String heading, String name)
+    {
+       input.printf("        <w:p w:rsidR=\"00D9192E\" w:rsidRPr=\"00D9192E\" w:rsidRDefault=\"00D9192E\" w:rsidP=\"00461B02\">\n" +
+                    "            <w:pPr>\n" +
+                    "                <w:tabs>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"-36pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"0pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"15.05pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"36pt\"/>\n" +
+                    "                </w:tabs>\n" +
+                    "                <w:suppressAutoHyphens/>\n" +
+                    "                <w:ind w:start=\"15.05pt\" w:end=\"15.05pt\" w:hanging=\"15.05pt\"/>\n" +
+                    "                <w:rPr>\n" +
+                    "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\"/>\n" +
+                    "                    <w:b/>\n" +
+                    "                    <w:szCs w:val=\"24\"/>\n" +
+                    "                    <w:u w:val=\"single\"/>\n" +
+                    "                </w:rPr>\n" +
+                    "            </w:pPr>\n" +
+                    "            <w:r w:rsidRPr=\"00D9192E\">\n" +
+                    "                <w:rPr>\n" +
+                    "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\"/>\n" +
+                    "                    <w:b/>\n" +
+                    "                    <w:szCs w:val=\"24\"/>\n" +
+                    "                    <w:u w:val=\"single\"/>\n" +
+                    "                </w:rPr>\n" +
+                    "                <w:t>INTERVIEW OF %s (</w:t>\n" +
+                    "            </w:r>\n" +
+                    "            <w:r w:rsidR=\"00461B02\">\n" +
+                    "                <w:rPr>\n" +
+                    "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\"/>\n" +
+                    "                    <w:b/>\n" +
+                    "                    <w:szCs w:val=\"24\"/>\n" +
+                    "                    <w:u w:val=\"single\"/>\n" +
+                    "                </w:rPr>\n" +
+                    "                <w:t>%s</w:t>\n" +
+                    "            </w:r>\n" +
+                    "            <w:r w:rsidRPr=\"00D9192E\">\n" +
+                    "                <w:rPr>\n" +
+                    "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\"/>\n" +
+                    "                    <w:b/>\n" +
+                    "                    <w:szCs w:val=\"24\"/>\n" +
+                    "                    <w:u w:val=\"single\"/>\n" +
+                    "                </w:rPr>\n" +
+                    "                <w:t>)</w:t>\n" +
+                    "            </w:r>\n" +
+                    "        </w:p>\n" +
+                    "        <w:p w:rsidR=\"00D9192E\" w:rsidRDefault=\"00D9192E\" w:rsidP=\"00461B02\">\n" +
+                    "            <w:pPr>\n" +
+                    "                <w:tabs>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"-36pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"0pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"15.05pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"36pt\"/>\n" +
+                    "                </w:tabs>\n" +
+                    "                <w:suppressAutoHyphens/>\n" +
+                    "                <w:ind w:start=\"15.05pt\" w:end=\"15.05pt\" w:hanging=\"15.05pt\"/>\n" +
+                    "                <w:rPr>\n" +
+                    "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\"/>\n" +
+                    "                    <w:b/>\n" +
+                    "                    <w:szCs w:val=\"24\"/>\n" +
+                    "                    <w:u w:val=\"single\"/>\n" +
+                    "                </w:rPr>\n" +
+                    "            </w:pPr>\n" +
+                    "        </w:p>\n" +
+                    "        <w:p w:rsidR=\"00BE7629\" w:rsidRPr=\"00D9192E\" w:rsidRDefault=\"00786868\" w:rsidP=\"00BE7629\">\n" +
+                    "            <w:pPr>\n" +
+                    "                <w:tabs>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"-36pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"0pt\"/>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"36pt\"/>\n" +
+                    "                </w:tabs>\n" +
                     "                <w:suppressAutoHyphens/>\n" +
                     "                <w:rPr>\n" +
                     "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\"/>\n" +
@@ -915,17 +1039,23 @@ public class DocxWriter
                     "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\"/>\n" +
                     "                    <w:szCs w:val=\"24\"/>\n" +
                     "                </w:rPr>\n" +
-                    "                <w:t>This is a test paragraph. This is a test paragraph. This is a test paragraph. This is a test paragraph.</w:t>\n" +
+                    "                <w:t>Type here</w:t>\n" +
                     "            </w:r>\n" +
-                    "            <w:r w:rsidR=\"00461B02\">\n" +
+                    "        </w:p>\n" +
+                    "        <w:p w:rsidR=\"00BE7629\" w:rsidRPr=\"00D9192E\" w:rsidRDefault=\"00BE7629\" w:rsidP=\"00BE7629\">\n" +
+                    "            <w:pPr>\n" +
+                    "                <w:tabs>\n" +
+                    "                    <w:tab w:val=\"start\" w:pos=\"-36pt\"/>\n" +
+                    "                </w:tabs>\n" +
+                    "                <w:suppressAutoHyphens/>\n" +
                     "                <w:rPr>\n" +
                     "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\"/>\n" +
+                    "                    <w:b/>\n" +
                     "                    <w:szCs w:val=\"24\"/>\n" +
+                    "                    <w:u w:val=\"single\"/>\n" +
                     "                </w:rPr>\n" +
-                    "                <w:t xml:space=\"preserve\"> This is a test paragraph. This is a test paragraph.  This is a test paragraph.  This is a test paragraph.  This is a test paragraph.  This is a test paragraph.  This is a test paragraph.  This is a test paragraph.  This is a test paragraph.  This is a test paragraph.  This is a test paragraph. This is a test paragraph.  </w:t>\n" +
-                    "            </w:r>\n" +
-                    "        </w:p>\n" + 
-                    "        <w:bookmarkEnd w:id=\"1\"/>\n", offSet,postion, boxNum, boxNum, postion, name, dob, age, add1, phone, add2, race, gender, email, heading);
+                    "            </w:pPr>\n" +
+                    "        </w:p>\n", heading, name);
     }
     
     public static void writeContentFileEnd() throws FileNotFoundException

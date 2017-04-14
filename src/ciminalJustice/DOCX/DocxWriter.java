@@ -912,13 +912,6 @@ public class DocxWriter
                     "                    <w:szCs w:val=\"24\"/>\n" +
                     "                </w:rPr>\n" +
                     "            </w:pPr>\n" +
-                    "            <w:r>\n" +
-                    "                <w:rPr>\n" +
-                    "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\"/>\n" +
-                    "                    <w:szCs w:val=\"24\"/>\n" +
-                    "                </w:rPr>\n" +
-                    "                <w:t>Type here</w:t>\n" +
-                    "            </w:r>\n" +
                     "        </w:p>\n" +
                     "        <w:p w:rsidR=\"00461B02\" w:rsidRDefault=\"00461B02\" w:rsidP=\"00461B02\">\n" +
                     "            <w:pPr>\n" +
@@ -935,6 +928,13 @@ public class DocxWriter
                     "                    <w:szCs w:val=\"24\"/>\n" +
                     "                </w:rPr>\n" +
                     "            </w:pPr>\n" +
+                    "            <w:r>\n" +
+                    "                <w:rPr>\n" +
+                    "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\"/>\n" +
+                    "                    <w:szCs w:val=\"24\"/>\n" +
+                    "                </w:rPr>\n" +
+                    "                <w:t>Type here</w:t>\n" +
+                    "            </w:r>\n" +
                     "        </w:p>\n" +
                     "        <w:p w:rsidR=\"00D26F80\" w:rsidRDefault=\"00D26F80\" w:rsidP=\"00461B02\">\n" +
                     "            <w:pPr>\n" +
@@ -1225,7 +1225,31 @@ public class DocxWriter
             {}
             System.out.printf("Value is %d\n", cmdProc.exitValue());
         }
-    }  
+    } 
+    
+    public static void checkFor7z() throws IOException
+    {
+        String OS;
+        OS = System.getProperty("os.name");
+        if (OS.startsWith("Windows"))
+        {
+            String oog;
+            Process cmdProc = Runtime.getRuntime().exec("7z");
+            BufferedReader stdoutReader = new BufferedReader(new InputStreamReader(cmdProc.getInputStream()));
+            while ((oog = stdoutReader.readLine()) != null) 
+            {
+                System.out.printf("%s\n", oog);       // process procs standard output here
+            }
+
+            BufferedReader stderrReader = new BufferedReader(new InputStreamReader(cmdProc.getErrorStream()));
+            while ((stderrReader.readLine()) != null) 
+            {
+                // process procs standard error here
+            }
+
+            cmdProc.exitValue();
+        }
+    }
 
     public static void writeSettingsFile() throws FileNotFoundException
     {

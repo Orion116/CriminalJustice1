@@ -2738,6 +2738,11 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             DocxWriter.checkFor7z();
             try
             {
+//                String message = "The bugs we discussed earlier are still\n " +
+//                                 "present.";
+//                JOptionPane.showMessageDialog(null, "Copy the 7z.exe from the 7z folder and place it where the MCOLES program is.",
+//                                "Error 7z not installed!",
+//                                JOptionPane.OK_OPTION);
                 DocxWriter.writeMETAFile();
                 DocxWriter.writeSettingsFile();
                 DocxWriter.writeStylesFile();

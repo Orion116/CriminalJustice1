@@ -1083,7 +1083,7 @@ public class DocxWriter
                     "                    <w:szCs w:val=\"24\"/>\n" +
                     "                    <w:u w:val=\"single\"/>\n" +
                     "                </w:rPr>\n" +
-                    "                <w:t>OFFICER SIGANTURE   _________________</w:t>\n" +
+                    "                <w:t>OFFICER SIGNATURE   _________________</w:t>\n" +
                     "            </w:r>\n" +
                     "            <w:r w:rsidR=\"00DA3660\">\n" +
                     "                <w:rPr>\n" +

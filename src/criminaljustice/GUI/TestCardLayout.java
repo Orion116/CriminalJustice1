@@ -131,9 +131,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     {
 
         buttonPanel = new JPanel();
-        btnBack = new JButton();
         btnDone = new JButton();
-        btnNext = new JButton();
         btnSave = new JButton();
         mainPanel = new JPanel();
         String[] aTest1 = {"1", "2", "3"};
@@ -305,25 +303,13 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         buttonPanel.setName("buttonPanel");
         buttonPanel.setPreferredSize(new Dimension(747, 378));
 
-        btnBack.setText(bundle.getString("TestCardLayout.btnBack.text")); // NOI18N
-        btnBack.setEnabled(false);
-        btnBack.setNextFocusableComponent(btnDone);
-        btnBack.addActionListener(formListener);
-
         btnDone.setText(bundle.getString("TestCardLayout.btnDone.text")); // NOI18N
-        btnDone.setNextFocusableComponent(btnNext);
         btnDone.addActionListener(formListener);
         btnDone.addKeyListener(formListener);
 
-        btnNext.setText(bundle.getString("TestCardLayout.btnNext.text")); // NOI18N
-        btnNext.setToolTipText(bundle.getString("TestCardLayout.btnNext.toolTipText")); // NOI18N
-        btnNext.setEnabled(false);
-        btnNext.setNextFocusableComponent(btnBack);
-        btnNext.addActionListener(formListener);
-
         btnSave.setText(bundle.getString("TestCardLayout.btnSave.text")); // NOI18N
+        btnSave.setToolTipText(bundle.getString("TestCardLayout.btnSave.toolTipText")); // NOI18N
         btnSave.setEnabled(false);
-        btnSave.setNextFocusableComponent(btnNext);
         btnSave.addActionListener(formListener);
         btnSave.addKeyListener(formListener);
 
@@ -331,26 +317,17 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         buttonPanel.setLayout(buttonPanelLayout);
         buttonPanelLayout.setHorizontalGroup(buttonPanelLayout.createParallelGroup(GroupLayout.LEADING)
             .add(GroupLayout.TRAILING, buttonPanelLayout.createSequentialGroup()
-                .addContainerGap(134, Short.MAX_VALUE)
-                .add(btnBack, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
-                .add(18, 18, 18)
+                .addContainerGap(304, Short.MAX_VALUE)
                 .add(btnDone, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
                 .add(btnSave, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
-                .add(46, 46, 46)
-                .add(btnNext, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(304, Short.MAX_VALUE))
         );
-
-        buttonPanelLayout.linkSize(new Component[] {btnBack, btnDone, btnNext}, GroupLayout.HORIZONTAL);
-
         buttonPanelLayout.setVerticalGroup(buttonPanelLayout.createParallelGroup(GroupLayout.LEADING)
             .add(GroupLayout.TRAILING, buttonPanelLayout.createSequentialGroup()
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(buttonPanelLayout.createParallelGroup(GroupLayout.BASELINE)
                     .add(btnDone)
-                    .add(btnBack)
-                    .add(btnNext)
                     .add(btnSave))
                 .add(37, 37, 37))
         );
@@ -1353,11 +1330,11 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                 .addPreferredGap(LayoutStyle.RELATED)
                 .add(jPanel1Layout.createParallelGroup(GroupLayout.LEADING)
                     .add(jPanel1Layout.createParallelGroup(GroupLayout.BASELINE)
+                        .add(txtOMInitial, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .add(lblVMInitial5))
+                    .add(jPanel1Layout.createParallelGroup(GroupLayout.BASELINE)
                         .add(txtODOB, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .add(lblVDOB5)
-                        .add(jPanel1Layout.createParallelGroup(GroupLayout.BASELINE)
-                            .add(txtOMInitial, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .add(lblVMInitial5)))
+                        .add(lblVDOB5))
                     .add(jPanel1Layout.createParallelGroup(GroupLayout.BASELINE)
                         .add(lblVFname4)
                         .add(jftOFname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -1422,6 +1399,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         txtAreaInfo.setLineWrap(true);
         txtAreaInfo.setRows(5);
         txtAreaInfo.setTabSize(4);
+        txtAreaInfo.setText(bundle.getString("TestCardLayout.txtAreaInfo.text")); // NOI18N
         txtAreaInfo.setWrapStyleWord(true);
         informationScroll.setViewportView(txtAreaInfo);
 
@@ -1512,17 +1490,9 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         FormListener() {}
         public void actionPerformed(ActionEvent evt)
         {
-            if (evt.getSource() == btnBack)
-            {
-                TestCardLayout.this.btnBackActionPerformed(evt);
-            }
-            else if (evt.getSource() == btnDone)
+            if (evt.getSource() == btnDone)
             {
                 TestCardLayout.this.btnDoneActionPerformed(evt);
-            }
-            else if (evt.getSource() == btnNext)
-            {
-                TestCardLayout.this.btnNextActionPerformed(evt);
             }
             else if (evt.getSource() == btnSave)
             {
@@ -1548,13 +1518,13 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             {
                 TestCardLayout.this.txtRace2ActionPerformed(evt);
             }
-            else if (evt.getSource() == txtRace3)
-            {
-                TestCardLayout.this.txtRace3ActionPerformed(evt);
-            }
             else if (evt.getSource() == add2)
             {
                 TestCardLayout.this.add2ActionPerformed(evt);
+            }
+            else if (evt.getSource() == txtRace3)
+            {
+                TestCardLayout.this.txtRace3ActionPerformed(evt);
             }
             else if (evt.getSource() == add3)
             {
@@ -1995,19 +1965,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         }
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(ActionEvent evt)//GEN-FIRST:event_btnBackActionPerformed
-    {//GEN-HEADEREND:event_btnBackActionPerformed
-        CardLayout card = (CardLayout) mainPanel.getLayout();
-        card.previous(mainPanel);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBackActionPerformed
-
-    private void btnNextActionPerformed(ActionEvent evt)//GEN-FIRST:event_btnNextActionPerformed
-    {//GEN-HEADEREND:event_btnNextActionPerformed
-        CardLayout card = (CardLayout) mainPanel.getLayout();
-        card.next(mainPanel);
-    }//GEN-LAST:event_btnNextActionPerformed
-
     private void btnDoneActionPerformed(ActionEvent evt)//GEN-FIRST:event_btnDoneActionPerformed
     {//GEN-HEADEREND:event_btnDoneActionPerformed
         int input = 2;
@@ -2054,6 +2011,17 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             {
                 printer();
                 DocxWriter.sectionDivider(name, date);
+                DocxWriter.writeInformation("INFORMATION");
+                DocxWriter.writeInformation("DATE AND VENUE");
+                
+                
+                for (String heading : Heading)
+                {
+                    for (String inputName : Name)
+                    {
+                        DocxWriter.writeHeadings(heading, inputName);
+                    }
+                }
                 DocxWriter.writeContentFileEnd();
                 DocxWriter.createDOCXArchive();
             }
@@ -2150,10 +2118,9 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
                     getContent(agent, boxNum, postion, jftOFname, jtfOLname, 
                                txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
-                               null, null, txtOEmail);
+                               null, "", txtOEmail);
                 }
             }
-            btnNext.setEnabled(true);
         }
         savePressed = savePressed + 1;
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -2203,7 +2170,15 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                     Street.add(street.getText().trim());
                     Phone.add(formatPhone(phone.getText().trim()));
                     CityZip.add(cityzip.trim());
-                    Race.add(race.getText().trim());
+                    
+                    if (race == null)
+                    {
+                        Race.add("");
+                    }
+                    else
+                    {
+                        Race.add(race.getText().trim());
+                    }
                     Gender.add(gender.trim());
                     Email.add(email.getText().trim());
                     System.out.println(Heading.size());
@@ -2627,7 +2602,11 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         phone.setText("999-999-9999");
         state.setText("");
         zip.setText("");
-        race.setText("");
+        
+        if (race != null)
+        {
+            race.setText("");
+        }
         email.setText(""); 
         cb.setSelectedIndex(0);
     }
@@ -2791,9 +2770,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JButton add4;
     private JComboBox<String> agencyCB;
     private JPanel basicsPanel;
-    private JButton btnBack;
     private JButton btnDone;
-    private JButton btnNext;
     private JButton btnSave;
     private JPanel buttonPanel;
     private JPanel centered1;

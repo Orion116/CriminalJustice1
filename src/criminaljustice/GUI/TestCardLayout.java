@@ -2235,97 +2235,11 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         input = JOptionPane.showConfirmDialog(null, "Do you want to Quit?", "Select an Option...",
                         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-        String date = now.format(formatter);
-        String month = date.split("-")[1]; 
-        String year = date.split("-")[0];
-        String day = date.split("-")[2];
-        String first = "";
-        String last = "";
-        String name = "";
-        
-        if (day.length() != 2)
-        {
-            day = "0" + day;
-        }  
-        if (month.length() != 2)
-        {
-            month = "0" + month;
-        }
-        
-        date =  month + "/" + day + "/" + year;
-        
-        if (!txtOficerInCharge.getText().trim().equals("") && txtOficerInCharge.getText().trim().contains(" "))
-        {
-            first = txtOficerInCharge.getText().split(" ")[0];
-            System.out.println(first);
-            last = txtOficerInCharge.getText().split(" ")[1];
-            name = last + ", " + first;
-        }
-        else
-        {
-            name = "Doe" + ", " + "John";
-        }
-
         if (input == 0)
         {
             try
             {
                 printer();
-                DocxWriter.sectionDivider(name, date);
-                DocxWriter.writeInformation("INFORMATION");
-                DocxWriter.writeInformation("DATE");
-                DocxWriter.writeInformation("VENUE");
-                
-                DocxWriter.writeInformation("Complainant".toUpperCase());
-                for (int e = 0; e < element; e++)
-                {
-                    if (Heading.get(e).contains("Complainant"))
-                    {
-                        DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
-                    }
-                }
-                
-                DocxWriter.writeInformation("Victim".toUpperCase());
-                for (int e = 0; e < element; e++)
-                {
-                    if (Heading.get(e).contains("Victim"))
-                    {
-                        DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
-                    }
-                }
-                
-                DocxWriter.writeInformation("witness".toUpperCase());
-                for (int e = 0; e < element; e++)
-                {
-                    if (Heading.get(e).contains("Witness"))
-                    {
-                        DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
-                    }
-                }
-                
-                DocxWriter.writeInformation("suspect".toUpperCase());
-                for (int e = 0; e < element; e++)
-                {
-                    if (Heading.get(e).contains("Suspect"))
-                    {
-                        DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
-                    }
-                }
-                
-                DocxWriter.writeInformation("Other".toUpperCase());
-                for (int e = 0; e < element; e++)
-                {
-                    if (!Heading.get(e).contains("Suspect") && 
-                        !Heading.get(e).contains("Witness") &&
-                        !Heading.get(e).contains("Victim")  &&
-                        !Heading.get(e).contains("Complainant"))
-                    {
-                        DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
-                    }
-                }
                 
                 DocxWriter.writeContentFileEnd();
                 DocxWriter.createDOCXArchive();
@@ -2512,12 +2426,99 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     
     private void printer()
     {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        String date = now.format(formatter);
+        String month = date.split("-")[1]; 
+        String year = date.split("-")[0];
+        String day = date.split("-")[2];
+        String first = "";
+        String last = "";
+        String name = "";
+        
+        if (day.length() != 2)
+        {
+            day = "0" + day;
+        }  
+        if (month.length() != 2)
+        {
+            month = "0" + month;
+        }
+        
+        date =  month + "/" + day + "/" + year;
+        
+        if (!txtOficerInCharge.getText().trim().equals("") && txtOficerInCharge.getText().trim().contains(" "))
+        {
+            first = txtOficerInCharge.getText().split(" ")[0];
+            System.out.println(first);
+            last = txtOficerInCharge.getText().split(" ")[1];
+            name = last + ", " + first;
+        }
+        else
+        {
+            name = "Doe" + ", " + "John";
+        }
+
         System.out.println(Heading.size());
         for (int e = 0; e < element; e++)
         {
             DocxWriter.writeBody(Heading.get(e), offSet, BoxID.get(e), Pos.get(e), 
                                  Name.get(e), DOB.get(e), Age.get(e), Street.get(e),
                                  Phone.get(e), CityZip.get(e), Race.get(e), Gender.get(e), Email.get(e));
+        }
+        
+        DocxWriter.sectionDivider(name, date);
+        DocxWriter.writeInformation("INFORMATION");
+        DocxWriter.writeInformation("DATE");
+        DocxWriter.writeInformation("VENUE");
+
+        DocxWriter.writeInformation("Complainant".toUpperCase());
+        for (int e = 0; e < element; e++)
+        {
+            if (Heading.get(e).contains("Complainant"))
+            {
+                DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
+            }
+        }
+
+        DocxWriter.writeInformation("Victim".toUpperCase());
+        for (int e = 0; e < element; e++)
+        {
+            if (Heading.get(e).contains("Victim"))
+            {
+                DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
+            }
+        }
+
+        DocxWriter.writeInformation("witness".toUpperCase());
+        for (int e = 0; e < element; e++)
+        {
+            if (Heading.get(e).contains("Witness"))
+            {
+                DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
+            }
+        }
+
+        DocxWriter.writeInformation("suspect".toUpperCase());
+        for (int e = 0; e < element; e++)
+        {
+            if (Heading.get(e).contains("Suspect"))
+            {
+                DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
+            }
+        }
+
+        DocxWriter.writeInformation("Other".toUpperCase());
+        for (int e = 0; e < element; e++)
+        {
+            if (!Heading.get(e).contains("Suspect") && 
+                !Heading.get(e).contains("Witness") &&
+                !Heading.get(e).contains("Victim")  &&
+                !Heading.get(e).contains("Complainant"))
+            {
+                DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
+            }
         }
     }
     

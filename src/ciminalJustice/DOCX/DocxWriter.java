@@ -55,7 +55,7 @@ public class DocxWriter
         PrintStream file = new PrintStream(new FileOutputStream("report/word/header1.xml"), false);
 
         file.printf("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
-                    "<w:hdr xmlns:cx=\"http://schemas.microsoft.com/office/drawing/2014/chartex\" xmlns:cx1=\"http://schemas.microsoft.com/office/drawing/2015/9/8/chartex\" xmlns:cx2=\"http://schemas.microsoft.com/office/drawing/2015/10/21/chartex\" xmlns:cx3=\"http://schemas.microsoft.com/office/drawing/2016/5/9/chartex\" xmlns:cx4=\"http://schemas.microsoft.com/office/drawing/2016/5/10/chartex\" xmlns:cx5=\"http://schemas.microsoft.com/office/drawing/2016/5/11/chartex\" xmlns:cx6=\"http://schemas.microsoft.com/office/drawing/2016/5/12/chartex\" xmlns:cx7=\"http://schemas.microsoft.com/office/drawing/2016/5/13/chartex\" xmlns:cx8=\"http://schemas.microsoft.com/office/drawing/2016/5/14/chartex\" xmlns:mc=\"http://schemas.openxmlformats.org/markup-compatibility/2006\" xmlns:o=\"urn:schemas-microsoft-com:office:office\" xmlns:r=\"http://purl.oclc.org/ooxml/officeDocument/relationships\" xmlns:m=\"http://purl.oclc.org/ooxml/officeDocument/math\" xmlns:v=\"urn:schemas-microsoft-com:vml\" xmlns:wp14=\"http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing\" xmlns:wp=\"http://purl.oclc.org/ooxml/drawingml/wordprocessingDrawing\" xmlns:w10=\"urn:schemas-microsoft-com:office:word\" xmlns:w=\"http://purl.oclc.org/ooxml/wordprocessingml/main\" xmlns:w14=\"http://schemas.microsoft.com/office/word/2010/wordml\" xmlns:w15=\"http://schemas.microsoft.com/office/word/2012/wordml\" xmlns:w16se=\"http://schemas.microsoft.com/office/word/2015/wordml/symex\" xmlns:wpi=\"http://schemas.microsoft.com/office/word/2010/wordprocessingInk\" xmlns:wne=\"http://schemas.microsoft.com/office/word/2006/wordml\" mc:Ignorable=\"w14 w15 w16se wne wp14\"><w:p w:rsidR=\"003217D6\" w:rsidRPr=\"003217D6\" w:rsidRDefault=\"003217D6\" w:rsidP=\"003217D6\"><w:pPr><w:tabs><w:tab w:val=\"end\" w:pos=\"468pt\"/></w:tabs><w:spacing w:line=\"12pt\" w:lineRule=\"auto\"/><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:eastAsia=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"20\"/></w:rPr></w:pPr><w:r w:rsidRPr=\"003217D6\"><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:eastAsia=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"20\"/></w:rPr><w:t>School of Criminal Justice</w:t></w:r><w:r w:rsidRPr=\"003217D6\"><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:eastAsia=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"20\"/></w:rPr><w:tab/><w:t xml:space=\"preserve\">   Fall 2016</w:t></w:r></w:p><w:p w:rsidR=\"003217D6\" w:rsidRPr=\"003217D6\" w:rsidRDefault=\"003217D6\" w:rsidP=\"003217D6\"><w:pPr><w:tabs><w:tab w:val=\"end\" w:pos=\"468pt\"/></w:tabs><w:spacing w:line=\"12pt\" w:lineRule=\"auto\"/><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:eastAsia=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"20\"/></w:rPr></w:pPr><w:r w:rsidRPr=\"003217D6\"><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:eastAsia=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"20\"/></w:rPr><w:t xml:space=\"preserve\">CJUS 206 On-Campus Interns                                                                            </w:t></w:r><w:r><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:eastAsia=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"20\"/></w:rPr><w:t xml:space=\"preserve\">            </w:t></w:r><w:r w:rsidRPr=\"003217D6\"><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:eastAsia=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"20\"/></w:rPr><w:t>3 Cr.</w:t></w:r></w:p><w:p w:rsidR=\"00EA7867\" w:rsidRPr=\"00EA7867\" w:rsidRDefault=\"00835BFA\" w:rsidP=\"00835BFA\"><w:pPr><w:pStyle w:val=\"Header\"/><w:tabs><w:tab w:val=\"clear\" w:pos=\"234pt\"/><w:tab w:val=\"clear\" w:pos=\"468pt\"/><w:tab w:val=\"start\" w:pos=\"346.25pt\"/><w:tab w:val=\"start\" w:pos=\"433.35pt\"/></w:tabs><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"24\"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"24\"/></w:rPr><w:tab/></w:r></w:p></w:hdr>");
+                    "<w:hdr xmlns:cx=\"http://schemas.microsoft.com/office/drawing/2014/chartex\" xmlns:cx1=\"http://schemas.microsoft.com/office/drawing/2015/9/8/chartex\" xmlns:cx2=\"http://schemas.microsoft.com/office/drawing/2015/10/21/chartex\" xmlns:cx3=\"http://schemas.microsoft.com/office/drawing/2016/5/9/chartex\" xmlns:cx4=\"http://schemas.microsoft.com/office/drawing/2016/5/10/chartex\" xmlns:cx5=\"http://schemas.microsoft.com/office/drawing/2016/5/11/chartex\" xmlns:cx6=\"http://schemas.microsoft.com/office/drawing/2016/5/12/chartex\" xmlns:cx7=\"http://schemas.microsoft.com/office/drawing/2016/5/13/chartex\" xmlns:cx8=\"http://schemas.microsoft.com/office/drawing/2016/5/14/chartex\" xmlns:mc=\"http://schemas.openxmlformats.org/markup-compatibility/2006\" xmlns:o=\"urn:schemas-microsoft-com:office:office\" xmlns:r=\"http://purl.oclc.org/ooxml/officeDocument/relationships\" xmlns:m=\"http://purl.oclc.org/ooxml/officeDocument/math\" xmlns:v=\"urn:schemas-microsoft-com:vml\" xmlns:wp14=\"http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing\" xmlns:wp=\"http://purl.oclc.org/ooxml/drawingml/wordprocessingDrawing\" xmlns:w10=\"urn:schemas-microsoft-com:office:word\" xmlns:w=\"http://purl.oclc.org/ooxml/wordprocessingml/main\" xmlns:w14=\"http://schemas.microsoft.com/office/word/2010/wordml\" xmlns:w15=\"http://schemas.microsoft.com/office/word/2012/wordml\" xmlns:w16se=\"http://schemas.microsoft.com/office/word/2015/wordml/symex\" xmlns:wpi=\"http://schemas.microsoft.com/office/word/2010/wordprocessingInk\" xmlns:wne=\"http://schemas.microsoft.com/office/word/2006/wordml\" mc:Ignorable=\"w14 w15 w16se wne wp14\"><w:p w:rsidR=\"003217D6\" w:rsidRPr=\"003217D6\" w:rsidRDefault=\"003217D6\" w:rsidP=\"003217D6\"><w:pPr><w:tabs><w:tab w:val=\"end\" w:pos=\"468pt\"/></w:tabs><w:spacing w:line=\"12pt\" w:lineRule=\"auto\"/><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:eastAsia=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"20\"/></w:rPr></w:pPr><w:r w:rsidRPr=\"003217D6\"><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:eastAsia=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"20\"/></w:rPr><w:t>School of Criminal Justice</w:t></w:r><w:r w:rsidRPr=\"003217D6\"><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:eastAsia=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"20\"/></w:rPr><w:tab/><w:t xml:space=\"preserve\">   Fall 2016</w:t></w:r></w:p><w:p w:rsidR=\"003217D6\" w:rsidRPr=\"003217D6\" w:rsidRDefault=\"003217D6\" w:rsidP=\"003217D6\"><w:pPr><w:tabs><w:tab w:val=\"end\" w:pos=\"468pt\"/></w:tabs><w:spacing w:line=\"12pt\" w:lineRule=\"auto\"/><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:eastAsia=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"20\"/></w:rPr></w:pPr><w:r w:rsidRPr=\"003217D6\"><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:eastAsia=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"20\"/></w:rPr><w:t xml:space=\"preserve\">CJUS 450</w:t></w:r></w:p><w:p w:rsidR=\"00EA7867\" w:rsidRPr=\"00EA7867\" w:rsidRDefault=\"00835BFA\" w:rsidP=\"00835BFA\"><w:pPr><w:pStyle w:val=\"Header\"/><w:tabs><w:tab w:val=\"clear\" w:pos=\"234pt\"/><w:tab w:val=\"clear\" w:pos=\"468pt\"/><w:tab w:val=\"start\" w:pos=\"346.25pt\"/><w:tab w:val=\"start\" w:pos=\"433.35pt\"/></w:tabs><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"24\"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/><w:b/><w:sz w:val=\"24\"/><w:szCs w:val=\"24\"/></w:rPr><w:tab/></w:r></w:p></w:hdr>");
 
         file.close();
     }
@@ -476,6 +476,293 @@ public class DocxWriter
     public static void writeBody(String heading, long postion, int boxNum, int offSet,
                                  String name, String dob, int age, String add1, 
                                  String phone, String add2, String race, String gender, String email)
+    {
+        System.out.println("In Body");
+       input.printf("        <w:p w:rsidR=\"00406F2F\" w:rsidRDefault=\"008B6D3A\" w:rsidP=\"00406F2F\">\n" +
+                    "            <w:pPr>\n" +
+                    "                <w:rPr>\n" +
+                    "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                    <w:b/>\n" +
+                    "                </w:rPr>\n" +
+                    "            </w:pPr>\n" +
+                    "            <w:r>\n" +
+                    "                <w:rPr>\n" +
+                    "                    <w:noProof/>\n" +
+                    "                </w:rPr>\n" +
+                    "                <w:drawing>\n" +
+                    "                    <wp:anchor distT=\"0\" distB=\"0\" distL=\"114300\" distR=\"114300\" simplePos=\"0\" relativeHeight=\"251657216\" behindDoc=\"0\" locked=\"0\" layoutInCell=\"1\" allowOverlap=\"1\" wp14:anchorId=\"5E9309CB\" wp14:editId=\"49EB9453\">\n" +
+                    "                        <wp:simplePos x=\"0\" y=\"0\"/>\n" +
+                    "                        <wp:positionH relativeFrom=\"margin\">\n" +
+                    "                            <wp:align>right</wp:align>\n" +
+                    "                        </wp:positionH>\n" +
+                    "                        <wp:positionV relativeFrom=\"paragraph\">\n" +
+                    "                            <wp:posOffset>%d</wp:posOffset>\n" +
+                    "                        </wp:positionV>\n" +
+                    "                        <wp:extent cx=\"5925820\" cy=\"%d\"/>\n" +
+                    "                        <wp:effectExtent l=\"0\" t=\"0\" r=\"17780\" b=\"17145\"/>\n" +
+                    "                        <wp:wrapSquare wrapText=\"bothSides\"/>\n" +
+                    "                        <wp:docPr id=\"%d\" name=\"Text Box %d\"/>\n" +
+                    "                        <wp:cNvGraphicFramePr/>\n" +
+                    "                        <a:graphic xmlns:a=\"http://purl.oclc.org/ooxml/drawingml/main\">\n" +
+                    "                            <a:graphicData uri=\"http://schemas.microsoft.com/office/word/2010/wordprocessingShape\">\n" +
+                    "                                <wp:wsp>\n" +
+                    "                                    <wp:cNvSpPr txBox=\"1\"/>\n" +
+                    "                                    <wp:spPr>\n" +
+                    "                                        <a:xfrm>\n" +
+                    "                                            <a:off x=\"0\" y=\"0\"/>\n" +
+                    "                                            <a:ext cx=\"5925820\" cy=\"%d\"/>\n" +
+                    "                                        </a:xfrm>\n" +
+                    "                                        <a:prstGeom prst=\"rect\">\n" +
+                    "                                            <a:avLst/>\n" +
+                    "                                        </a:prstGeom>\n" +
+                    "                                        <a:noFill/>\n" +
+                    "                                        <a:ln w=\"6350\">\n" +
+                    "                                            <a:solidFill>\n" +
+                    "                                                <a:prstClr val=\"black\"/>\n" +
+                    "                                            </a:solidFill>\n" +
+                    "                                        </a:ln>\n" +
+                    "                                    </wp:spPr>\n" +
+                    "                                    <wp:txbx>\n" +
+                    "                                        <wne:txbxContent>\n" +
+                    "                                            <w:p w:rsidR=\"00406F2F\" w:rsidRPr=\"00B64FA0\" w:rsidRDefault=\"008B6D3A\" w:rsidP=\"00406F2F\">\n" +
+                    "                                                <w:pPr>\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                </w:pPr>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:t xml:space=\"preserve\">Name: </w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                        <w:b/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:t>%50s      </w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:tab/>\n" +
+                    "                                                    <w:t xml:space=\"preserve\">DOB: </w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                        <w:b/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:t>%10s      </w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:tab/>\n" +
+                    "                                                    <w:t xml:space=\"preserve\">Age: </w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                        <w:b/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:t>%3d</w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:tab/>\n" +
+                    "                                                </w:r>\n" +
+                    "                                            </w:p>\n" +
+                    "                                            <w:p w:rsidR=\"00406F2F\" w:rsidRPr=\"00B64FA0\" w:rsidRDefault=\"008B6D3A\" w:rsidP=\"00406F2F\">\n" +
+                    "                                                <w:pPr>\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                </w:pPr>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                        <w:b/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:t xml:space=\"preserve\">%-30s</w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                        <w:b/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:t xml:space=\"preserve\">                         </w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                        <w:b/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:tab/>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:tab/>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:tab/>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:tab/>\n" +
+                    "                                                    <w:t>Phone:</w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r>\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:t xml:space=\"preserve\"> </w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                        <w:b/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:t>%-14s</w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                            </w:p>\n" +
+                    "                                            <w:p w:rsidR=\"00406F2F\" w:rsidRPr=\"00B64FA0\" w:rsidRDefault=\"008B6D3A\" w:rsidP=\"00406F2F\">\n" +
+                    "                                                <w:pPr>\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                        <w:b/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                </w:pPr>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                        <w:b/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:t>%50s</w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                        <w:b/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:tab/>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                        <w:b/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:tab/>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                        <w:b/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:tab/>\n" +
+                    "                                                    <w:t xml:space=\"preserve\">    </w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                            </w:p>\n" +
+                    "                                            <w:p w:rsidR=\"00406F2F\" w:rsidRPr=\"00B64FA0\" w:rsidRDefault=\"008B6D3A\" w:rsidP=\"00406F2F\">\n" +
+                    "                                                <w:pPr>\n" +
+                    "                                                    <w:spacing w:line=\"12pt\" w:lineRule=\"auto\"/>\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                </w:pPr>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:t xml:space=\"preserve\">Race: </w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                        <w:b/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:t>%s</w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:tab/>\n" +
+                    "                                                    <w:t>Sex:</w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r>\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:t xml:space=\"preserve\"> </w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                        <w:b/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:t>%6s</w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                                <w:r w:rsidRPr=\"00B64FA0\">\n" +
+                    "                                                    <w:rPr>\n" +
+                    "                                                        <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                                                    </w:rPr>\n" +
+                    "                                                    <w:tab/>\n" +
+                    "                                                    <w:t xml:space=\"preserve\">Email: %30s</w:t>\n" +
+                    "                                                </w:r>\n" +
+                    "                                            </w:p>\n" +
+                    "                                        </wne:txbxContent>\n" +
+                    "                                    </wp:txbx>\n" +
+                    "                                    <wp:bodyPr rot=\"0\" spcFirstLastPara=\"0\" vertOverflow=\"overflow\" horzOverflow=\"overflow\" vert=\"horz\" wrap=\"square\" lIns=\"91440\" tIns=\"45720\" rIns=\"91440\" bIns=\"45720\" numCol=\"1\" spcCol=\"0\" rtlCol=\"0\" fromWordArt=\"0\" anchor=\"t\" anchorCtr=\"0\" forceAA=\"0\" compatLnSpc=\"1\">\n" +
+                    "                                        <a:prstTxWarp prst=\"textNoShape\">\n" +
+                    "                                            <a:avLst/>\n" +
+                    "                                        </a:prstTxWarp>\n" +
+                    "                                        <a:noAutofit/>\n" +
+                    "                                    </wp:bodyPr>\n" +
+                    "                                </wp:wsp>\n" +
+                    "                            </a:graphicData>\n" +
+                    "                        </a:graphic>\n" +
+                    "                        <wp14:sizeRelH relativeFrom=\"margin\">\n" +
+                    "                            <wp14:pctWidth>0%%</wp14:pctWidth>\n" +
+                    "                        </wp14:sizeRelH>\n" +
+                    "                        <wp14:sizeRelV relativeFrom=\"margin\">\n" +
+                    "                            <wp14:pctHeight>0%%</wp14:pctHeight>\n" +
+                    "                        </wp14:sizeRelV>\n" +
+                    "                    </wp:anchor>\n" +
+                    "                </w:drawing>\n" +
+                    "            </w:r>\n" +
+                    "            <w:r>\n" +
+                    "                <w:rPr>\n" +
+                    "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                    <w:b/>\n" +
+                    "                </w:rPr>\n" +
+                    "                <w:t>%30s</w:t>\n" +
+                    "            </w:r>\n" +
+                    "        </w:p>\n" +
+                    "        <w:p w:rsidR=\"00F560FD\" w:rsidRPr=\"00A665B3\" w:rsidRDefault=\"00F560FD\" w:rsidP=\"00A665B3\">\n" +
+                    "            <w:pPr>\n" +
+                    "                <w:rPr>\n" +
+                    "                    <w:rFonts w:ascii=\"Times New Roman\" w:hAnsi=\"Times New Roman\" w:cs=\"Times New Roman\"/>\n" +
+                    "                </w:rPr>\n" +
+                    "            </w:pPr>\n" +
+                    "        </w:p>\n", offSet,postion, boxNum, boxNum, postion, name, dob, age, add1, phone, add2, race, gender, email, heading);
+    }
+    
+    public static void writeEvidence(String heading, long postion, int boxNum, int offSet,
+                                     String name, String dob, int age, String add1, 
+                                     String phone, String add2, String race, String gender, String email)
     {
         System.out.println("In Body");
        input.printf("        <w:p w:rsidR=\"00406F2F\" w:rsidRDefault=\"008B6D3A\" w:rsidP=\"00406F2F\">\n" +

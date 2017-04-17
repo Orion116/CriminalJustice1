@@ -121,6 +121,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private int boxNum = 2; 
     private int postion = 327025;  // 327025  327025
     private int element = 0;
+    private int headNumber = 0;
 
     /**
      * Creates new form TestCardLayout
@@ -2350,77 +2351,100 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                             JTextField phone, JTextField race,
                             String gender, JTextField email)
     {
+        boolean flag = true;
         System.out.println("Heading: " + header + " Box: " + box + " Postion: " + pos);
         
-        if (!first.getText().equals(""))
+        // this prevents double trouble or people being saved twice either by accident or
+        // by the program
+        for (int e = 0; e < element; e++)
         {
-            formValidation.setTextField(first, true);
-            if (!last.getText().equals(""))
+            // this checks to see if the person is already in the list and under the 
+            // same heading
+            if (Name.get(e).equalsIgnoreCase((first.getText() + " " + mid.getText().toUpperCase() + ". " + last.getText()).trim()) && 
+                DOB.get(e).equalsIgnoreCase(birth.getText()) &&
+                Heading.get(e).contains(header))
             {
-                formValidation.setTextField(last, true);
-                if (checkDate(birth))
-                {   
-                    // set position and box number
-                    boxNum = boxNum + 1;
-                    postion = postion - 1905;
+                flag = false;
+            }
+        }
         
-                    int temp = element;
+        if (flag != false)
+        {
+            if (!first.getText().equals(""))
+            {
+                formValidation.setTextField(first, true);
+                if (!last.getText().equals(""))
+                {
+                    formValidation.setTextField(last, true);
+                    if (checkDate(birth))
+                    {   
+                        // set position and box number
+                        boxNum = boxNum + 1;
+                        postion = postion - 1905;
 
-                    if (element == 0)
-                    {
-                        Heading.add(header.trim() + " # 1");
-                    }
-                    else if (element != 0 && Heading.get(temp - 1).contains(header))
-                    {
-                        System.out.println(header.trim() + " # " + (temp + 1));
-                        Heading.add(header.trim() + " # " + (temp + 1));
-                    }
-                    else if (!Heading.get(temp - 1).contains(header) || !Heading.get(temp - 1).contains(header + " # 1"))
-                    {
-                        Heading.add(header.trim() + " # 1");
-                    }
+                        int temp = element;
 
-                    BoxID.add(box);
-                    Pos.add(pos);
-                    Name.add((first.getText() + " " + mid.getText().toUpperCase() + ". " + last.getText()).trim());
-                    DOB.add(birth.getText().trim());
-                    Age.add(calcBday(birth.getText(), birth));
-                    Street.add(street.getText().trim());
-                    Phone.add(formatPhone(phone.getText().trim()));
-                    CityZip.add(cityzip.trim());
-                    
-                    if (race == null)
-                    {
-                        Race.add("");
-                    }
-                    else
-                    {
-                        Race.add(race.getText().trim());
-                    }
-                    Gender.add(gender.trim());
-                    Email.add(email.getText().trim());
-                    System.out.println(Heading.size());
-                    System.out.println("Element: " + element);
+                        // this sets the number of people per topic
+                        if (element == 0)
+                        {
+                            Heading.add(header.trim() + " # 1");
+                        }
+                        else if (element != 0 && Heading.get(temp - 1).contains(header))
+                        {
+                            System.out.println(header.trim() + " # " + (headNumber + 1));
+                            Heading.add(header.trim() + " # " + (headNumber + 1));
+                        }
+                        else if (!Heading.get(temp - 1).contains(header) || !Heading.get(temp - 1).contains(header + " # 1"))
+                        {
+                            headNumber = 0;
+                            Heading.add(header.trim() + " # 1");
+                        }
 
-                    element += 1;
+                        BoxID.add(box);
+                        Pos.add(pos);
+                        Name.add((first.getText() + " " + mid.getText().toUpperCase() + ". " + last.getText()).trim());
+                        DOB.add(birth.getText().trim());
+                        Age.add(calcBday(birth.getText(), birth));
+                        Street.add(street.getText().trim());
+                        Phone.add(formatPhone(phone.getText().trim()));
+                        CityZip.add(cityzip.trim());
+
+                        // this is to prevent a NPE from me being lazy and using 
+                        // the same function for different people.
+                        if (race == null)
+                        {
+                            Race.add("");
+                        }
+                        else
+                        {
+                            Race.add(race.getText().trim());
+                        }
+                        Gender.add(gender.trim());
+                        Email.add(email.getText().trim());
+                        System.out.println(Heading.size());
+                        System.out.println("Element: " + element);
+                        
+                        headNumber += 1;
+                        element += 1;
+                    }
+                }
+                else
+                {
+                    formValidation.setTextField(last, false);
+                    String input = "";
+
+                    input = JOptionPane.showInputDialog(null, "Invalid Information Entered !\n" + header + " needs a last name.");
+                    last.setText(input);
                 }
             }
             else
             {
-                formValidation.setTextField(last, false);
+                formValidation.setTextField(first, false);
                 String input = "";
 
-                input = JOptionPane.showInputDialog(null, "Invalid Information Entered !\n" + header + " needs a last name.");
-                last.setText(input);
+                input = JOptionPane.showInputDialog(null, "Invalid Information Entered !\n" + header + " needs a first name.");
+                first.setText(input);
             }
-        }
-        else
-        {
-            formValidation.setTextField(first, false);
-            String input = "";
-                        
-            input = JOptionPane.showInputDialog(null, "Invalid Information Entered !\n" + header + " needs a first name.");
-            first.setText(input);
         }
     }
     
@@ -2494,8 +2518,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         DocxWriter.writeInformation("witness".toUpperCase());
         for (int e = 0; e < element; e++)
         {
+            System.out.println("All Headings: " + Heading.get(e).toUpperCase());
             if (Heading.get(e).contains("Witness"))
             {
+                System.out.println("Some Headings: " + Heading.get(e).toUpperCase());
                 DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
             }
         }

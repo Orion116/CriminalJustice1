@@ -2418,7 +2418,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                 {
                     String agent = agencyCB.getItemAt(agencyCB.getSelectedIndex()).trim();
                     city = txtOCity.getText() + ", " + txtOState.getText() + " " + txtOZipcode.getText();
-//                    gender = (String) genderBox.getItemAt(genderBox.getSelectedIndex());
+
 
                     getContent(agent, boxNum, postion, jftOFname, jtfOLname, 
                                txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
@@ -2921,27 +2921,52 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                                                      "You can edit the previous " + heading + " after the document is outputed", 
                                                      "Add another  " + heading,
                                                      JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        
-        if (option == 0)
+        if ((jftSFname.getText().isEmpty() && jtfSLname.getText().isEmpty()) || txtSDOB.getText().isEmpty())
         {
-            clearTextBoxes(jftSFname, jtfSLname, txtSMInitial, 
-                           txtSDOB, txtSAddress, txtSCity, 
-                           txtSPhone, txtSState, txtSZipcode,
-                           txtRace3,txtSEmail, agencyCB);
-            
+            if (option == 0)
+            {
+                clearTextBoxes(jftSFname, jtfSLname, txtSMInitial, 
+                               txtSDOB, txtSAddress, txtSCity, 
+                               txtSPhone, txtSState, txtSZipcode,
+                               txtRace3,txtSEmail, agencyCB);
+
+                city = txtSCity.getText() + ", " + txtSState.getText() + " " + txtSZipcode.getText();
+                gender = (String) genderBox3.getItemAt(genderBox3.getSelectedIndex());
+
+                getContent(heading, boxNum, postion, jftSFname, jtfSLname, 
+                           txtSMInitial, txtSDOB, txtSAddress, city, txtSPhone,
+                           txtRace3, gender, txtSEmail);
+            }   
+        }
+        else
+        {
             city = txtSCity.getText() + ", " + txtSState.getText() + " " + txtSZipcode.getText();
             gender = (String) genderBox3.getItemAt(genderBox3.getSelectedIndex());
 
             getContent(heading, boxNum, postion, jftSFname, jtfSLname, 
                        txtSMInitial, txtSDOB, txtSAddress, city, txtSPhone,
                        txtRace3, gender, txtSEmail);
-        }        
+            if (option == 0)
+            {
+                clearTextBoxes(jftSFname, jtfSLname, txtSMInitial, 
+                               txtSDOB, txtSAddress, txtSCity, 
+                               txtSPhone, txtSState, txtSZipcode,
+                               txtRace3,txtSEmail, agencyCB);
+
+                city = txtSCity.getText() + ", " + txtSState.getText() + " " + txtSZipcode.getText();
+                gender = (String) genderBox3.getItemAt(genderBox3.getSelectedIndex());
+
+                getContent(heading, boxNum, postion, jftSFname, jtfSLname, 
+                           txtSMInitial, txtSDOB, txtSAddress, city, txtSPhone,
+                           txtRace3, gender, txtSEmail);
+            }
+        }
     }//GEN-LAST:event_add3ActionPerformed
 
     private void add4ActionPerformed(ActionEvent evt)//GEN-FIRST:event_add4ActionPerformed
     {//GEN-HEADEREND:event_add4ActionPerformed
         int option = 2;
-        
+        String agent = "";
         int titleNum = jtbBasic.getSelectedIndex();
         
         String city = "";  
@@ -2951,22 +2976,47 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                                                      "You can edit the previous " + heading + " after the document is outputed", 
                                                      "Add another  " + heading,
                                                      JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        
-        if (option == 0)
+        if ((jftSFname.getText().isEmpty() && jtfSLname.getText().isEmpty()) || txtSDOB.getText().isEmpty())
         {
-            clearTextBoxes(jftOFname, jtfOLname, txtOMInitial, 
-                           txtODOB, txtOAddress, txtOCity, 
-                           txtOPhone, txtOState, txtOZipcode,
-                           null,txtOEmail, agencyCB);
-         
-            String agent = agencyCB.getItemAt(agencyCB.getSelectedIndex()).trim();
-            city = txtOCity.getText() + ", " + txtOState.getText() + " " + txtOZipcode.getText();
-    //                    gender = (String) genderBox.getItemAt(genderBox.getSelectedIndex());
+            if (option == 0)
+            {
+                clearTextBoxes(jftOFname, jtfOLname, txtOMInitial, 
+                               txtODOB, txtOAddress, txtOCity, 
+                               txtOPhone, txtOState, txtOZipcode,
+                               null,txtOEmail, agencyCB);
 
+                agent = agencyCB.getItemAt(agencyCB.getSelectedIndex()).trim();
+                city = txtOCity.getText() + ", " + txtOState.getText() + " " + txtOZipcode.getText();
+        
+                getContent(agent, boxNum, postion, jftOFname, jtfOLname, 
+                           txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
+                           null, null, txtOEmail);
+                // TODO add your handling code here:
+            }
+        }
+        else
+        {
+            agent = agencyCB.getItemAt(agencyCB.getSelectedIndex()).trim();
+            city = txtOCity.getText() + ", " + txtOState.getText() + " " + txtOZipcode.getText();
+    
             getContent(agent, boxNum, postion, jftOFname, jtfOLname, 
                        txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
                        null, null, txtOEmail);
-            // TODO add your handling code here:
+            if (option == 0)
+            {
+                clearTextBoxes(jftOFname, jtfOLname, txtOMInitial, 
+                               txtODOB, txtOAddress, txtOCity, 
+                               txtOPhone, txtOState, txtOZipcode,
+                               null,txtOEmail, agencyCB);
+
+                agent = agencyCB.getItemAt(agencyCB.getSelectedIndex()).trim();
+                city = txtOCity.getText() + ", " + txtOState.getText() + " " + txtOZipcode.getText();
+        
+                getContent(agent, boxNum, postion, jftOFname, jtfOLname, 
+                           txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
+                           null, null, txtOEmail);
+                // TODO add your handling code here:
+            }
         }
     }//GEN-LAST:event_add4ActionPerformed
 

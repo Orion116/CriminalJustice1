@@ -426,7 +426,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         mainPanel.setMinimumSize(new Dimension(300, 300));
         mainPanel.setLayout(new CardLayout());
 
-        pane1.setBorder(BorderFactory.createTitledBorder(null, bundle.getString("TestCardLayout.pane1.border.title"))); // NOI18N
+        pane1.setBorder(BorderFactory.createTitledBorder(bundle.getString("TestCardLayout.pane1.border.title"))); // NOI18N
         pane1.setAutoscrolls(true);
         pane1.setPreferredSize(new Dimension(835, 525));
         pane1.setLayout(new GridLayout(1, 0));
@@ -1287,7 +1287,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         jtbBasic.addTab(bundle.getString("TestCardLayout.suspectPane.TabConstraints.tabTitle"), suspectPane); // NOI18N
         suspectPane.getAccessibleContext().setAccessibleName(bundle.getString("TestCardLayout.suspectPane.AccessibleContext.accessibleName")); // NOI18N
 
-        evidenceType.setModel(new DefaultComboBoxModel(new String[] { "Evidence Types", "Physical", "Photograph", "Electronic", "Drugs", "Firearms", "Other" }));
+        evidenceType.setModel(new DefaultComboBoxModel(new String[] { "Evidence Types", "Physical", "Photograph", "Electronic", "Drugs", "Firearms", "Other " }));
 
         otherEvidence.setEditable(false);
         otherEvidence.setText(bundle.getString("TestCardLayout.otherEvidence.text")); // NOI18N
@@ -1779,6 +1779,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             {
                 TestCardLayout.this.add3ActionPerformed(evt);
             }
+            else if (evt.getSource() == txtColor)
+            {
+                TestCardLayout.this.txtColorActionPerformed(evt);
+            }
             else if (evt.getSource() == add4)
             {
                 TestCardLayout.this.add4ActionPerformed(evt);
@@ -1790,10 +1794,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             else if (evt.getSource() == help)
             {
                 TestCardLayout.this.helpActionPerformed(evt);
-            }
-            else if (evt.getSource() == txtColor)
-            {
-                TestCardLayout.this.txtColorActionPerformed(evt);
             }
         }
 

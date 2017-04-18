@@ -2042,8 +2042,16 @@
                   <SubComponents>
                     <Component class="javax.swing.JComboBox" name="evidenceType">
                       <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;Evidence Types&quot;, &quot;Physical&quot;, &quot;Photograph&quot;, &quot;Electronic&quot;, &quot;Drugs&quot;, &quot;Firearms&quot;, &quot;Other&quot; })" type="code"/>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="7">
+                            <StringItem index="0" value="Evidence Types"/>
+                            <StringItem index="1" value="Physical"/>
+                            <StringItem index="2" value="Photograph"/>
+                            <StringItem index="3" value="Electronic"/>
+                            <StringItem index="4" value="Drugs"/>
+                            <StringItem index="5" value="Firearms"/>
+                            <StringItem index="6" value="Other "/>
+                          </StringArray>
                         </Property>
                       </Properties>
                     </Component>

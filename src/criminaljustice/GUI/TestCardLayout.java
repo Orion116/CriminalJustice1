@@ -48,6 +48,7 @@ import org.netbeans.lib.awtextra.*;
  */
 public class TestCardLayout extends javax.swing.JFrame //implements ActionListener
 {
+    // for people
     ArrayList<String> Heading = new ArrayList<>();
     ArrayList<Integer> BoxID = new ArrayList<>();
     ArrayList<Integer> Pos = new ArrayList<>();
@@ -61,7 +62,21 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     ArrayList<String> Gender = new ArrayList<>();
     ArrayList<String> Email = new ArrayList<>();
     ArrayList<String> Agent = new ArrayList<>();
+    
+    // for evidence
+    ArrayList<String> Thing = new ArrayList<>();
+    ArrayList<String> EHeading = new ArrayList<>();
+    ArrayList<String> DrugType = new ArrayList<>();
+    ArrayList<String> EName = new ArrayList<>();
+    ArrayList<String> EDOB = new ArrayList<>();
+    ArrayList<String> EDate = new ArrayList<>();
+    ArrayList<String> ETime = new ArrayList<>();
+    ArrayList<Integer> Quanitity = new ArrayList<>();
+    ArrayList<String> Weight = new ArrayList<>();
+    ArrayList<String> Location = new ArrayList<>();
+    ArrayList<String> Disposition = new ArrayList<>();
 
+    // for vehicle
     ArrayList<String> Type = new ArrayList<>();
     ArrayList<String> Make = new ArrayList<>();
     ArrayList<String> Model = new ArrayList<>();
@@ -121,6 +136,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private int boxNum = 2; 
     private int postion = 327025;  // 327025  327025
     private int element = 0;
+    private int evidence = 0;
     private int headNumber = 0;
 
     /**
@@ -143,6 +159,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         helpDialog = new JDialog();
         helpPane = new JPanel();
+        jScrollPane1 = new JScrollPane();
         txtHelpArea = new JTextArea();
         buttonPanel = new JPanel();
         btnDone = new JButton();
@@ -273,25 +290,22 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         otherEvidence = new JTextField();
         lblLocation = new JLabel();
         txtLocation = new JTextField();
-        vehiclePane = new JPanel();
-        vehicleType = new JComboBox();
-        otherVehicle = new JTextField();
-        txtMake = new JTextField();
-        lblMake = new JLabel();
-        lblModel = new JLabel();
-        txtModel = new JTextField();
-        lblColor = new JLabel();
-        txtColor = new JTextField();
-        lblYear = new JLabel();
-        txtYear = new JTextField();
-        lblVIN = new JLabel();
-        txtVIN = new JTextField();
-        lblLicenseNum = new JLabel();
-        txtLicenseNum = new JTextField();
-        lblLastSeen = new JLabel();
-        txtLastSeen = new JTextField();
-        lblDirection = new JLabel();
-        txtDirection = new JTextField();
+        drugType = new JComboBox();
+        jLabel5 = new JLabel();
+        txtSeizedName = new JTextField();
+        jLabel6 = new JLabel();
+        txtSeizedDOB = new JTextField();
+        jLabel7 = new JLabel();
+        txtDateSeized = new JTextField();
+        jLabel8 = new JLabel();
+        txtTimeSeized = new JTextField();
+        quanititySpinner = new JSpinner();
+        jLabel9 = new JLabel();
+        jLabel10 = new JLabel();
+        txtWeight = new JTextField();
+        cbWeight = new JComboBox();
+        jLabel11 = new JLabel();
+        cbDsposition = new JComboBox();
         otherPane = new JPanel();
         jPanel1 = new JPanel();
         jftOFname = new JFormattedTextField();
@@ -336,7 +350,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         ResourceBundle bundle = ResourceBundle.getBundle("criminaljustice/GUI/Bundle"); // NOI18N
         helpDialog.setTitle(bundle.getString("TestCardLayout.helpDialog.title")); // NOI18N
         helpDialog.setLocation(new Point(260, 70));
-        helpDialog.setMinimumSize(new Dimension(600, 300));
+        helpDialog.setMinimumSize(new Dimension(650, 350));
+        helpDialog.setSize(new Dimension(600, 300));
+
+        helpPane.setAutoscrolls(true);
 
         txtHelpArea.setEditable(false);
         txtHelpArea.setBackground(pane1.getBackground());
@@ -345,21 +362,22 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         txtHelpArea.setForeground(pane1.getForeground());
         txtHelpArea.setRows(5);
         txtHelpArea.setText(bundle.getString("TestCardLayout.txtHelpArea.text")); // NOI18N
-        txtHelpArea.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        txtHelpArea.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        jScrollPane1.setViewportView(txtHelpArea);
 
         GroupLayout helpPaneLayout = new GroupLayout(helpPane);
         helpPane.setLayout(helpPaneLayout);
         helpPaneLayout.setHorizontalGroup(helpPaneLayout.createParallelGroup(GroupLayout.LEADING)
             .add(helpPaneLayout.createSequentialGroup()
-                .add(0, 12, Short.MAX_VALUE)
-                .add(txtHelpArea, GroupLayout.PREFERRED_SIZE, 830, GroupLayout.PREFERRED_SIZE)
-                .add(0, 12, Short.MAX_VALUE))
+                .addContainerGap()
+                .add(jScrollPane1, GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
+                .addContainerGap())
         );
         helpPaneLayout.setVerticalGroup(helpPaneLayout.createParallelGroup(GroupLayout.LEADING)
             .add(helpPaneLayout.createSequentialGroup()
-                .add(0, 0, Short.MAX_VALUE)
-                .add(txtHelpArea, GroupLayout.PREFERRED_SIZE, 243, GroupLayout.PREFERRED_SIZE)
-                .add(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .add(jScrollPane1, GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         GroupLayout helpDialogLayout = new GroupLayout(helpDialog.getContentPane());
@@ -376,9 +394,9 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             .add(0, 300, Short.MAX_VALUE)
             .add(helpDialogLayout.createParallelGroup(GroupLayout.LEADING)
                 .add(helpDialogLayout.createSequentialGroup()
-                    .add(0, 29, Short.MAX_VALUE)
+                    .add(0, 12, Short.MAX_VALUE)
                     .add(helpPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .add(0, 28, Short.MAX_VALUE)))
+                    .add(0, 11, Short.MAX_VALUE)))
         );
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -386,6 +404,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         setLocation(new Point(260, 70));
         setMinimumSize(new Dimension(854, 375));
         setName("jfrTestCardLayout"); // NOI18N
+        setResizable(false);
 
         buttonPanel.setMaximumSize(new Dimension(150, 50));
         buttonPanel.setMinimumSize(new Dimension(300, 300));
@@ -406,11 +425,11 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         buttonPanel.setLayout(buttonPanelLayout);
         buttonPanelLayout.setHorizontalGroup(buttonPanelLayout.createParallelGroup(GroupLayout.LEADING)
             .add(GroupLayout.TRAILING, buttonPanelLayout.createSequentialGroup()
-                .addContainerGap(304, Short.MAX_VALUE)
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(btnDone, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
                 .add(btnSave, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         buttonPanelLayout.setVerticalGroup(buttonPanelLayout.createParallelGroup(GroupLayout.LEADING)
             .add(GroupLayout.TRAILING, buttonPanelLayout.createSequentialGroup()
@@ -644,7 +663,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                         .add(centered1Layout.createParallelGroup(GroupLayout.LEADING, false)
                             .add(GroupLayout.TRAILING, add, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(GroupLayout.TRAILING, txtCDOB, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         centered1Layout.setVerticalGroup(centered1Layout.createParallelGroup(GroupLayout.LEADING)
             .add(centered1Layout.createSequentialGroup()
@@ -1287,8 +1306,11 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         jtbBasic.addTab(bundle.getString("TestCardLayout.suspectPane.TabConstraints.tabTitle"), suspectPane); // NOI18N
         suspectPane.getAccessibleContext().setAccessibleName(bundle.getString("TestCardLayout.suspectPane.AccessibleContext.accessibleName")); // NOI18N
 
-        evidenceType.setModel(new DefaultComboBoxModel(new String[] { "Evidence Types", "Physical", "Photograph", "Electronic", "Drugs", "Firearms", "Other " }));
+        evidenceType.setModel(new DefaultComboBoxModel(new String[] { "Evidence Types", "Drug", "Firearms", "Electronics", "Currency", "Vehicles", "Other", " " }));
+        evidenceType.addItemListener(formListener);
 
+        otherEvidence.setVisible(false);
+        otherEvidence.setEnabled(false);
         otherEvidence.setEditable(false);
         otherEvidence.setText(bundle.getString("TestCardLayout.otherEvidence.text")); // NOI18N
 
@@ -1296,155 +1318,132 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         txtLocation.setText(bundle.getString("TestCardLayout.txtLocation.text")); // NOI18N
 
+        drugType.setVisible(false);
+        drugType.setEnabled(false);
+        drugType.setModel(new DefaultComboBoxModel(new String[] { "Drug Type", "Narconic", "Herion", "Oxyconten", "Marijuana", "Other" }));
+        drugType.setEnabled(false);
+        drugType.addItemListener(formListener);
+
+        jLabel5.setText(bundle.getString("TestCardLayout.jLabel5.text")); // NOI18N
+
+        txtSeizedName.setText(bundle.getString("TestCardLayout.txtSeizedName.text")); // NOI18N
+
+        jLabel6.setText(bundle.getString("TestCardLayout.jLabel6.text")); // NOI18N
+
+        txtSeizedDOB.setText(bundle.getString("TestCardLayout.txtSeizedDOB.text")); // NOI18N
+        txtSeizedDOB.addFocusListener(formListener);
+
+        jLabel7.setText(bundle.getString("TestCardLayout.jLabel7.text")); // NOI18N
+
+        txtDateSeized.setText(bundle.getString("TestCardLayout.txtDateSeized.text")); // NOI18N
+        txtDateSeized.addFocusListener(formListener);
+
+        jLabel8.setText(bundle.getString("TestCardLayout.jLabel8.text")); // NOI18N
+
+        txtTimeSeized.setText(bundle.getString("TestCardLayout.txtTimeSeized.text")); // NOI18N
+        txtTimeSeized.addActionListener(formListener);
+
+        quanititySpinner.setModel(new SpinnerNumberModel(Integer.valueOf(1), null, null, Integer.valueOf(1)));
+
+        jLabel9.setText(bundle.getString("TestCardLayout.jLabel9.text")); // NOI18N
+
+        jLabel10.setText(bundle.getString("TestCardLayout.jLabel10.text")); // NOI18N
+
+        txtWeight.setText(bundle.getString("TestCardLayout.txtWeight.text")); // NOI18N
+
+        cbWeight.setModel(new DefaultComboBoxModel(new String[] { "GR", "OZ" }));
+
+        jLabel11.setText(bundle.getString("TestCardLayout.jLabel11.text")); // NOI18N
+
+        cbDsposition.setModel(new DefaultComboBoxModel(new String[] { "Closed", "Open" }));
+
         GroupLayout evidencePaneLayout = new GroupLayout(evidencePane);
         evidencePane.setLayout(evidencePaneLayout);
         evidencePaneLayout.setHorizontalGroup(evidencePaneLayout.createParallelGroup(GroupLayout.LEADING)
             .add(evidencePaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(evidencePaneLayout.createParallelGroup(GroupLayout.LEADING, false)
+                .add(77, 77, 77)
+                .add(evidencePaneLayout.createParallelGroup(GroupLayout.LEADING)
                     .add(evidencePaneLayout.createSequentialGroup()
-                        .add(evidenceType, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.RELATED)
+                        .add(drugType, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .add(18, 18, 18)
                         .add(otherEvidence, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE))
                     .add(evidencePaneLayout.createSequentialGroup()
-                        .add(lblLocation)
+                        .add(evidencePaneLayout.createParallelGroup(GroupLayout.LEADING)
+                            .add(evidencePaneLayout.createSequentialGroup()
+                                .add(evidencePaneLayout.createParallelGroup(GroupLayout.LEADING)
+                                    .add(evidencePaneLayout.createSequentialGroup()
+                                        .add(jLabel5)
+                                        .addPreferredGap(LayoutStyle.RELATED)
+                                        .add(txtSeizedName, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE))
+                                    .add(evidenceType, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))
+                                .add(18, 18, 18)
+                                .add(evidencePaneLayout.createParallelGroup(GroupLayout.LEADING)
+                                    .add(evidencePaneLayout.createSequentialGroup()
+                                        .add(jLabel6)
+                                        .addPreferredGap(LayoutStyle.RELATED)
+                                        .add(txtSeizedDOB, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(LayoutStyle.UNRELATED)
+                                        .add(jLabel7))
+                                    .add(evidencePaneLayout.createSequentialGroup()
+                                        .add(jLabel9)
+                                        .addPreferredGap(LayoutStyle.UNRELATED)
+                                        .add(quanititySpinner, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(LayoutStyle.UNRELATED)
+                                        .add(jLabel10))))
+                            .add(evidencePaneLayout.createSequentialGroup()
+                                .add(lblLocation)
+                                .addPreferredGap(LayoutStyle.UNRELATED)
+                                .add(txtLocation, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.UNRELATED)
+                                .add(jLabel11)
+                                .addPreferredGap(LayoutStyle.UNRELATED)
+                                .add(cbDsposition, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(LayoutStyle.UNRELATED)
-                        .add(txtLocation)))
-                .addContainerGap(616, Short.MAX_VALUE))
+                        .add(evidencePaneLayout.createParallelGroup(GroupLayout.LEADING, false)
+                            .add(txtDateSeized)
+                            .add(txtWeight, GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE))
+                        .addPreferredGap(LayoutStyle.UNRELATED)
+                        .add(evidencePaneLayout.createParallelGroup(GroupLayout.TRAILING)
+                            .add(jLabel8)
+                            .add(cbWeight, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(LayoutStyle.UNRELATED)
+                        .add(txtTimeSeized, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         evidencePaneLayout.setVerticalGroup(evidencePaneLayout.createParallelGroup(GroupLayout.LEADING)
             .add(evidencePaneLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(evidencePaneLayout.createParallelGroup(GroupLayout.BASELINE)
+                    .add(jLabel5)
+                    .add(txtSeizedName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel6)
+                    .add(txtSeizedDOB, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel7)
+                    .add(txtDateSeized, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel8)
+                    .add(txtTimeSeized, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .add(18, 18, 18)
+                .add(evidencePaneLayout.createParallelGroup(GroupLayout.BASELINE)
                     .add(evidenceType, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .add(otherEvidence, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .add(quanititySpinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel9)
+                    .add(jLabel10)
+                    .add(txtWeight, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .add(cbWeight, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.UNRELATED)
+                .add(evidencePaneLayout.createParallelGroup(GroupLayout.BASELINE)
+                    .add(otherEvidence, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .add(drugType, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
                 .add(evidencePaneLayout.createParallelGroup(GroupLayout.BASELINE)
                     .add(lblLocation)
-                    .add(txtLocation, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(133, Short.MAX_VALUE))
+                    .add(txtLocation, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel11)
+                    .add(cbDsposition, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jtbBasic.addTab(bundle.getString("TestCardLayout.evidencePane.TabConstraints.tabTitle"), evidencePane); // NOI18N
-
-        vehicleType.setModel(new DefaultComboBoxModel(new String[] { "Vehicle Type", "Boat", "Car", "Motorcyle", "Van", "Other" }));
-        vehicleType.setToolTipText(bundle.getString("TestCardLayout.vehicleType.toolTipText")); // NOI18N
-        vehicleType.addItemListener(formListener);
-
-        otherVehicle.setEditable(false);
-        otherVehicle.setText(bundle.getString("TestCardLayout.otherVehicle.text")); // NOI18N
-
-        txtMake.setText(bundle.getString("TestCardLayout.txtMake.text")); // NOI18N
-
-        lblMake.setText(bundle.getString("TestCardLayout.lblMake.text")); // NOI18N
-
-        lblModel.setText(bundle.getString("TestCardLayout.lblModel.text")); // NOI18N
-
-        txtModel.setText(bundle.getString("TestCardLayout.txtModel.text")); // NOI18N
-
-        lblColor.setText(bundle.getString("TestCardLayout.lblColor.text")); // NOI18N
-
-        txtColor.setText(bundle.getString("TestCardLayout.txtColor.text")); // NOI18N
-        txtColor.addActionListener(formListener);
-
-        lblYear.setText(bundle.getString("TestCardLayout.lblYear.text")); // NOI18N
-
-        txtYear.setText(bundle.getString("TestCardLayout.txtYear.text")); // NOI18N
-
-        lblVIN.setText(bundle.getString("TestCardLayout.lblVIN.text")); // NOI18N
-
-        txtVIN.setText(bundle.getString("TestCardLayout.txtVIN.text")); // NOI18N
-
-        lblLicenseNum.setText(bundle.getString("TestCardLayout.lblLicenseNum.text")); // NOI18N
-
-        txtLicenseNum.setText(bundle.getString("TestCardLayout.txtLicenseNum.text")); // NOI18N
-
-        lblLastSeen.setText(bundle.getString("TestCardLayout.lblLastSeen.text")); // NOI18N
-
-        txtLastSeen.setText(bundle.getString("TestCardLayout.txtLastSeen.text")); // NOI18N
-
-        lblDirection.setText(bundle.getString("TestCardLayout.lblDirection.text")); // NOI18N
-
-        txtDirection.setText(bundle.getString("TestCardLayout.txtDirection.text")); // NOI18N
-
-        GroupLayout vehiclePaneLayout = new GroupLayout(vehiclePane);
-        vehiclePane.setLayout(vehiclePaneLayout);
-        vehiclePaneLayout.setHorizontalGroup(vehiclePaneLayout.createParallelGroup(GroupLayout.LEADING)
-            .add(vehiclePaneLayout.createSequentialGroup()
-                .add(61, 61, 61)
-                .add(vehiclePaneLayout.createParallelGroup(GroupLayout.LEADING, false)
-                    .add(vehiclePaneLayout.createSequentialGroup()
-                        .add(lblLastSeen)
-                        .addPreferredGap(LayoutStyle.UNRELATED)
-                        .add(txtLastSeen))
-                    .add(vehiclePaneLayout.createSequentialGroup()
-                        .add(lblVIN)
-                        .addPreferredGap(LayoutStyle.UNRELATED)
-                        .add(txtVIN))
-                    .add(vehiclePaneLayout.createSequentialGroup()
-                        .add(vehicleType, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.UNRELATED)
-                        .add(otherVehicle, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(LayoutStyle.UNRELATED)
-                .add(vehiclePaneLayout.createParallelGroup(GroupLayout.LEADING, false)
-                    .add(vehiclePaneLayout.createSequentialGroup()
-                        .add(vehiclePaneLayout.createParallelGroup(GroupLayout.LEADING, false)
-                            .add(vehiclePaneLayout.createSequentialGroup()
-                                .add(lblMake)
-                                .addPreferredGap(LayoutStyle.UNRELATED)
-                                .add(txtMake, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.UNRELATED)
-                                .add(lblModel))
-                            .add(vehiclePaneLayout.createSequentialGroup()
-                                .add(lblLicenseNum)
-                                .addPreferredGap(LayoutStyle.UNRELATED)
-                                .add(txtLicenseNum)))
-                        .addPreferredGap(LayoutStyle.UNRELATED)
-                        .add(txtModel, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
-                    .add(vehiclePaneLayout.createSequentialGroup()
-                        .add(lblDirection)
-                        .addPreferredGap(LayoutStyle.UNRELATED)
-                        .add(txtDirection)))
-                .addPreferredGap(LayoutStyle.UNRELATED)
-                .add(lblColor)
-                .addPreferredGap(LayoutStyle.UNRELATED)
-                .add(txtColor, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(LayoutStyle.UNRELATED)
-                .add(lblYear)
-                .addPreferredGap(LayoutStyle.UNRELATED)
-                .add(txtYear, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-                .add(62, 62, 62))
-        );
-        vehiclePaneLayout.setVerticalGroup(vehiclePaneLayout.createParallelGroup(GroupLayout.LEADING)
-            .add(vehiclePaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(vehiclePaneLayout.createParallelGroup(GroupLayout.BASELINE)
-                    .add(vehicleType, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .add(otherVehicle, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .add(txtMake, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .add(lblMake)
-                    .add(lblModel)
-                    .add(txtModel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .add(lblColor)
-                    .add(txtColor, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .add(lblYear)
-                    .add(txtYear, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                .add(18, 18, 18)
-                .add(vehiclePaneLayout.createParallelGroup(GroupLayout.BASELINE)
-                    .add(lblVIN)
-                    .add(txtVIN, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .add(lblLicenseNum)
-                    .add(txtLicenseNum, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                .add(18, 18, 18)
-                .add(vehiclePaneLayout.createParallelGroup(GroupLayout.BASELINE)
-                    .add(lblLastSeen)
-                    .add(txtLastSeen, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .add(lblDirection)
-                    .add(txtDirection, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(96, Short.MAX_VALUE))
-        );
-
-        jtbBasic.addTab(bundle.getString("TestCardLayout.vehiclePane.TabConstraints.tabTitle"), vehiclePane); // NOI18N
 
         jftOFname.setHorizontalAlignment(JTextField.LEFT);
         jftOFname.setMinimumSize(new Dimension(50, 27));
@@ -1599,7 +1598,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         otherPaneLayout.setHorizontalGroup(otherPaneLayout.createParallelGroup(GroupLayout.LEADING)
             .add(otherPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel1, GroupLayout.PREFERRED_SIZE, 821, Short.MAX_VALUE)
+                .add(jPanel1, GroupLayout.PREFERRED_SIZE, 831, Short.MAX_VALUE)
                 .addContainerGap())
         );
         otherPaneLayout.setVerticalGroup(otherPaneLayout.createParallelGroup(GroupLayout.LEADING)
@@ -1706,6 +1705,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         MenuBar.add(helpMenu);
 
+        aboutMenu.setVisible(false);
         aboutMenu.setText(bundle.getString("TestCardLayout.aboutMenu.text")); // NOI18N
         MenuBar.add(aboutMenu);
 
@@ -1715,18 +1715,14 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.LEADING)
             .add(mainPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .add(layout.createParallelGroup(GroupLayout.LEADING)
-                .add(buttonPanel, GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE))
+            .add(buttonPanel, GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .add(mainPanel, GroupLayout.PREFERRED_SIZE, 255, GroupLayout.PREFERRED_SIZE)
-                .add(0, 99, Short.MAX_VALUE))
-            .add(layout.createParallelGroup(GroupLayout.LEADING)
-                .add(GroupLayout.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(249, Short.MAX_VALUE)
-                    .add(buttonPanel, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
-                    .add(19, 19, 19)))
+                .addPreferredGap(LayoutStyle.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(buttonPanel, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -1779,9 +1775,9 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             {
                 TestCardLayout.this.add3ActionPerformed(evt);
             }
-            else if (evt.getSource() == txtColor)
+            else if (evt.getSource() == txtTimeSeized)
             {
-                TestCardLayout.this.txtColorActionPerformed(evt);
+                TestCardLayout.this.txtTimeSeizedActionPerformed(evt);
             }
             else if (evt.getSource() == add4)
             {
@@ -2155,6 +2151,14 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             {
                 TestCardLayout.this.generalTxtFocusLost(evt);
             }
+            else if (evt.getSource() == txtSeizedDOB)
+            {
+                TestCardLayout.this.generalTxtFocusLost(evt);
+            }
+            else if (evt.getSource() == txtDateSeized)
+            {
+                TestCardLayout.this.generalTxtFocusLost(evt);
+            }
             else if (evt.getSource() == jftOFname)
             {
                 TestCardLayout.this.generalTxtFocusLost(evt);
@@ -2203,9 +2207,13 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             {
                 TestCardLayout.this.FileCodeItemStateChanged(evt);
             }
-            else if (evt.getSource() == vehicleType)
+            else if (evt.getSource() == evidenceType)
             {
-                TestCardLayout.this.vehicleTypeItemStateChanged(evt);
+                TestCardLayout.this.evidenceTypeItemStateChanged(evt);
+            }
+            else if (evt.getSource() == drugType)
+            {
+                TestCardLayout.this.drugTypeItemStateChanged(evt);
             }
         }
 
@@ -2277,6 +2285,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         String city = "";  
         String gender = "";
         String heading = jtbBasic.getTitleAt(titleNum);
+        String type = "";
         
         if (!FileCode.getItemAt(0).equals("Select Code"))
         {
@@ -2329,6 +2338,42 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                                txtSMInitial, txtSDOB, txtSAddress, city, txtSPhone,
                                txtRace3, gender, txtSEmail);
                 }
+                else if (heading.equalsIgnoreCase("evidence"))
+                {
+                    String tempDrug = (String) evidenceType.getItemAt(evidenceType.getSelectedIndex());
+                    System.out.println("evidenceType: " + tempDrug);
+                    if (!tempDrug.equalsIgnoreCase("evidence types"))
+                    {
+                        if (tempDrug.equalsIgnoreCase("Drug"))
+                        {
+                            String tempDrugType = (String) drugType.getItemAt(drugType.getSelectedIndex());
+                            System.out.println("drugType: " + tempDrug);
+                            if (tempDrugType.equalsIgnoreCase("other"))
+                            {
+                                type = tempDrug;
+                                DrugType.add(otherEvidence.getText());
+                            }
+                            else 
+                            {
+                                type = tempDrug;
+                                DrugType.add((String) drugType.getItemAt(drugType.getSelectedIndex()));
+                            }
+                        }
+                        else
+                        {
+                           type = (String) evidenceType.getItemAt(evidenceType.getSelectedIndex());
+                           System.out.println("else: " + type);
+                           DrugType.add("n/a");
+                        }
+                    }
+                    String wType = (String) cbWeight.getItemAt(cbWeight.getSelectedIndex());
+                    String dis = (String) cbDsposition.getItemAt(cbDsposition.getSelectedIndex());
+
+                    System.out.println("Evidence: " + type);
+                    getEvidence(heading, boxNum, postion, txtSeizedName, txtSeizedDOB, 
+                               txtDateSeized, txtTimeSeized, type, (int) quanititySpinner.getValue(),
+                               txtWeight, wType, dis, txtLocation);
+                }
                 else if (heading.equalsIgnoreCase("other"))
                 {
                     String agent = agencyCB.getItemAt(agencyCB.getSelectedIndex()).trim();
@@ -2352,7 +2397,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                             String gender, JTextField email)
     {
         boolean flag = true;
-        System.out.println("Heading: " + header + " Box: " + box + " Postion: " + pos);
         
         // this prevents double trouble or people being saved twice either by accident or
         // by the program
@@ -2391,7 +2435,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                         }
                         else if (element != 0 && Heading.get(temp - 1).contains(header))
                         {
-                            System.out.println(header.trim() + " # " + (headNumber + 1));
                             Heading.add(header.trim() + " # " + (headNumber + 1));
                         }
                         else if (!Heading.get(temp - 1).contains(header) || !Heading.get(temp - 1).contains(header + " # 1"))
@@ -2404,7 +2447,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                         Pos.add(pos);
                         Name.add((first.getText() + " " + mid.getText().toUpperCase() + ". " + last.getText()).trim());
                         DOB.add(birth.getText().trim());
-                        Age.add(calcBday(birth.getText(), birth));
+                        Age.add(calcBday(birth.getText()));
                         Street.add(street.getText().trim());
                         Phone.add(formatPhone(phone.getText().trim()));
                         CityZip.add(cityzip.trim());
@@ -2421,8 +2464,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                         }
                         Gender.add(gender.trim());
                         Email.add(email.getText().trim());
-                        System.out.println(Heading.size());
-                        System.out.println("Element: " + element);
                         
                         headNumber += 1;
                         element += 1;
@@ -2446,6 +2487,58 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                 first.setText(input);
             }
         }
+    }
+    
+    private void getEvidence(String header, int box, int pos,
+                             JTextField name, JTextField birth,
+                             JTextField dateSeized, JTextField timeSeized,
+                             String type, int quanitity, JTextField weight,
+                             String wType, String dis, JTextField location)
+    {
+        // set position and box number
+        boxNum = boxNum + 1;
+        postion = postion - 1905;
+
+        int temp = evidence;
+
+        // this sets the number of people per topic
+        if (evidence == 0)
+        {
+            EHeading.add(header.trim() + " # 1");
+        }
+        else if (evidence != 0 && EHeading.get(temp - 1).contains(header))
+        {
+            EHeading.add(header.trim() + " # " + (headNumber + 1));
+        }
+        else if (!Heading.get(temp - 1).contains(header) || !Heading.get(temp - 1).contains(header + " # 1"))
+        {
+            headNumber = 0;
+            EHeading.add(header.trim() + " # 1");
+        }
+        
+        if (otherEvidence.getText().isEmpty())
+        {
+           Thing.add("Not Applicable");
+        }
+        else
+        {
+            Thing.add(type + " Type: ");
+            DrugType.add(otherEvidence.getText());
+        }
+        BoxID.add(box);
+        Pos.add(pos);
+        EName.add(name.getText().trim());
+        EDOB.add(birth.getText().trim());
+        EDate.add(dateSeized.getText().trim());
+        ETime.add(timeSeized.getText().trim());
+        Type.add(type);
+        Quanitity.add(quanitity);
+        Weight.add(weight.getText().trim() + " " + wType);
+        Location.add(location.getText().trim());
+        Disposition.add(dis);
+
+        headNumber += 1;
+        evidence += 1;
     }
     
     private void printer()
@@ -2475,7 +2568,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         if (!txtOficerInCharge.getText().trim().equals("") && txtOficerInCharge.getText().trim().contains(" "))
         {
             first = txtOficerInCharge.getText().split(" ")[0];
-            System.out.println(first);
+
             last = txtOficerInCharge.getText().split(" ")[1];
             name = last + ", " + first;
         }
@@ -2484,7 +2577,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             name = "Doe" + ", " + "John";
         }
 
-        System.out.println(Heading.size());
+        
         for (int e = 0; e < element; e++)
         {
             DocxWriter.writeBody(Heading.get(e), offSet, BoxID.get(e), Pos.get(e), 
@@ -2518,10 +2611,9 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         DocxWriter.writeInformation("witness".toUpperCase());
         for (int e = 0; e < element; e++)
         {
-            System.out.println("All Headings: " + Heading.get(e).toUpperCase());
+            // ("All Headings: " + Heading.get(e).toUpperCase());
             if (Heading.get(e).contains("Witness"))
             {
-                System.out.println("Some Headings: " + Heading.get(e).toUpperCase());
                 DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
             }
         }
@@ -2534,21 +2626,35 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                 DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
             }
         }
-
+        
+        DocxWriter.writeInformationEvidence("evidence".toUpperCase());
+        for (int e = 0; e < evidence; e++)
+        {
+            if (EHeading.get(e).contains("Evidence"))
+            {
+                DocxWriter.writeEvidenceHeadings(EHeading.get(e).toUpperCase(), Type.get(e).toUpperCase());
+                DocxWriter.writeEvidence(offSet, BoxID.get(e), Pos.get(e), Thing.get(e),
+                                         EName.get(e), EDOB.get(e), EDate.get(e), ETime.get(e),
+                                         Type.get(e), Quanitity.get(e), Weight.get(e), Location.get(e), 
+                                         Disposition.get(e), DrugType.get(e));
+            }
+        }
+        
         DocxWriter.writeInformation("Other".toUpperCase());
         for (int e = 0; e < element; e++)
         {
             if (!Heading.get(e).contains("Suspect") && 
                 !Heading.get(e).contains("Witness") &&
                 !Heading.get(e).contains("Victim")  &&
-                !Heading.get(e).contains("Complainant"))
+                !Heading.get(e).contains("Complainant") &&
+                !Heading.get(e).contains("Evidence"))
             {
                 DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
             }
         }
     }
     
-    private int calcBday(String date, JTextField tempBox)
+    private int calcBday(String date)
     {
         String day = date.split("/")[1]; 
         String month = date.split("/")[0];
@@ -2670,6 +2776,14 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         {
             checkDate(txtDateOfOffense);
         }
+        else if (evt.getSource() == txtSeizedDOB)
+        {
+            checkDate(txtSeizedDOB);
+        }
+        else if (evt.getSource() == txtDateSeized)
+        {
+            checkDate(txtDateSeized);
+        }
     }//GEN-LAST:event_generalTxtFocusLost
 
     private void generalTxtFocusGained(FocusEvent evt)//GEN-FIRST:event_generalTxtFocusGained
@@ -2737,7 +2851,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             {
                 FileCode.setToolTipText(FileCode.getItemAt(FileCode.getSelectedIndex()));
                 btnSave.setEnabled(true);
-                System.out.println("Not implemented yet");
             }
         }
     }//GEN-LAST:event_FileCodeItemStateChanged
@@ -2772,10 +2885,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         String gender = "";
         String heading = jtbBasic.getTitleAt(titleNum);
         
-        option = JOptionPane.showConfirmDialog(null, "Adding another complainant will clear the current one.\n" +
+        option = JOptionPane.showConfirmDialog(null, "Adding another " + heading.toLowerCase() + " will clear the current one.\n" +
                                                          "You can edit the previous " + heading + " after the document is outputed", 
                                                          "Select an Option...",
-                                                         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                                                         JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE);
 
         
         if ((jftCFname.getText().isEmpty() && jtfCLname.getText().isEmpty()) || txtCDOB.getText().isEmpty())
@@ -2831,10 +2944,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         String gender = "";
         String heading = jtbBasic.getTitleAt(titleNum);
         
-        option = JOptionPane.showConfirmDialog(null, "Adding another complainant will clear the current one.\n" +
+        option = JOptionPane.showConfirmDialog(null, "Adding another " + heading.toLowerCase() + " will clear the current one.\n" +
                                                          "You can edit the previous " + heading + " after the document is outputed", 
                                                          "Add another  " + heading,
-                                                         JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                                                         JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE);
 
         if ((jftVFname.getText().isEmpty() && jtfVLname.getText().isEmpty()) || txtVDOB.getText().isEmpty())
         {
@@ -2888,10 +3001,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         String gender = "";
         String heading = jtbBasic.getTitleAt(titleNum);
         
-        option = JOptionPane.showConfirmDialog(null, "Adding another complainant will clear the current one.\n" +
+        option = JOptionPane.showConfirmDialog(null, "Adding another " + heading.toLowerCase() + " will clear the current one.\n" +
                                                      "You can edit the previous " + heading + " after the document is outputed", 
                                                      "Add another  " + heading,
-                                                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                                                     JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE);
         if ((jftWFname.getText().isEmpty() && jtfWLname.getText().isEmpty()) || txtWDOB.getText().isEmpty())
         {
             if (option == 0)
@@ -2944,10 +3057,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         String gender = "";
         String heading = jtbBasic.getTitleAt(titleNum);
         
-        option = JOptionPane.showConfirmDialog(null, "Adding another complainant will clear the current one.\n" +
+        option = JOptionPane.showConfirmDialog(null, "Adding another " + heading.toLowerCase() + " will clear the current one.\n" +
                                                      "You can edit the previous " + heading + " after the document is outputed", 
                                                      "Add another  " + heading,
-                                                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                                                     JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE);
         if ((jftSFname.getText().isEmpty() && jtfSLname.getText().isEmpty()) || txtSDOB.getText().isEmpty())
         {
             if (option == 0)
@@ -2999,10 +3112,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         String city = "";  
         String heading = jtbBasic.getTitleAt(titleNum);
         
-        option = JOptionPane.showConfirmDialog(null, "Adding another complainant will clear the current one.\n" +
+        option = JOptionPane.showConfirmDialog(null, "Adding another " + heading.toLowerCase() + " will clear the current one.\n" +
                                                      "You can edit the previous " + heading + " after the document is outputed", 
                                                      "Add another  " + heading,
-                                                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                                                     JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE);
         if ((jftSFname.getText().isEmpty() && jtfSLname.getText().isEmpty()) || txtSDOB.getText().isEmpty())
         {
             if (option == 0)
@@ -3051,53 +3164,97 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     {//GEN-HEADEREND:event_helpMenuActionPerformed
          CardLayout card = (CardLayout) mainPanel.getLayout();
          card.show(mainPanel, "card5");
-         System.out.println("here");
+         
 // TODO add your handling code here:
     }//GEN-LAST:event_helpMenuActionPerformed
 
     private void helpActionPerformed(ActionEvent evt)//GEN-FIRST:event_helpActionPerformed
     {//GEN-HEADEREND:event_helpActionPerformed
-//        CardLayout card = (CardLayout) mainPanel.getLayout();
-//        card.show(mainPanel, "card5");
-//        System.out.println("here");
         helpDialog.setSize(542, 234);
         helpDialog.setVisible(true);
     }//GEN-LAST:event_helpActionPerformed
 
-    private void txtColorActionPerformed(ActionEvent evt)//GEN-FIRST:event_txtColorActionPerformed
-    {//GEN-HEADEREND:event_txtColorActionPerformed
+    private void txtTimeSeizedActionPerformed(ActionEvent evt)//GEN-FIRST:event_txtTimeSeizedActionPerformed
+    {//GEN-HEADEREND:event_txtTimeSeizedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtColorActionPerformed
+    }//GEN-LAST:event_txtTimeSeizedActionPerformed
 
-    private void vehicleTypeItemStateChanged(ItemEvent evt)//GEN-FIRST:event_vehicleTypeItemStateChanged
-    {//GEN-HEADEREND:event_vehicleTypeItemStateChanged
+    private void evidenceTypeItemStateChanged(ItemEvent evt)//GEN-FIRST:event_evidenceTypeItemStateChanged
+    {//GEN-HEADEREND:event_evidenceTypeItemStateChanged
+        drugType.setVisible(false);
+        drugType.setEnabled(false);
+        otherEvidence.setVisible(false);
         if (evt.getStateChange() == 1)
         {
-            // System.out.println(FileCode.getItemAt(FileCode.getSelectedIndex()));
-            if (vehicleType.getSelectedIndex() == 1)
+            // (FileCode.getItemAt(FileCode.getSelectedIndex()));
+            if (evidenceType.getSelectedIndex() == 1)
             {
-                vehicleType.setToolTipText((String) vehicleType.getItemAt(vehicleType.getSelectedIndex()));
+                drugType.setVisible(true);
+                drugType.setEnabled(true);
+                
+                if (drugType.getSelectedIndex() == 5)
+                {
+                    otherEvidence.setVisible(true);
+                    otherEvidence.setEnabled(true);
+                    otherEvidence.setEditable(true);
+                }
+                else
+                {
+                    
+                }
+                evidenceType.setToolTipText((String) evidenceType.getItemAt(evidenceType.getSelectedIndex()));
             }
-            else if (vehicleType.getSelectedIndex() == 2)
+            else if (evidenceType.getSelectedIndex() == 2)
             {
-                vehicleType.setToolTipText((String) vehicleType.getItemAt(vehicleType.getSelectedIndex()));
+                evidenceType.setToolTipText((String) evidenceType.getItemAt(evidenceType.getSelectedIndex()));
             }
-            else if (vehicleType.getSelectedIndex() == 3)
+            else if (evidenceType.getSelectedIndex() == 3)
             {
-                vehicleType.setToolTipText((String) vehicleType.getItemAt(vehicleType.getSelectedIndex()));
+                evidenceType.setToolTipText((String) evidenceType.getItemAt(evidenceType.getSelectedIndex()));
             }
-            else if (vehicleType.getSelectedIndex() == 4)
+            else if (evidenceType.getSelectedIndex() == 4)
             {
-                vehicleType.setToolTipText((String) vehicleType.getItemAt(vehicleType.getSelectedIndex()));
+                evidenceType.setToolTipText((String) evidenceType.getItemAt(evidenceType.getSelectedIndex()));
+            }
+            else if (evidenceType.getSelectedIndex() == 5)
+            {
+                otherEvidence.setVisible(true);
+                otherEvidence.setEnabled(true);
+                otherEvidence.setEditable(true);
+                mainPanel.revalidate();
+                evidenceType.setToolTipText((String) evidenceType.getItemAt(evidenceType.getSelectedIndex()));
+            }
+            else if (evidenceType.getSelectedIndex() == 6)
+            {
+                otherEvidence.setVisible(true);
+                otherEvidence.setEnabled(true);
+                otherEvidence.setEditable(true);
+                mainPanel.revalidate();
+                evidenceType.setToolTipText((String) evidenceType.getItemAt(evidenceType.getSelectedIndex()));
             }
             else
             {
-                vehicleType.setToolTipText((String) vehicleType.getItemAt(vehicleType.getSelectedIndex()));
+                evidenceType.setToolTipText((String) evidenceType.getItemAt(evidenceType.getSelectedIndex()));
             }
         }
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vehicleTypeItemStateChanged
+    }//GEN-LAST:event_evidenceTypeItemStateChanged
+
+    private void drugTypeItemStateChanged(ItemEvent evt)//GEN-FIRST:event_drugTypeItemStateChanged
+    {//GEN-HEADEREND:event_drugTypeItemStateChanged
+        if (drugType.getSelectedIndex() == 5)
+        {
+            otherEvidence.setVisible(true);
+            otherEvidence.setEnabled(true);
+            otherEvidence.setEditable(true);
+            mainPanel.revalidate();
+        }
+        else
+        {
+            otherEvidence.setVisible(false);
+            otherEvidence.setEnabled(false);
+            otherEvidence.setEditable(false);
+        }
+    }//GEN-LAST:event_drugTypeItemStateChanged
 
     private void clearTextBoxes(JFormattedTextField fname, JFormattedTextField lname, 
                                 JTextField mid, JTextField birth, JTextField street, 
@@ -3307,6 +3464,8 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JButton btnDone;
     private JButton btnSave;
     private JPanel buttonPanel;
+    private JComboBox cbDsposition;
+    private JComboBox cbWeight;
     private JPanel centered1;
     private JPanel centered2;
     private JPanel centered3;
@@ -3314,6 +3473,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JPanel complainantPane;
     private JFormattedTextField complaintNum;
     private JScrollPane dateVenueScroll;
+    private JComboBox drugType;
     private JPanel evidencePane;
     private JComboBox evidenceType;
     private JComboBox genderBox;
@@ -3326,10 +3486,18 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JPanel helpPane;
     private JScrollPane informationScroll;
     private JLabel jLabel1;
+    private JLabel jLabel10;
+    private JLabel jLabel11;
     private JLabel jLabel2;
     private JLabel jLabel3;
     private JLabel jLabel4;
+    private JLabel jLabel5;
+    private JLabel jLabel6;
+    private JLabel jLabel7;
+    private JLabel jLabel8;
+    private JLabel jLabel9;
     private JPanel jPanel1;
+    private JScrollPane jScrollPane1;
     private JScrollPane jScrollPane2;
     private JTextArea jTextArea1;
     private JFormattedTextField jftCFname;
@@ -3355,16 +3523,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JLabel lblCState1;
     private JLabel lblCZipcode1;
     private JLabel lblCodes;
-    private JLabel lblColor;
     private JLabel lblComplaint;
     private JLabel lblDate;
     private JLabel lblDateVenue;
-    private JLabel lblDirection;
-    private JLabel lblLastSeen;
-    private JLabel lblLicenseNum;
     private JLabel lblLocation;
-    private JLabel lblMake;
-    private JLabel lblModel;
     private JLabel lblOfficerInCharge;
     private JLabel lblSecondaryOfficer;
     private JLabel lblSup;
@@ -3388,7 +3550,6 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JLabel lblVFname1;
     private JLabel lblVFname2;
     private JLabel lblVFname4;
-    private JLabel lblVIN;
     private JLabel lblVLname1;
     private JLabel lblVLname2;
     private JLabel lblVLname3;
@@ -3409,14 +3570,13 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JLabel lblVZipcode1;
     private JLabel lblVZipcode2;
     private JLabel lblVZipcode4;
-    private JLabel lblYear;
     private JPanel mainPanel;
     private JTextField otherEvidence;
     private JPanel otherPane;
-    private JTextField otherVehicle;
     private JPanel pane1;
     private JPanel pane2;
     private JPanel pane3;
+    private JSpinner quanititySpinner;
     private JPanel suspectPane;
     private JTextArea txtAreaDateVenue;
     private JTextArea txtAreaInfo;
@@ -3428,15 +3588,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JTextField txtCPhone;
     private JTextField txtCState;
     private JTextField txtCZipcode;
-    private JTextField txtColor;
     private JTextField txtDateOfOffense;
-    private JTextField txtDirection;
+    private JTextField txtDateSeized;
     private JTextArea txtHelpArea;
-    private JTextField txtLastSeen;
-    private JTextField txtLicenseNum;
     private JTextField txtLocation;
-    private JTextField txtMake;
-    private JTextField txtModel;
     private JTextField txtOAddress;
     private JTextField txtOCity;
     private JTextField txtODOB;
@@ -3459,12 +3614,14 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JTextField txtSState;
     private JTextField txtSZipcode;
     private JFormattedTextField txtSecOfficer;
+    private JTextField txtSeizedDOB;
+    private JTextField txtSeizedName;
     private JFormattedTextField txtSupervisor;
+    private JTextField txtTimeSeized;
     private JTextField txtVAddress;
     private JTextField txtVCity;
     private JTextField txtVDOB;
     private JTextField txtVEmail;
-    private JTextField txtVIN;
     private JTextField txtVMInitial;
     private JTextField txtVPhone;
     private JTextField txtVState;
@@ -3477,9 +3634,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JTextField txtWPhone;
     private JTextField txtWState;
     private JTextField txtWZipcode;
-    private JTextField txtYear;
-    private JPanel vehiclePane;
-    private JComboBox vehicleType;
+    private JTextField txtWeight;
     private JPanel victimPane;
     private JPanel witnessPane;
     // End of variables declaration//GEN-END:variables

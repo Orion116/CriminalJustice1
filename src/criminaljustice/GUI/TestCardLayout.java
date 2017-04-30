@@ -3375,7 +3375,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         // test for 7z
         if (testReport.isDirectory() && testReport.exists())
         {
-            if (!System.getenv("PATH").contains("7-Zip") || 
+            if (System.getenv("PATH").contains("7-Zip") || 
                !System.getProperty("os.name").startsWith("Windows") ||
                (test7Z.canExecute() && test7Z.exists()))
             {   

@@ -3368,83 +3368,92 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
      */
     public static void main( String args[] )
     {
+        File test7Z = new File("7z.exe");
+        File testReport = new File("report");
+        File checkFile = new File("7zCheck.txt");
+        
         // test for 7z
-        try
+        if (testReport.isDirectory() && testReport.exists())
         {
-            /* Set the Nimbus look and feel */
-            //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-            /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-            * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-            */
-            try
-            {
-                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            if (!System.getenv("PATH").contains("7-Zip") || 
+               !System.getProperty("os.name").startsWith("Windows") ||
+               (test7Z.canExecute() && test7Z.exists()))
+            {   
+                if (checkFile.exists())
                 {
-                    if ("SystemLookAndFeel".equals(info.getName()))
+                    checkFile.delete();
+                }
+                /* Set the Nimbus look and feel */
+                //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+                /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+                * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+                */
+                try
+                {
+                    for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
                     {
-                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                        break;
+                        if ("SystemLookAndFeel".equals(info.getName()))
+                        {
+                            javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                            break;
+                        }
                     }
                 }
-            }
-            catch (ClassNotFoundException ex)
-            {
-                java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-            catch (InstantiationException ex)
-            {
-                java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-            catch (IllegalAccessException ex)
-            {
-                java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-            catch (javax.swing.UnsupportedLookAndFeelException ex)
-            {
-                java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-            //</editor-fold>
-            
-  
-            DocxWriter.checkFor7z();
-            try
-            {
-//                String message = "The bugs we discussed earlier are still\n " +
-//                                 "present.";
-//                JOptionPane.showMessageDialog(null, "Copy the 7z.exe from the 7z folder and place it where the MCOLES program is.",
-//                                "Error 7z not installed!",
-//                                JOptionPane.OK_OPTION);
-                DocxWriter.writeMETAFile();
-                DocxWriter.writeSettingsFile();
-                DocxWriter.writeStylesFile();
-                DocxWriter.writeHeader1File();
-                DocxWriter.writeHeader2File();
-                DocxWriter.writeContentFileStart();
-                // TODO add your handling code here:
-            }
-            catch (FileNotFoundException ex)
-            {
-                Logger.getLogger(TestCardLayout.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            
-            /* Create and display the form */
-            java.awt.EventQueue.invokeLater(new Runnable()
-            {
-                public void run()
+                catch (ClassNotFoundException ex)
                 {
-                    System.out.println("test");
-                    new TestCardLayout().setVisible(true);
+                    java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
                 }
-            });
-            System.out.println("test");
-            
+                catch (InstantiationException ex)
+                {
+                    java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                }
+                catch (IllegalAccessException ex)
+                {
+                    java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                }
+                catch (javax.swing.UnsupportedLookAndFeelException ex)
+                {
+                    java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                }
+                //</editor-fold>
+
+                try
+                {
+                    DocxWriter.writeMETAFile();
+                    DocxWriter.writeSettingsFile();
+                    DocxWriter.writeStylesFile();
+                    DocxWriter.writeHeader1File();
+                    DocxWriter.writeHeader2File();
+                    DocxWriter.writeContentFileStart();
+                    // TODO add your handling code here:
+                }
+                catch (FileNotFoundException ex)
+                {
+                    Logger.getLogger(TestCardLayout.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                /* Create and display the form */
+                java.awt.EventQueue.invokeLater(new Runnable()
+                {
+                    public void run()
+                    {
+                        System.out.println("test");
+                        new TestCardLayout().setVisible(true);
+                    }
+                });
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Please download 7z ( http://www.7-zip.org/download.html )"+
+                                                    "\nand add it to your system path.",
+                                                    "Error: 7z not installed!", JOptionPane.OK_OPTION);
+
+            }
         }
-        catch (IOException ex)
+        else
         {
-            JOptionPane.showConfirmDialog(null, "Copy the 7z.exe from the 7z folder and place it where the MCOLES program is.",
-                                "Error 7z not installed!",
-                                JOptionPane.OK_OPTION, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "The report folder does not exist. Please request the report folder from your \nprofessor.",
+                                        "Error: Report folder missing!", JOptionPane.OK_OPTION);
         }
         //</editor-fold>
 

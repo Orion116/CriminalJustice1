@@ -20,6 +20,7 @@ import javax.swing.*;
  */
 public class DocxWriter
 {
+    private static boolean debug = false;
     // add 7z checks
     public static PrintStream input;
     public static void writeMETAFile() throws FileNotFoundException
@@ -1596,7 +1597,7 @@ public class DocxWriter
                 System.out.printf("%s\n", oog);       // process procs standard output here
             }
 
-            if ((oog = stdoutReader.readLine()) == null)
+            if (((oog = stdoutReader.readLine()) == null) && debug == true)
             {
                 PrintStream file = new PrintStream(new FileOutputStream("debugging.txt"), false);
                 
@@ -1606,16 +1607,29 @@ public class DocxWriter
                 }
                 
                 JOptionPane.showMessageDialog(null, "File Created Succesfully!", 
-                                                     "File created",
-                                                     JOptionPane.OK_OPTION);
+                                                    "File created",
+                                                    JOptionPane.OK_OPTION);
             }
             
+            ArrayList<String> Error = new ArrayList<>();
+            String error;
             BufferedReader stderrReader = new BufferedReader(new InputStreamReader(cmdProc.getErrorStream()));
-            while ((stderrReader.readLine()) != null) 
+            while ((error = stderrReader.readLine()) != null) 
             {
+                Error.add(error);
+                System.out.printf("%s\n", error);
                 // process procs standard error here
             }
 
+            if (((error = stderrReader.readLine()) == null) && debug == true)
+            {
+                PrintStream file = new PrintStream(new FileOutputStream("error.txt"), false);
+                
+                for (String s : Error)
+                {
+                    file.printf("%s\n\n ",s);
+                }
+            }
             cmdProc.exitValue();
         }
         else

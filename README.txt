@@ -1,5 +1,5 @@
 1. To use this program double click the program icon. If prompted by Windows click
-   run. To run the program from command line run java -jar "CriminalJustice.jar"
+   run. To run the program from command line run java -jar MCOLES.jar
 2. Enter text into the text boxes click save when you are done with a tab of the
    document. The program will let you know if something is required.
 3. To distribute the program copy the MCOLES.jar file, 7z folder, and the report folder to the USB drive. 

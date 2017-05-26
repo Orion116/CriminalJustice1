@@ -14,17 +14,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.*;
 import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -37,6 +27,7 @@ import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.*;
 import javax.swing.text.BadLocationException;
 import org.jdesktop.layout.GroupLayout;
 import org.jdesktop.layout.LayoutStyle;
@@ -62,7 +53,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     ArrayList<String> Gender = new ArrayList<>();
     ArrayList<String> Email = new ArrayList<>();
     ArrayList<String> Agent = new ArrayList<>();
-    
+
     // for evidence
     ArrayList<String> Thing = new ArrayList<>();
     ArrayList<String> EHeading = new ArrayList<>();
@@ -86,7 +77,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     ArrayList<String> License = new ArrayList<>();
     ArrayList<String> LastSeen = new ArrayList<>();
     ArrayList<String> Direction = new ArrayList<>();
-        
+
     String[] crimeCodes = new String[]
     {
         "Select Code",
@@ -108,7 +99,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         "3800-1: Child Abuse/Neglect",
         "4100-2: Liquor Violations"
     };
-    
+
     String[] agencies = new String[]
     {
         "Select Agency",
@@ -122,22 +113,23 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         "NSA",
         "State Police"
     };
-    
+
     String[] genders = new String[]
     {
-        "Select Gender", 
-        "Female", 
-        "Male", 
-        "Other" 
+        "Select Gender",
+        "Female",
+        "Male",
+        "Other"
     };
-    
+
     private int savePressed = 1;
     private final long offSet = 965835; // 1129665 - 965835
-    private int boxNum = 2; 
+    private int boxNum = 2;
     private int postion = 327025;  // 327025  327025
     private int element = 0;
     private int evidence = 0;
     private int headNumber = 0;
+    private int clicker = 0;
 
     /**
      * Creates new form TestCardLayout
@@ -159,13 +151,16 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         helpDialog = new JDialog();
         helpPane = new JPanel();
-        jScrollPane1 = new JScrollPane();
+        scrollHelpTA = new JScrollPane();
         txtHelpArea = new JTextArea();
+        aboutDialog = new JDialog();
+        aboutPane = new JPanel();
+        jScrollPane1 = new JScrollPane();
+        jEditorPane1 = new JEditorPane();
         buttonPanel = new JPanel();
         btnDone = new JButton();
         btnSave = new JButton();
         mainPanel = new JPanel();
-        String[] aTest1 = {"1", "2", "3"};
         pane1 = new JPanel();
         jtbBasic = new JTabbedPane();
         basicsPanel = new JPanel();
@@ -344,6 +339,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         helpMenu = new JMenu();
         help = new JMenuItem();
         aboutMenu = new JMenu();
+        about = new JMenuItem();
 
         FormListener formListener = new FormListener();
 
@@ -363,20 +359,20 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         txtHelpArea.setRows(5);
         txtHelpArea.setText(bundle.getString("TestCardLayout.txtHelpArea.text")); // NOI18N
         txtHelpArea.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jScrollPane1.setViewportView(txtHelpArea);
+        scrollHelpTA.setViewportView(txtHelpArea);
 
         GroupLayout helpPaneLayout = new GroupLayout(helpPane);
         helpPane.setLayout(helpPaneLayout);
         helpPaneLayout.setHorizontalGroup(helpPaneLayout.createParallelGroup(GroupLayout.LEADING)
             .add(helpPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .add(jScrollPane1, GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
+                .add(scrollHelpTA, GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
                 .addContainerGap())
         );
         helpPaneLayout.setVerticalGroup(helpPaneLayout.createParallelGroup(GroupLayout.LEADING)
             .add(helpPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .add(jScrollPane1, GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                .add(scrollHelpTA, GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -397,6 +393,42 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                     .add(0, 12, Short.MAX_VALUE)
                     .add(helpPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .add(0, 11, Short.MAX_VALUE)))
+        );
+
+        jScrollPane1.setViewportView(jEditorPane1);
+
+        GroupLayout aboutPaneLayout = new GroupLayout(aboutPane);
+        aboutPane.setLayout(aboutPaneLayout);
+        aboutPaneLayout.setHorizontalGroup(aboutPaneLayout.createParallelGroup(GroupLayout.LEADING)
+            .add(aboutPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .add(jScrollPane1, GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        aboutPaneLayout.setVerticalGroup(aboutPaneLayout.createParallelGroup(GroupLayout.LEADING)
+            .add(aboutPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .add(jScrollPane1, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        GroupLayout aboutDialogLayout = new GroupLayout(aboutDialog.getContentPane());
+        aboutDialog.getContentPane().setLayout(aboutDialogLayout);
+        aboutDialogLayout.setHorizontalGroup(aboutDialogLayout.createParallelGroup(GroupLayout.LEADING)
+            .add(0, 400, Short.MAX_VALUE)
+            .add(aboutDialogLayout.createParallelGroup(GroupLayout.LEADING)
+                .add(aboutDialogLayout.createSequentialGroup()
+                    .add(0, 0, Short.MAX_VALUE)
+                    .add(aboutPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .add(0, 0, Short.MAX_VALUE)))
+        );
+        aboutDialogLayout.setVerticalGroup(aboutDialogLayout.createParallelGroup(GroupLayout.LEADING)
+            .add(0, 300, Short.MAX_VALUE)
+            .add(aboutDialogLayout.createParallelGroup(GroupLayout.LEADING)
+                .add(aboutDialogLayout.createSequentialGroup()
+                    .add(0, 0, Short.MAX_VALUE)
+                    .add(aboutPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .add(0, 0, Short.MAX_VALUE)))
         );
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -452,6 +484,8 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         jtbBasic.setMinimumSize(new Dimension(860, 400));
         jtbBasic.setName("basicTabs"); // NOI18N
+        jtbBasic.addChangeListener(formListener);
+        jtbBasic.addMouseListener(formListener);
 
         lblComplaint.setText(bundle.getString("TestCardLayout.lblComplaint.text")); // NOI18N
 
@@ -1320,7 +1354,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         drugType.setVisible(false);
         drugType.setEnabled(false);
-        drugType.setModel(new DefaultComboBoxModel(new String[] { "Drug Type", "Narconic", "Herion", "Oxyconten", "Marijuana", "Other" }));
+        drugType.setModel(new DefaultComboBoxModel(new String[] { "Drug Type", "Narcotic", "Heroin", "OxyContin", "Marijuana", "Other" }));
         drugType.setEnabled(false);
         drugType.addItemListener(formListener);
 
@@ -1707,6 +1741,11 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         aboutMenu.setVisible(false);
         aboutMenu.setText(bundle.getString("TestCardLayout.aboutMenu.text")); // NOI18N
+
+        about.setText(bundle.getString("TestCardLayout.about.text")); // NOI18N
+        about.addActionListener(formListener);
+        aboutMenu.add(about);
+
         MenuBar.add(aboutMenu);
 
         setJMenuBar(MenuBar);
@@ -1730,7 +1769,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
     // Code for dispatching events from components to event handlers.
 
-    private class FormListener implements ActionListener, FocusListener, ItemListener, KeyListener
+    private class FormListener implements ActionListener, FocusListener, ItemListener, KeyListener, MouseListener, ChangeListener
     {
         FormListener() {}
         public void actionPerformed(ActionEvent evt)
@@ -1790,6 +1829,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             else if (evt.getSource() == help)
             {
                 TestCardLayout.this.helpActionPerformed(evt);
+            }
+            else if (evt.getSource() == about)
+            {
+                TestCardLayout.this.aboutActionPerformed(evt);
             }
         }
 
@@ -2236,6 +2279,42 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         public void keyTyped(KeyEvent evt)
         {
         }
+
+        public void mouseClicked(MouseEvent evt)
+        {
+            if (evt.getSource() == jtbBasic)
+            {
+                TestCardLayout.this.jtbBasicMouseClicked(evt);
+            }
+        }
+
+        public void mouseEntered(MouseEvent evt)
+        {
+        }
+
+        public void mouseExited(MouseEvent evt)
+        {
+        }
+
+        public void mousePressed(MouseEvent evt)
+        {
+            if (evt.getSource() == jtbBasic)
+            {
+                TestCardLayout.this.jtbBasicMousePressed(evt);
+            }
+        }
+
+        public void mouseReleased(MouseEvent evt)
+        {
+        }
+
+        public void stateChanged(ChangeEvent evt)
+        {
+            if (evt.getSource() == jtbBasic)
+            {
+                TestCardLayout.this.jtbBasicStateChanged(evt);
+            }
+        }
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDoneActionPerformed(ActionEvent evt)//GEN-FIRST:event_btnDoneActionPerformed
@@ -2249,7 +2328,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             try
             {
                 printer();
-                
+
                 DocxWriter.writeContentFileEnd();
                 DocxWriter.createDOCXArchive();
             }
@@ -2273,20 +2352,21 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
     private void btnSaveActionPerformed(ActionEvent evt)//GEN-FIRST:event_btnSaveActionPerformed
     {//GEN-HEADEREND:event_btnSaveActionPerformed
+        System.out.println("Did I make it?");
         int titleNum = jtbBasic.getSelectedIndex();
-        
+
         String comp = complaintNum.getText().trim();
         String code = FileCode.getItemAt(FileCode.getSelectedIndex()).trim();
         String DOO = txtDateOfOffense.getText().trim();
         String OfficeInCharge = txtOficerInCharge.getText().trim();
         String SecondOfficer = txtSecOfficer.getText().trim();
         String Supervisor = txtSupervisor.getText().trim();
-        
-        String city = "";  
+
+        String city = "";
         String gender = "";
         String heading = jtbBasic.getTitleAt(titleNum);
         String type = "";
-        
+
         if (!FileCode.getItemAt(0).equals("Select Code"))
         {
             System.out.println("Not Saved");
@@ -2296,47 +2376,54 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             System.out.println("Saved?");
             if (savePressed == 1)
             {
-                DocxWriter.writeBasicInfo(DOO,comp,code,OfficeInCharge,SecondOfficer,Supervisor);
+                System.out.println("Did I make it to Basic Save?");
+                DocxWriter.writeBasicInfo(DOO, comp, code, OfficeInCharge, SecondOfficer, Supervisor);
             }
             else
             {
-                System.out.println("Save Pressed: " + savePressed + " CY: " + offSet + " Postion: " + postion +" Box Number: " + boxNum);
+                System.out.println("Save Pressed: " + savePressed + " CY: " + offSet + " Postion: " + postion + " Box Number: " + boxNum);
 
                 if (heading.equalsIgnoreCase("Complainant"))
                 {
+
                     city = txtCCity.getText() + ", " + txtCState.getText() + " " + txtCZipcode.getText();
                     gender = (String) genderBox.getItemAt(genderBox.getSelectedIndex());
 
-                    getContent(heading, boxNum, postion, jftCFname, jtfCLname, 
-                               txtCMInitial, txtCDOB, txtCAddress, city, txtCPhone,
-                               txtRace, gender, txtCEmail);
+                    getContent(heading, boxNum, postion, jftCFname, jtfCLname,
+                                    txtCMInitial, txtCDOB, txtCAddress, city, txtCPhone,
+                                    txtRace, gender, txtCEmail);
+
+                    System.out.println("Did I make it to Complainant?");
                 }
                 else if (heading.equalsIgnoreCase("victim"))
                 {
                     city = txtVCity.getText() + ", " + txtVState.getText() + " " + txtVZipcode.getText();
                     gender = (String) genderBox1.getItemAt(genderBox1.getSelectedIndex());
 
-                    getContent(heading, boxNum, postion, jftVFname, jtfVLname, 
-                               txtVMInitial, txtVDOB, txtVAddress, city, txtVPhone,
-                               txtRace1, gender, txtVEmail);
+                    getContent(heading, boxNum, postion, jftVFname, jtfVLname,
+                                    txtVMInitial, txtVDOB, txtVAddress, city, txtVPhone,
+                                    txtRace1, gender, txtVEmail);
+                    System.out.println("Did I make it to Victim?");
                 }
                 else if (heading.equalsIgnoreCase("witness"))
                 {
                     city = txtWCity.getText() + ", " + txtWState.getText() + " " + txtWZipcode.getText();
                     gender = (String) genderBox2.getItemAt(genderBox2.getSelectedIndex());
 
-                    getContent(heading, boxNum, postion, jftWFname, jtfWLname, 
-                               txtWMInitial, txtWDOB, txtWAddress, city, txtWPhone,
-                               txtRace2, gender, txtWEmail);
+                    getContent(heading, boxNum, postion, jftWFname, jtfWLname,
+                                    txtWMInitial, txtWDOB, txtWAddress, city, txtWPhone,
+                                    txtRace2, gender, txtWEmail);
+                    System.out.println("Did I make it to Witness?");
                 }
                 else if (heading.equalsIgnoreCase("suspect"))
                 {
                     city = txtSCity.getText() + ", " + txtCState.getText() + " " + txtCZipcode.getText();
                     gender = (String) genderBox.getItemAt(genderBox3.getSelectedIndex());
 
-                    getContent(heading, boxNum, postion, jftSFname, jtfSLname, 
-                               txtSMInitial, txtSDOB, txtSAddress, city, txtSPhone,
-                               txtRace3, gender, txtSEmail);
+                    getContent(heading, boxNum, postion, jftSFname, jtfSLname,
+                                    txtSMInitial, txtSDOB, txtSAddress, city, txtSPhone,
+                                    txtRace3, gender, txtSEmail);
+                    System.out.println("Did I make it to Suspect?");
                 }
                 else if (heading.equalsIgnoreCase("evidence"))
                 {
@@ -2353,7 +2440,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                                 type = tempDrug;
                                 DrugType.add(otherEvidence.getText());
                             }
-                            else 
+                            else
                             {
                                 type = tempDrug;
                                 DrugType.add((String) drugType.getItemAt(drugType.getSelectedIndex()));
@@ -2361,57 +2448,70 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                         }
                         else
                         {
-                           type = (String) evidenceType.getItemAt(evidenceType.getSelectedIndex());
-                           System.out.println("else: " + type);
-                           DrugType.add("n/a");
+                            type = (String) evidenceType.getItemAt(evidenceType.getSelectedIndex());
+                            System.out.println("else: " + type);
+                            DrugType.add("n/a");
                         }
                     }
                     String wType = (String) cbWeight.getItemAt(cbWeight.getSelectedIndex());
                     String dis = (String) cbDsposition.getItemAt(cbDsposition.getSelectedIndex());
 
                     System.out.println("Evidence: " + type);
-                    getEvidence(heading, boxNum, postion, txtSeizedName, txtSeizedDOB, 
-                               txtDateSeized, txtTimeSeized, type, (int) quanititySpinner.getValue(),
-                               txtWeight, wType, dis, txtLocation);
+                    getEvidence(heading, boxNum, postion, txtSeizedName, txtSeizedDOB,
+                                    txtDateSeized, txtTimeSeized, type, (int) quanititySpinner.getValue(),
+                                    txtWeight, wType, dis, txtLocation);
+                    System.out.println("Did I make it to Evidence?");
                 }
                 else if (heading.equalsIgnoreCase("other"))
                 {
                     String agent = agencyCB.getItemAt(agencyCB.getSelectedIndex()).trim();
                     city = txtOCity.getText() + ", " + txtOState.getText() + " " + txtOZipcode.getText();
 
+                    getContent(agent, boxNum, postion, jftOFname, jtfOLname,
+                                    txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
+                                    null, "", txtOEmail);
+                    System.out.println("Did I make it to Other?");
+                }
+                else if (heading.equalsIgnoreCase("other"))
+                {
+                    String agent = agencyCB.getItemAt(agencyCB.getSelectedIndex()).trim();
+                    city = txtOCity.getText() + ", " + txtOState.getText() + " " + txtOZipcode.getText();
 
-                    getContent(agent, boxNum, postion, jftOFname, jtfOLname, 
-                               txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
-                               null, "", txtOEmail);
+                    getContent(agent, boxNum, postion, jftOFname, jtfOLname,
+                                    txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
+                                    null, "", txtOEmail);
+                    System.out.println("Did I make it to Other?");
                 }
             }
         }
         savePressed = savePressed + 1;
+
+//        clicker = clicker + 1;
     }//GEN-LAST:event_btnSaveActionPerformed
-    
-    private void getContent(String header, int box, int pos,
-                            JTextField first, JTextField last, 
-                            JTextField mid, JTextField birth,
-                            JTextField street, String cityzip,
-                            JTextField phone, JTextField race,
-                            String gender, JTextField email)
+
+    private void getContent( String header, int box, int pos,
+                    JTextField first, JTextField last,
+                    JTextField mid, JTextField birth,
+                    JTextField street, String cityzip,
+                    JTextField phone, JTextField race,
+                    String gender, JTextField email )
     {
         boolean flag = true;
-        
+
         // this prevents double trouble or people being saved twice either by accident or
         // by the program
         for (int e = 0; e < element; e++)
         {
             // this checks to see if the person is already in the list and under the 
             // same heading
-            if (Name.get(e).equalsIgnoreCase((first.getText() + " " + mid.getText().toUpperCase() + ". " + last.getText()).trim()) && 
-                DOB.get(e).equalsIgnoreCase(birth.getText()) &&
-                Heading.get(e).contains(header))
+            if (Name.get(e).equalsIgnoreCase((first.getText() + " " + mid.getText().toUpperCase() + ". " + last.getText()).trim())
+                            && DOB.get(e).equalsIgnoreCase(birth.getText())
+                            && Heading.get(e).contains(header))
             {
                 flag = false;
             }
         }
-        
+
         if (flag != false)
         {
             if (!first.getText().equals(""))
@@ -2421,7 +2521,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                 {
                     formValidation.setTextField(last, true);
                     if (checkDate(birth))
-                    {   
+                    {
                         // set position and box number
                         boxNum = boxNum + 1;
                         postion = postion - 1905;
@@ -2464,9 +2564,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                         }
                         Gender.add(gender.trim());
                         Email.add(email.getText().trim());
-                        
+
                         headNumber += 1;
                         element += 1;
+                        // btnSave.doClick();
                     }
                 }
                 else
@@ -2488,12 +2589,12 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             }
         }
     }
-    
-    private void getEvidence(String header, int box, int pos,
-                             JTextField name, JTextField birth,
-                             JTextField dateSeized, JTextField timeSeized,
-                             String type, int quanitity, JTextField weight,
-                             String wType, String dis, JTextField location)
+
+    private void getEvidence( String header, int box, int pos,
+                    JTextField name, JTextField birth,
+                    JTextField dateSeized, JTextField timeSeized,
+                    String type, int quanitity, JTextField weight,
+                    String wType, String dis, JTextField location )
     {
         // set position and box number
         boxNum = boxNum + 1;
@@ -2515,13 +2616,15 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             headNumber = 0;
             EHeading.add(header.trim() + " # 1");
         }
-        
+
         if (otherEvidence.getText().isEmpty())
         {
-           Thing.add("Not Applicable");
+            System.out.println("Should be empty: " + otherEvidence.getText());
+            Thing.add("Not Applicable");
         }
         else
         {
+            System.out.println("Should not be empty: " + otherEvidence.getText());
             Thing.add(type + " Type: ");
             DrugType.add(otherEvidence.getText());
         }
@@ -2540,31 +2643,32 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         headNumber += 1;
         evidence += 1;
     }
-    
+
     private void printer()
     {
+        int t = 0;
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         String date = now.format(formatter);
-        String month = date.split("-")[1]; 
+        String month = date.split("-")[1];
         String year = date.split("-")[0];
         String day = date.split("-")[2];
         String first = "";
         String last = "";
         String name = "";
-        
+
         if (day.length() != 2)
         {
             day = "0" + day;
-        }  
+        }
         if (month.length() != 2)
         {
             month = "0" + month;
         }
-        
-        date =  month + "/" + day + "/" + year;
-        
+
+        date = month + "/" + day + "/" + year;
+
         if (!txtOficerInCharge.getText().trim().equals("") && txtOficerInCharge.getText().trim().contains(" "))
         {
             first = txtOficerInCharge.getText().split(" ")[0];
@@ -2577,121 +2681,150 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             name = "Doe" + ", " + "John";
         }
 
-        
         for (int e = 0; e < element; e++)
         {
-            DocxWriter.writeBody(Heading.get(e), offSet, BoxID.get(e), Pos.get(e), 
-                                 Name.get(e), DOB.get(e), Age.get(e), Street.get(e),
-                                 Phone.get(e), CityZip.get(e), Race.get(e), Gender.get(e), Email.get(e));
+            DocxWriter.writeBody(Heading.get(e), offSet, BoxID.get(e), Pos.get(e),
+                            Name.get(e), DOB.get(e), Age.get(e), Street.get(e),
+                            Phone.get(e), CityZip.get(e), Race.get(e), Gender.get(e), Email.get(e));
         }
-        
+
         DocxWriter.sectionDivider(name, date);
         DocxWriter.writeInformation("INFORMATION");
         DocxWriter.writeInformation("DATE");
         DocxWriter.writeInformation("VENUE");
 
-        DocxWriter.writeInformation("Complainant".toUpperCase());
+        // DocxWriter.writeInformation("Complainant".toUpperCase());
         for (int e = 0; e < element; e++)
         {
             if (Heading.get(e).contains("Complainant"))
             {
+                if (t == 0)
+                {
+                    DocxWriter.writeInformation("Complainant".toUpperCase());
+                    t = 1;
+                }
                 DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
             }
         }
+        t = 0;
 
-        DocxWriter.writeInformation("Victim".toUpperCase());
         for (int e = 0; e < element; e++)
         {
             if (Heading.get(e).contains("Victim"))
             {
+                if (t == 0)
+                {
+                    DocxWriter.writeInformation("Victim".toUpperCase());
+                    t = 1;
+                }
                 DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
             }
         }
+        t = 0;
 
-        DocxWriter.writeInformation("witness".toUpperCase());
         for (int e = 0; e < element; e++)
         {
             // ("All Headings: " + Heading.get(e).toUpperCase());
             if (Heading.get(e).contains("Witness"))
             {
+                if (t == 0)
+                {
+                    DocxWriter.writeInformation("witness".toUpperCase());
+                    t = 1;
+                }
                 DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
             }
         }
+        t = 0;
 
-        DocxWriter.writeInformation("suspect".toUpperCase());
         for (int e = 0; e < element; e++)
         {
             if (Heading.get(e).contains("Suspect"))
             {
+                if (t == 0)
+                {
+                    DocxWriter.writeInformation("suspect".toUpperCase());
+                    t = 1;
+                }
                 DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
             }
         }
-        
-        DocxWriter.writeInformationEvidence("evidence".toUpperCase());
+
         for (int e = 0; e < evidence; e++)
         {
             if (EHeading.get(e).contains("Evidence"))
             {
+                if (t == 0)
+                {
+                    DocxWriter.writeInformationEvidence("evidence".toUpperCase());
+                    t = 1;
+                }
                 DocxWriter.writeEvidenceHeadings(EHeading.get(e).toUpperCase(), Type.get(e).toUpperCase());
                 DocxWriter.writeEvidence(offSet, BoxID.get(e), Pos.get(e), Thing.get(e),
-                                         EName.get(e), EDOB.get(e), EDate.get(e), ETime.get(e),
-                                         Type.get(e), Quanitity.get(e), Weight.get(e), Location.get(e), 
-                                         Disposition.get(e), DrugType.get(e));
+                                EName.get(e), EDOB.get(e), EDate.get(e), ETime.get(e),
+                                Type.get(e), Quanitity.get(e), Weight.get(e), Location.get(e),
+                                Disposition.get(e), DrugType.get(e));
             }
         }
-        
-        DocxWriter.writeInformation("Other".toUpperCase());
+        t = 0;
+
         for (int e = 0; e < element; e++)
         {
-            if (!Heading.get(e).contains("Suspect") && 
-                !Heading.get(e).contains("Witness") &&
-                !Heading.get(e).contains("Victim")  &&
-                !Heading.get(e).contains("Complainant") &&
-                !Heading.get(e).contains("Evidence"))
+            if (!Heading.get(e).contains("Suspect")
+                            && !Heading.get(e).contains("Witness")
+                            && !Heading.get(e).contains("Victim")
+                            && !Heading.get(e).contains("Complainant")
+                            && !Heading.get(e).contains("Evidence"))
             {
+                if (t == 0)
+                {
+                    DocxWriter.writeInformation("Other".toUpperCase());
+                    t = 1;
+                }
                 DocxWriter.writeHeadings(Heading.get(e).toUpperCase(), Name.get(e).toUpperCase());
             }
         }
+        t = 0;
     }
-    
-    private int calcBday(String date)
+
+    private int calcBday( String date )
     {
-        String day = date.split("/")[1]; 
+        String day = date.split("/")[1];
         String month = date.split("/")[0];
         String year = date.split("/")[2];
-        
+
         if (day.length() != 2)
         {
             day = "0" + day;
-        }  
+        }
         if (month.length() != 2)
         {
             month = "0" + month;
         }
-        
+
         date = day + "/" + month + "/" + year;
-        
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         LocalDate dateofBirth = LocalDate.parse(date, formatter);
         LocalDate now = LocalDate.now();
-        
+
         long age = dateofBirth.until(now, YEARS);
-        
+
         return (int) (age);
     }
-    
-    private String formatPhone(String phone)
+
+    private String formatPhone( String phone )
     {
-        String area = phone.split("-")[1]; 
+        String area = phone.split("-")[1];
         String num1 = phone.split("-")[0];
         String num2 = phone.split("-")[2];
-        
+
         phone = "(" + area + ")" + " " + num1 + "-" + num2;
-        
+
         return phone;
     }
-    
+
     private void btnSaveKeyPressed(KeyEvent evt)//GEN-FIRST:event_btnSaveKeyPressed
     {//GEN-HEADEREND:event_btnSaveKeyPressed
         savePressed = savePressed + 1;
@@ -2702,8 +2835,8 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     {//GEN-HEADEREND:event_generalTxtFocusLost
 
         /**
-        * * Phone Numbers **
-        */
+         * * Phone Numbers **
+         */
         if (evt.getSource() == txtCPhone)
         {
             checkPhone(txtCPhone);
@@ -2726,8 +2859,8 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         }
 
         /**
-        * * State **
-        */
+         * * State **
+         */
         if (evt.getSource() == txtCState)
         {
             checkState(txtCState);
@@ -2750,8 +2883,8 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         }
 
         /**
-        * * Date of Birth **
-        */
+         * * Date of Birth **
+         */
         if (evt.getSource() == txtCDOB)
         {
             checkDate(txtCDOB);
@@ -2790,8 +2923,8 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     {//GEN-HEADEREND:event_generalTxtFocusGained
 
         /**
-        * * Phone Number **
-        */
+         * * Phone Number **
+         */
         if (evt.getSource() == txtCPhone)
         {
             clearTextBox(txtCPhone);
@@ -2881,31 +3014,30 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
         int titleNum = jtbBasic.getSelectedIndex();
 
-        String city = "";  
+        String city = "";
         String gender = "";
         String heading = jtbBasic.getTitleAt(titleNum);
-        
-        option = JOptionPane.showConfirmDialog(null, "Adding another " + heading.toLowerCase() + " will clear the current one.\n" +
-                                                         "You can edit the previous " + heading + " after the document is outputed", 
-                                                         "Select an Option...",
-                                                         JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE);
 
-        
+        option = JOptionPane.showConfirmDialog(null, "Adding another " + heading.toLowerCase() + " will clear the current one.\n"
+                        + "You can edit the previous " + heading + " after the document is outputed",
+                        "Select an Option...",
+                        JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE);
+
         if ((jftCFname.getText().isEmpty() && jtfCLname.getText().isEmpty()) || txtCDOB.getText().isEmpty())
-        { 
+        {
             if (option == 0)
             {
-                clearTextBoxes(jftCFname, jtfCLname, txtCMInitial, 
-                               txtCDOB, txtCAddress, txtCCity, 
-                               txtCPhone, txtCState, txtCZipcode,
-                               txtRace,txtCEmail, genderBox);
+                clearTextBoxes(jftCFname, jtfCLname, txtCMInitial,
+                                txtCDOB, txtCAddress, txtCCity,
+                                txtCPhone, txtCState, txtCZipcode,
+                                txtRace, txtCEmail, genderBox);
 
                 city = txtCCity.getText() + ", " + txtCState.getText() + " " + txtCZipcode.getText();
                 gender = (String) genderBox.getItemAt(genderBox.getSelectedIndex());
 
-                getContent(heading, boxNum, postion, jftCFname, jtfCLname, 
-                           txtCMInitial, txtCDOB, txtCAddress, city, txtCPhone,
-                           txtRace, gender, txtCEmail);
+                getContent(heading, boxNum, postion, jftCFname, jtfCLname,
+                                txtCMInitial, txtCDOB, txtCAddress, city, txtCPhone,
+                                txtRace, gender, txtCEmail);
             }
         }
         else
@@ -2913,23 +3045,23 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             city = txtCCity.getText() + ", " + txtCState.getText() + " " + txtCZipcode.getText();
             gender = (String) genderBox.getItemAt(genderBox.getSelectedIndex());
 
-            getContent(heading, boxNum, postion, jftCFname, jtfCLname, 
-                       txtCMInitial, txtCDOB, txtCAddress, city, txtCPhone,
-                       txtRace, gender, txtCEmail);
-            
+            getContent(heading, boxNum, postion, jftCFname, jtfCLname,
+                            txtCMInitial, txtCDOB, txtCAddress, city, txtCPhone,
+                            txtRace, gender, txtCEmail);
+
             if (option == 0)
             {
-                clearTextBoxes(jftCFname, jtfCLname, txtCMInitial, 
-                               txtCDOB, txtCAddress, txtCCity, 
-                               txtCPhone, txtCState, txtCZipcode,
-                               txtRace,txtCEmail, genderBox);
+                clearTextBoxes(jftCFname, jtfCLname, txtCMInitial,
+                                txtCDOB, txtCAddress, txtCCity,
+                                txtCPhone, txtCState, txtCZipcode,
+                                txtRace, txtCEmail, genderBox);
 
                 city = txtCCity.getText() + ", " + txtCState.getText() + " " + txtCZipcode.getText();
                 gender = (String) genderBox.getItemAt(genderBox.getSelectedIndex());
 
-                getContent(heading, boxNum, postion, jftCFname, jtfCLname, 
-                           txtCMInitial, txtCDOB, txtCAddress, city, txtCPhone,
-                           txtRace, gender, txtCEmail);
+                getContent(heading, boxNum, postion, jftCFname, jtfCLname,
+                                txtCMInitial, txtCDOB, txtCAddress, city, txtCPhone,
+                                txtRace, gender, txtCEmail);
             }
         }
     }//GEN-LAST:event_addActionPerformed
@@ -2937,33 +3069,33 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private void add1ActionPerformed(ActionEvent evt)//GEN-FIRST:event_add1ActionPerformed
     {//GEN-HEADEREND:event_add1ActionPerformed
         int option = 2;
-        
+
         int titleNum = jtbBasic.getSelectedIndex();
-        
-        String city = "";  
+
+        String city = "";
         String gender = "";
         String heading = jtbBasic.getTitleAt(titleNum);
-        
-        option = JOptionPane.showConfirmDialog(null, "Adding another " + heading.toLowerCase() + " will clear the current one.\n" +
-                                                         "You can edit the previous " + heading + " after the document is outputed", 
-                                                         "Add another  " + heading,
-                                                         JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        option = JOptionPane.showConfirmDialog(null, "Adding another " + heading.toLowerCase() + " will clear the current one.\n"
+                        + "You can edit the previous " + heading + " after the document is outputed",
+                        "Add another  " + heading,
+                        JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE);
 
         if ((jftVFname.getText().isEmpty() && jtfVLname.getText().isEmpty()) || txtVDOB.getText().isEmpty())
         {
             if (option == 0)
             {
-                clearTextBoxes(jftVFname, jtfVLname, txtVMInitial, 
-                               txtVDOB, txtVAddress, txtVCity, 
-                               txtVPhone, txtVState, txtVZipcode,
-                               txtRace1,txtVEmail, genderBox1);
+                clearTextBoxes(jftVFname, jtfVLname, txtVMInitial,
+                                txtVDOB, txtVAddress, txtVCity,
+                                txtVPhone, txtVState, txtVZipcode,
+                                txtRace1, txtVEmail, genderBox1);
 
                 city = txtVCity.getText() + ", " + txtVState.getText() + " " + txtVZipcode.getText();
                 gender = (String) genderBox1.getItemAt(genderBox1.getSelectedIndex());
 
-                getContent(heading, boxNum, postion, jftVFname, jtfVLname, 
-                           txtVMInitial, txtVDOB, txtVAddress, city, txtVPhone,
-                           txtRace1, gender, txtVEmail);
+                getContent(heading, boxNum, postion, jftVFname, jtfVLname,
+                                txtVMInitial, txtVDOB, txtVAddress, city, txtVPhone,
+                                txtRace1, gender, txtVEmail);
             }
         }
         else
@@ -2971,22 +3103,22 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             city = txtVCity.getText() + ", " + txtVState.getText() + " " + txtVZipcode.getText();
             gender = (String) genderBox1.getItemAt(genderBox1.getSelectedIndex());
 
-            getContent(heading, boxNum, postion, jftVFname, jtfVLname, 
-                       txtVMInitial, txtVDOB, txtVAddress, city, txtVPhone,
-                       txtRace1, gender, txtVEmail);
+            getContent(heading, boxNum, postion, jftVFname, jtfVLname,
+                            txtVMInitial, txtVDOB, txtVAddress, city, txtVPhone,
+                            txtRace1, gender, txtVEmail);
             if (option == 0)
             {
-                clearTextBoxes(jftVFname, jtfVLname, txtVMInitial, 
-                               txtVDOB, txtVAddress, txtVCity, 
-                               txtVPhone, txtVState, txtVZipcode,
-                               txtRace1,txtVEmail, genderBox1);
+                clearTextBoxes(jftVFname, jtfVLname, txtVMInitial,
+                                txtVDOB, txtVAddress, txtVCity,
+                                txtVPhone, txtVState, txtVZipcode,
+                                txtRace1, txtVEmail, genderBox1);
 
                 city = txtVCity.getText() + ", " + txtVState.getText() + " " + txtVZipcode.getText();
                 gender = (String) genderBox1.getItemAt(genderBox1.getSelectedIndex());
 
-                getContent(heading, boxNum, postion, jftVFname, jtfVLname, 
-                           txtVMInitial, txtVDOB, txtVAddress, city, txtVPhone,
-                           txtRace1, gender, txtVEmail);
+                getContent(heading, boxNum, postion, jftVFname, jtfVLname,
+                                txtVMInitial, txtVDOB, txtVAddress, city, txtVPhone,
+                                txtRace1, gender, txtVEmail);
             }
         }
     }//GEN-LAST:event_add1ActionPerformed
@@ -2994,32 +3126,32 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private void add2ActionPerformed(ActionEvent evt)//GEN-FIRST:event_add2ActionPerformed
     {//GEN-HEADEREND:event_add2ActionPerformed
         int option = 2;
-        
+
         int titleNum = jtbBasic.getSelectedIndex();
-        
-        String city = "";  
+
+        String city = "";
         String gender = "";
         String heading = jtbBasic.getTitleAt(titleNum);
-        
-        option = JOptionPane.showConfirmDialog(null, "Adding another " + heading.toLowerCase() + " will clear the current one.\n" +
-                                                     "You can edit the previous " + heading + " after the document is outputed", 
-                                                     "Add another  " + heading,
-                                                     JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        option = JOptionPane.showConfirmDialog(null, "Adding another " + heading.toLowerCase() + " will clear the current one.\n"
+                        + "You can edit the previous " + heading + " after the document is outputed",
+                        "Add another  " + heading,
+                        JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE);
         if ((jftWFname.getText().isEmpty() && jtfWLname.getText().isEmpty()) || txtWDOB.getText().isEmpty())
         {
             if (option == 0)
             {
-                clearTextBoxes(jftWFname, jtfWLname, txtWMInitial, 
-                               txtWDOB, txtWAddress, txtWCity, 
-                               txtWPhone, txtWState, txtWZipcode,
-                               txtRace2,txtWEmail, genderBox2);
+                clearTextBoxes(jftWFname, jtfWLname, txtWMInitial,
+                                txtWDOB, txtWAddress, txtWCity,
+                                txtWPhone, txtWState, txtWZipcode,
+                                txtRace2, txtWEmail, genderBox2);
 
                 city = txtWCity.getText() + ", " + txtWState.getText() + " " + txtWZipcode.getText();
                 gender = (String) genderBox2.getItemAt(genderBox2.getSelectedIndex());
 
-                getContent(heading, boxNum, postion, jftWFname, jtfWLname, 
-                           txtWMInitial, txtWDOB, txtWAddress, city, txtWPhone,
-                           txtRace2, gender, txtWEmail);
+                getContent(heading, boxNum, postion, jftWFname, jtfWLname,
+                                txtWMInitial, txtWDOB, txtWAddress, city, txtWPhone,
+                                txtRace2, gender, txtWEmail);
             }
         }
         else
@@ -3027,22 +3159,22 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             city = txtWCity.getText() + ", " + txtWState.getText() + " " + txtWZipcode.getText();
             gender = (String) genderBox2.getItemAt(genderBox2.getSelectedIndex());
 
-            getContent(heading, boxNum, postion, jftWFname, jtfWLname, 
-                       txtWMInitial, txtWDOB, txtWAddress, city, txtWPhone,
-                       txtRace2, gender, txtWEmail);
+            getContent(heading, boxNum, postion, jftWFname, jtfWLname,
+                            txtWMInitial, txtWDOB, txtWAddress, city, txtWPhone,
+                            txtRace2, gender, txtWEmail);
             if (option == 0)
             {
-                clearTextBoxes(jftWFname, jtfWLname, txtWMInitial, 
-                               txtWDOB, txtWAddress, txtWCity, 
-                               txtWPhone, txtWState, txtWZipcode,
-                               txtRace2,txtWEmail, genderBox2);
+                clearTextBoxes(jftWFname, jtfWLname, txtWMInitial,
+                                txtWDOB, txtWAddress, txtWCity,
+                                txtWPhone, txtWState, txtWZipcode,
+                                txtRace2, txtWEmail, genderBox2);
 
                 city = txtWCity.getText() + ", " + txtWState.getText() + " " + txtWZipcode.getText();
                 gender = (String) genderBox2.getItemAt(genderBox2.getSelectedIndex());
 
-                getContent(heading, boxNum, postion, jftWFname, jtfWLname, 
-                           txtWMInitial, txtWDOB, txtWAddress, city, txtWPhone,
-                           txtRace2, gender, txtWEmail);
+                getContent(heading, boxNum, postion, jftWFname, jtfWLname,
+                                txtWMInitial, txtWDOB, txtWAddress, city, txtWPhone,
+                                txtRace2, gender, txtWEmail);
             }
         }
     }//GEN-LAST:event_add2ActionPerformed
@@ -3050,55 +3182,55 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private void add3ActionPerformed(ActionEvent evt)//GEN-FIRST:event_add3ActionPerformed
     {//GEN-HEADEREND:event_add3ActionPerformed
         int option = 2;
-        
+
         int titleNum = jtbBasic.getSelectedIndex();
-        
-        String city = "";  
+
+        String city = "";
         String gender = "";
         String heading = jtbBasic.getTitleAt(titleNum);
-        
-        option = JOptionPane.showConfirmDialog(null, "Adding another " + heading.toLowerCase() + " will clear the current one.\n" +
-                                                     "You can edit the previous " + heading + " after the document is outputed", 
-                                                     "Add another  " + heading,
-                                                     JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        option = JOptionPane.showConfirmDialog(null, "Adding another " + heading.toLowerCase() + " will clear the current one.\n"
+                        + "You can edit the previous " + heading + " after the document is outputed",
+                        "Add another  " + heading,
+                        JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE);
         if ((jftSFname.getText().isEmpty() && jtfSLname.getText().isEmpty()) || txtSDOB.getText().isEmpty())
         {
             if (option == 0)
             {
-                clearTextBoxes(jftSFname, jtfSLname, txtSMInitial, 
-                               txtSDOB, txtSAddress, txtSCity, 
-                               txtSPhone, txtSState, txtSZipcode,
-                               txtRace3,txtSEmail, agencyCB);
+                clearTextBoxes(jftSFname, jtfSLname, txtSMInitial,
+                                txtSDOB, txtSAddress, txtSCity,
+                                txtSPhone, txtSState, txtSZipcode,
+                                txtRace3, txtSEmail, agencyCB);
 
                 city = txtSCity.getText() + ", " + txtSState.getText() + " " + txtSZipcode.getText();
                 gender = (String) genderBox3.getItemAt(genderBox3.getSelectedIndex());
 
-                getContent(heading, boxNum, postion, jftSFname, jtfSLname, 
-                           txtSMInitial, txtSDOB, txtSAddress, city, txtSPhone,
-                           txtRace3, gender, txtSEmail);
-            }   
+                getContent(heading, boxNum, postion, jftSFname, jtfSLname,
+                                txtSMInitial, txtSDOB, txtSAddress, city, txtSPhone,
+                                txtRace3, gender, txtSEmail);
+            }
         }
         else
         {
             city = txtSCity.getText() + ", " + txtSState.getText() + " " + txtSZipcode.getText();
             gender = (String) genderBox3.getItemAt(genderBox3.getSelectedIndex());
 
-            getContent(heading, boxNum, postion, jftSFname, jtfSLname, 
-                       txtSMInitial, txtSDOB, txtSAddress, city, txtSPhone,
-                       txtRace3, gender, txtSEmail);
+            getContent(heading, boxNum, postion, jftSFname, jtfSLname,
+                            txtSMInitial, txtSDOB, txtSAddress, city, txtSPhone,
+                            txtRace3, gender, txtSEmail);
             if (option == 0)
             {
-                clearTextBoxes(jftSFname, jtfSLname, txtSMInitial, 
-                               txtSDOB, txtSAddress, txtSCity, 
-                               txtSPhone, txtSState, txtSZipcode,
-                               txtRace3,txtSEmail, agencyCB);
+                clearTextBoxes(jftSFname, jtfSLname, txtSMInitial,
+                                txtSDOB, txtSAddress, txtSCity,
+                                txtSPhone, txtSState, txtSZipcode,
+                                txtRace3, txtSEmail, agencyCB);
 
                 city = txtSCity.getText() + ", " + txtSState.getText() + " " + txtSZipcode.getText();
                 gender = (String) genderBox3.getItemAt(genderBox3.getSelectedIndex());
 
-                getContent(heading, boxNum, postion, jftSFname, jtfSLname, 
-                           txtSMInitial, txtSDOB, txtSAddress, city, txtSPhone,
-                           txtRace3, gender, txtSEmail);
+                getContent(heading, boxNum, postion, jftSFname, jtfSLname,
+                                txtSMInitial, txtSDOB, txtSAddress, city, txtSPhone,
+                                txtRace3, gender, txtSEmail);
             }
         }
     }//GEN-LAST:event_add3ActionPerformed
@@ -3108,29 +3240,29 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         int option = 2;
         String agent = "";
         int titleNum = jtbBasic.getSelectedIndex();
-        
-        String city = "";  
+
+        String city = "";
         String heading = jtbBasic.getTitleAt(titleNum);
-        
-        option = JOptionPane.showConfirmDialog(null, "Adding another " + heading.toLowerCase() + " will clear the current one.\n" +
-                                                     "You can edit the previous " + heading + " after the document is outputed", 
-                                                     "Add another  " + heading,
-                                                     JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        option = JOptionPane.showConfirmDialog(null, "Adding another " + heading.toLowerCase() + " will clear the current one.\n"
+                        + "You can edit the previous " + heading + " after the document is outputed",
+                        "Add another  " + heading,
+                        JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE);
         if ((jftSFname.getText().isEmpty() && jtfSLname.getText().isEmpty()) || txtSDOB.getText().isEmpty())
         {
             if (option == 0)
             {
-                clearTextBoxes(jftOFname, jtfOLname, txtOMInitial, 
-                               txtODOB, txtOAddress, txtOCity, 
-                               txtOPhone, txtOState, txtOZipcode,
-                               null,txtOEmail, agencyCB);
+                clearTextBoxes(jftOFname, jtfOLname, txtOMInitial,
+                                txtODOB, txtOAddress, txtOCity,
+                                txtOPhone, txtOState, txtOZipcode,
+                                null, txtOEmail, agencyCB);
 
                 agent = agencyCB.getItemAt(agencyCB.getSelectedIndex()).trim();
                 city = txtOCity.getText() + ", " + txtOState.getText() + " " + txtOZipcode.getText();
-        
-                getContent(agent, boxNum, postion, jftOFname, jtfOLname, 
-                           txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
-                           null, null, txtOEmail);
+
+                getContent(agent, boxNum, postion, jftOFname, jtfOLname,
+                                txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
+                                null, null, txtOEmail);
                 // TODO add your handling code here:
             }
         }
@@ -3138,23 +3270,23 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         {
             agent = agencyCB.getItemAt(agencyCB.getSelectedIndex()).trim();
             city = txtOCity.getText() + ", " + txtOState.getText() + " " + txtOZipcode.getText();
-    
-            getContent(agent, boxNum, postion, jftOFname, jtfOLname, 
-                       txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
-                       null, null, txtOEmail);
+
+            getContent(agent, boxNum, postion, jftOFname, jtfOLname,
+                            txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
+                            null, null, txtOEmail);
             if (option == 0)
             {
-                clearTextBoxes(jftOFname, jtfOLname, txtOMInitial, 
-                               txtODOB, txtOAddress, txtOCity, 
-                               txtOPhone, txtOState, txtOZipcode,
-                               null,txtOEmail, agencyCB);
+                clearTextBoxes(jftOFname, jtfOLname, txtOMInitial,
+                                txtODOB, txtOAddress, txtOCity,
+                                txtOPhone, txtOState, txtOZipcode,
+                                null, txtOEmail, agencyCB);
 
                 agent = agencyCB.getItemAt(agencyCB.getSelectedIndex()).trim();
                 city = txtOCity.getText() + ", " + txtOState.getText() + " " + txtOZipcode.getText();
-        
-                getContent(agent, boxNum, postion, jftOFname, jtfOLname, 
-                           txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
-                           null, null, txtOEmail);
+
+                getContent(agent, boxNum, postion, jftOFname, jtfOLname,
+                                txtOMInitial, txtODOB, txtOAddress, city, txtOPhone,
+                                null, null, txtOEmail);
                 // TODO add your handling code here:
             }
         }
@@ -3162,9 +3294,9 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
 
     private void helpMenuActionPerformed(ActionEvent evt)//GEN-FIRST:event_helpMenuActionPerformed
     {//GEN-HEADEREND:event_helpMenuActionPerformed
-         CardLayout card = (CardLayout) mainPanel.getLayout();
-         card.show(mainPanel, "card5");
-         
+        CardLayout card = (CardLayout) mainPanel.getLayout();
+        card.show(mainPanel, "card5");
+
 // TODO add your handling code here:
     }//GEN-LAST:event_helpMenuActionPerformed
 
@@ -3191,7 +3323,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             {
                 drugType.setVisible(true);
                 drugType.setEnabled(true);
-                
+
                 if (drugType.getSelectedIndex() == 5)
                 {
                     otherEvidence.setVisible(true);
@@ -3200,7 +3332,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                 }
                 else
                 {
-                    
+
                 }
                 evidenceType.setToolTipText((String) evidenceType.getItemAt(evidenceType.getSelectedIndex()));
             }
@@ -3256,11 +3388,81 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         }
     }//GEN-LAST:event_drugTypeItemStateChanged
 
-    private void clearTextBoxes(JFormattedTextField fname, JFormattedTextField lname, 
-                                JTextField mid, JTextField birth, JTextField street, 
-                                JTextField city, JTextField phone, JTextField state, 
-                                JTextField zip, JTextField race, JTextField email,
-                                JComboBox cb)
+    private void aboutActionPerformed(ActionEvent evt)//GEN-FIRST:event_aboutActionPerformed
+    {//GEN-HEADEREND:event_aboutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aboutActionPerformed
+
+    private void jtbBasicStateChanged(ChangeEvent evt)//GEN-FIRST:event_jtbBasicStateChanged
+    {//GEN-HEADEREND:event_jtbBasicStateChanged
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtbBasicStateChanged
+
+    private void jtbBasicMouseClicked(MouseEvent evt)//GEN-FIRST:event_jtbBasicMouseClicked
+    {//GEN-HEADEREND:event_jtbBasicMouseClicked
+        System.out.println(evt.getComponent());
+        System.out.println(evt.getLocationOnScreen());
+        int titleNum = jtbBasic.getSelectedIndex();
+        String heading = jtbBasic.getTitleAt(titleNum);
+
+        if (heading.equalsIgnoreCase("Basic"))
+        {
+            clicker = clicker + 1;
+            this.btnSave.doClick(150);
+
+//            autoSave();
+        }
+        else if (heading.equalsIgnoreCase("Complainant"))
+        {
+            clicker = clicker + 1;
+            this.btnSave.doClick(150);
+//            autoSave();
+        }
+        else if (heading.equalsIgnoreCase("victim"))
+        {
+            clicker = clicker + 1;
+            this.btnSave.doClick(150);
+//            autoSave();
+        }
+        else if (heading.equalsIgnoreCase("witness"))
+        {
+            clicker = clicker + 1;
+            this.btnSave.doClick(150);
+//            autoSave();
+        }
+        else if (heading.equalsIgnoreCase("suspect"))
+        {
+            clicker = clicker + 1;
+            this.btnSave.doClick(150);
+//            autoSave();
+        }
+        else if (heading.equalsIgnoreCase("evidence"))
+        {
+            clicker = clicker + 1;
+            this.btnSave.doClick(150);
+//            autoSave();
+        }
+        else if (heading.equalsIgnoreCase("other"))
+        {
+            clicker = clicker + 1;
+            this.btnSave.doClick(150);
+//            autoSave();
+        }
+
+        System.out.println("Clicker = " + clicker);
+    }//GEN-LAST:event_jtbBasicMouseClicked
+
+    private void jtbBasicMousePressed(MouseEvent evt)//GEN-FIRST:event_jtbBasicMousePressed
+    {//GEN-HEADEREND:event_jtbBasicMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtbBasicMousePressed
+
+    private void clearTextBoxes( JFormattedTextField fname, JFormattedTextField lname,
+                    JTextField mid, JTextField birth, JTextField street,
+                    JTextField city, JTextField phone, JTextField state,
+                    JTextField zip, JTextField race, JTextField email,
+                    JComboBox cb )
     {
         fname.setText("");
         lname.setText("");
@@ -3271,14 +3473,15 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         phone.setText("999-999-9999");
         state.setText("");
         zip.setText("");
-        
+
         if (race != null)
         {
             race.setText("");
         }
-        email.setText(""); 
+        email.setText("");
         cb.setSelectedIndex(0);
     }
+
     private void checkState( JTextField txtTemp )
     {
         // validate state
@@ -3308,19 +3511,19 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         {
             // should call print to file
             System.out.println("pass");
-            formValidation.setTextField(txtDate, true); 
-            
+            formValidation.setTextField(txtDate, true);
+
             return true;
         }
         else
         {
             String input = "";
-                        
+
             input = JOptionPane.showInputDialog(null, "Invalid Information Entered !\n" + errorMessage);
             txtDate.setText(input);
 
             formValidation.setTextField(txtDate, false);
-            
+
             return false;
         }
     }
@@ -3363,97 +3566,113 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         mainPanel.revalidate();
     }
 
+//    private boolean autoSave()
+//    {
+//
+//        if (clicker != false)
+//        {
+//            System.out.println("loop");
+//            btnSave.doClick();
+//            return true;
+//        }
+//        else
+//        {
+//            return false;
+//        }
+//    }
     /**
      * @param args the command line arguments
      */
     public static void main( String args[] )
     {
-        File test7Z = new File("7z.exe");
+//        File test7Z = new File("7z.exe");
         File testReport = new File("report");
         File checkFile = new File("7zCheck.txt");
-        
+
+        System.out.println(testReport.getTotalSpace());
+
         // test for 7z
         if (testReport.isDirectory() && testReport.exists())
         {
-            if (System.getenv("PATH").contains("7-Zip") || 
-               !System.getProperty("os.name").startsWith("Windows") ||
-               (test7Z.canExecute() && test7Z.exists()))
-            {   
-                if (checkFile.exists())
-                {
-                    checkFile.delete();
-                }
+//            if (System.getenv("PATH").contains("7-Zip") || 
+//               !System.getProperty("os.name").startsWith("Windows") ||
+//               (test7Z.canExecute() && test7Z.exists()))
+//            {   
+//                if (checkFile.exists())
+//                {
+//                    checkFile.delete();
+//                }
                 /* Set the Nimbus look and feel */
-                //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+            //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
                 /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-                * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-                */
-                try
-                {
-                    for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-                    {
-                        if ("SystemLookAndFeel".equals(info.getName()))
-                        {
-                            javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                            break;
-                        }
-                    }
-                }
-                catch (ClassNotFoundException ex)
-                {
-                    java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-                }
-                catch (InstantiationException ex)
-                {
-                    java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-                }
-                catch (IllegalAccessException ex)
-                {
-                    java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-                }
-                catch (javax.swing.UnsupportedLookAndFeelException ex)
-                {
-                    java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-                }
-                //</editor-fold>
-
-                try
-                {
-                    DocxWriter.writeMETAFile();
-                    DocxWriter.writeSettingsFile();
-                    DocxWriter.writeStylesFile();
-                    DocxWriter.writeHeader1File();
-                    DocxWriter.writeHeader2File();
-                    DocxWriter.writeContentFileStart();
-                    // TODO add your handling code here:
-                }
-                catch (FileNotFoundException ex)
-                {
-                    Logger.getLogger(TestCardLayout.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-                /* Create and display the form */
-                java.awt.EventQueue.invokeLater(new Runnable()
-                {
-                    public void run()
-                    {
-                        System.out.println("test");
-                        new TestCardLayout().setVisible(true);
-                    }
-                });
-            }
-            else
+             * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+             */
+            try
             {
-                JOptionPane.showMessageDialog(null, "Please download 7z ( http://www.7-zip.org/download.html )"+
-                                                    "\nand add it to your system path.",
-                                                    "Error: 7z not installed!", JOptionPane.OK_OPTION);
-
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+                {
+                    if ("SystemLookAndFeel".equals(info.getName()))
+                    {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
             }
+            catch (ClassNotFoundException ex)
+            {
+                java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+            catch (InstantiationException ex)
+            {
+                java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+            catch (IllegalAccessException ex)
+            {
+                java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+            catch (javax.swing.UnsupportedLookAndFeelException ex)
+            {
+                java.util.logging.Logger.getLogger(TestCardLayout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            }
+            //</editor-fold>
+
+            try
+            {
+                DocxWriter.writeMETAFile();
+                DocxWriter.writeSettingsFile();
+                DocxWriter.writeStylesFile();
+                DocxWriter.writeHeader1File();
+                DocxWriter.writeHeader2File();
+                DocxWriter.writeContentFileStart();
+                // TODO add your handling code here:
+            }
+            catch (FileNotFoundException ex)
+            {
+                Logger.getLogger(TestCardLayout.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            /* Create and display the form */
+            java.awt.EventQueue.invokeLater(new Runnable()
+            {
+                public void run()
+                {
+                    System.out.println("test");
+                    new TestCardLayout().setVisible(true);
+                }
+            });
+//            }
+//            else
+//            {
+//                JOptionPane.showMessageDialog(null, "Please download 7z ( http://www.7-zip.org/download.html )"+
+//                                                    "\nand add it to your system path.",
+//                                                    "Error: 7z not installed!", JOptionPane.OK_OPTION);
+//
+//            }
         }
         else
         {
             JOptionPane.showMessageDialog(null, "The report folder does not exist. Please request the report folder from your \nprofessor.",
-                                        "Error: Report folder missing!", JOptionPane.OK_OPTION);
+                            "Error: Report folder missing!", JOptionPane.OK_OPTION);
         }
         //</editor-fold>
 
@@ -3462,7 +3681,10 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JComboBox<String> FileCode;
     private JMenuBar MenuBar;
+    private JMenuItem about;
+    private JDialog aboutDialog;
     private JMenu aboutMenu;
+    private JPanel aboutPane;
     private JButton add;
     private JButton add1;
     private JButton add2;
@@ -3494,6 +3716,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JMenu helpMenu;
     private JPanel helpPane;
     private JScrollPane informationScroll;
+    private JEditorPane jEditorPane1;
     private JLabel jLabel1;
     private JLabel jLabel10;
     private JLabel jLabel11;
@@ -3586,6 +3809,7 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JPanel pane2;
     private JPanel pane3;
     private JSpinner quanititySpinner;
+    private JScrollPane scrollHelpTA;
     private JPanel suspectPane;
     private JTextArea txtAreaDateVenue;
     private JTextArea txtAreaInfo;

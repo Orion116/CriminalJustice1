@@ -160,6 +160,8 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         buttonPanel = new JPanel();
         btnDone = new JButton();
         btnSave = new JButton();
+        btnBack = new JButton();
+        btnNext = new JButton();
         mainPanel = new JPanel();
         pane1 = new JPanel();
         jtbBasic = new JTabbedPane();
@@ -453,14 +455,24 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         btnSave.addActionListener(formListener);
         btnSave.addKeyListener(formListener);
 
+        btnBack.setText(bundle.getString("TestCardLayout.btnBack.text_1")); // NOI18N
+        btnBack.addActionListener(formListener);
+
+        btnNext.setText(bundle.getString("TestCardLayout.btnNext.text")); // NOI18N
+        btnNext.addActionListener(formListener);
+
         GroupLayout buttonPanelLayout = new GroupLayout(buttonPanel);
         buttonPanel.setLayout(buttonPanelLayout);
         buttonPanelLayout.setHorizontalGroup(buttonPanelLayout.createParallelGroup(GroupLayout.LEADING)
             .add(GroupLayout.TRAILING, buttonPanelLayout.createSequentialGroup()
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(btnBack)
+                .add(18, 18, 18)
                 .add(btnDone, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
                 .add(btnSave, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(btnNext)
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         buttonPanelLayout.setVerticalGroup(buttonPanelLayout.createParallelGroup(GroupLayout.LEADING)
@@ -468,7 +480,9 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(buttonPanelLayout.createParallelGroup(GroupLayout.BASELINE)
                     .add(btnDone)
-                    .add(btnSave))
+                    .add(btnSave)
+                    .add(btnBack)
+                    .add(btnNext))
                 .add(37, 37, 37))
         );
 
@@ -1833,6 +1847,14 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
             else if (evt.getSource() == about)
             {
                 TestCardLayout.this.aboutActionPerformed(evt);
+            }
+            else if (evt.getSource() == btnNext)
+            {
+                TestCardLayout.this.btnNextActionPerformed(evt);
+            }
+            else if (evt.getSource() == btnBack)
+            {
+                TestCardLayout.this.btnBackActionPerformed(evt);
             }
         }
 
@@ -3458,6 +3480,22 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
         // TODO add your handling code here:
     }//GEN-LAST:event_jtbBasicMousePressed
 
+    private void btnNextActionPerformed(ActionEvent evt)//GEN-FIRST:event_btnNextActionPerformed
+    {//GEN-HEADEREND:event_btnNextActionPerformed
+        CardLayout card = (CardLayout) mainPanel.getLayout();
+        card.next(mainPanel);
+        this.btnSave.doClick();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNextActionPerformed
+
+    private void btnBackActionPerformed(ActionEvent evt)//GEN-FIRST:event_btnBackActionPerformed
+    {//GEN-HEADEREND:event_btnBackActionPerformed
+        CardLayout card = (CardLayout) mainPanel.getLayout();
+        card.previous(mainPanel);
+        this.btnSave.doClick();
+    // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
+
     private void clearTextBoxes( JFormattedTextField fname, JFormattedTextField lname,
                     JTextField mid, JTextField birth, JTextField street,
                     JTextField city, JTextField phone, JTextField state,
@@ -3692,7 +3730,9 @@ public class TestCardLayout extends javax.swing.JFrame //implements ActionListen
     private JButton add4;
     private JComboBox<String> agencyCB;
     private JPanel basicsPanel;
+    private JButton btnBack;
     private JButton btnDone;
+    private JButton btnNext;
     private JButton btnSave;
     private JPanel buttonPanel;
     private JComboBox cbDsposition;
